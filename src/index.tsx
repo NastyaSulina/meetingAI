@@ -6,10 +6,10 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 
 root.render(
     <React.StrictMode>
-        <App num={123} />
+        <App />
     </React.StrictMode>,
 )
 
-if (module.hot) {
-    module.hot.accept()
+if (import.meta.webpackHot) {
+    import.meta.webpackHot.accept()
 }

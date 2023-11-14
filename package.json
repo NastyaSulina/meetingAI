@@ -9,7 +9,7 @@
         "build:prod": "webpack --node-env=production --config config/webpack.prod.js",
         "ts:check": "npx tsc --noEmit",
         "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
-        "lint:write": "eslint --fix 'src/**/*.{js,jsx,ts,tsx}'",
+        "lint:write": "eslint 'src/**/*.{js,jsx,ts,tsx}' --fix",
         "prettier:write": "prettier --write 'src/**/*.{js,jsx,ts,tsx,scss}'"
     },
     "author": "imgrau",
@@ -17,6 +17,8 @@
     "devDependencies": {
         "@types/react": "^18.2.35",
         "@types/react-dom": "^18.2.14",
+        "@types/react-router": "^5.1.20",
+        "@types/react-router-dom": "^5.3.3",
         "@types/webpack-env": "^1.18.3",
         "@typescript-eslint/eslint-plugin": "^6.9.1",
         "css-loader": "^6.8.1",
@@ -45,11 +47,13 @@
     },
     "dependencies": {
         "react": "^18.2.0",
-        "react-dom": "^18.2.0"
+        "react-dom": "^18.2.0",
+        "react-router-dom": "^6.18.0",
+        "webpack-merge": "^5.10.0"
     },
     "lint-staged": {
         "*.ts": "npm run ts:check",
-        "*.{js,jsx,ts,tsx}": "npm run lint:write",
-        "*.{js,jsx,ts,tsx,scss}": "npm run prettier:write"
+        "*.{ts,tsx}": "npm run lint:write",
+        "*.{ts,tsx,scss}": "npm run prettier:write"
     }
 }
