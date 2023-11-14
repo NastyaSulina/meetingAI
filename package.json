@@ -8,8 +8,9 @@
         "build:dev": "webpack --node-env=development --config config/webpack.dev.js",
         "build:prod": "webpack --node-env=production --config config/webpack.prod.js",
         "ts:check": "npx tsc --noEmit",
-        "lint": "eslint --fix 'src/**/*.{js,jsx,ts,tsx}'",
-        "prettier": "prettier --write 'src/**/*.{js,jsx,ts,tsx,scss}'"
+        "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
+        "lint:write": "eslint --fix 'src/**/*.{js,jsx,ts,tsx}'",
+        "prettier:write": "prettier --write 'src/**/*.{js,jsx,ts,tsx,scss}'"
     },
     "author": "imgrau",
     "license": "ISC",
@@ -28,6 +29,8 @@
         "eslint-plugin-react": "^7.33.2",
         "html-loader": "^4.2.0",
         "html-webpack-plugin": "^5.5.3",
+        "husky": "^8.0.0",
+        "lint-staged": "^15.1.0",
         "mini-css-extract-plugin": "^2.7.6",
         "postcss-loader": "^7.3.3",
         "postcss-preset-env": "^9.3.0",
@@ -43,5 +46,10 @@
     "dependencies": {
         "react": "^18.2.0",
         "react-dom": "^18.2.0"
+    },
+    "lint-staged": {
+        "*.ts": "npm run ts:check",
+        "*.{js,jsx,ts,tsx}": "npm run lint:write",
+        "*.{js,jsx,ts,tsx,scss}": "npm run prettier:write"
     }
 }
