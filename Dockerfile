@@ -18,17 +18,8 @@ RUN npm run build:dev
 
 FROM nginx:alpine
 
-WORKDIR /etc/nginx/conf.d
-
-RUN rm -rf ./*
-
-COPY --from=build /app/.nginx/nginx.conf ./
-
-WORKDIR /usr/share/nginx/html
-
-RUN rm -rf ./*
-
-COPY --from=build /app/dist ./
+COPY --from=build /app/.nginx/nginx.conf /etc/nginx/conf.d
+COPY --from=build /app/dist /usr/share/nginx/html
 
 EXPOSE 80
 
