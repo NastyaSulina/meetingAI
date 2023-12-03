@@ -10,9 +10,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: get-image-version
+        run: sh ./scripts/get-version.sh
+        env:
+          OAUTH: ${{ secrets.OAUTH }}
+          REGISTRY_ID: ${{ secrets.REGISTRY_ID }}
+          IMAGE_NAME: frontend
+
       - name: deploy-docker-frontend
         run: sh ./scripts/deploy.sh
         env:
           OAUTH: ${{ secrets.OAUTH }}
           REGISTRY_ID: ${{ secrets.REGISTRY_ID }}
-          VERSION: latest
+          FULL_CHAIN: ${{ secrets.FULL_CHAIN }}
+          KEY: ${{ secrets.KEY }}
+          VERSION_NUMBER: ${{ env.NEW_VERSION }}
