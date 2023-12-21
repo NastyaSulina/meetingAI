@@ -3,12 +3,13 @@
         "baseUrl": "./src",
         "outDir": "./dist/",
         "noImplicitAny": true,
-        "module": "es2020",
         "target": "es5",
+        "module": "esnext",
+        "types": ["node", "webpack-env"],
         "jsx": "react",
         "allowJs": true,
         "allowSyntheticDefaultImports": true,
-        "moduleResolution": "Node",
-        "types": ["webpack-env"]
-    }
+        "moduleResolution": "Node"
+    },
+    "exclude": ["node_modules", "dist"]
 }
