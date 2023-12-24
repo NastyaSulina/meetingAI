@@ -47,11 +47,11 @@
     background: var(--Basic-Black);
     color: var(--Basic-White, #fff);
 
-    // .rootContainer {
-    //     background: url('/src/widgets/LangingScreen/_assets/circles.png') no-repeat bottom 100px
-    //         right 70px;
-    //     background-size: 240px auto;
-    // }
+    .rootContainer {
+        background: url('/src/widgets/LangingScreen/_assets/circles.png') no-repeat bottom 100px
+            right 70px;
+        background-size: 240px auto;
+    }
 
     .text {
         letter-spacing: 0.35px;
@@ -69,10 +69,10 @@
     background-color: var(--Background-White);
     color: var(--Basic-Black);
 
-    // .rootContainer {
-    //     background: url('/src/widgets/LangingScreen/_assets/image.png') no-repeat bottom 10px right;
-    //     background-size: 60% auto;
-    // }
+    .rootContainer {
+        background: url('/src/widgets/LangingScreen/_assets/image.png') no-repeat bottom 10px right;
+        background-size: 60% auto;
+    }
 
     .numbering {
         color: var(--Basic-Black);
