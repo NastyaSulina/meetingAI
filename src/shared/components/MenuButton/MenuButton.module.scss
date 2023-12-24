@@ -1,0 +1,22 @@
+.root {
+    color: var(--Basic-Black);
+    background-color: transparent;
+
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 125%;
+    text-transform: uppercase;
+
+    cursor: pointer;
+    border: 0;
+
+    &:hover,
+    &:active {
+        color: var(--Orange);
+    }
+
+    &:disabled {
+        color: var(--Inactive-Grey);
+    }
+}

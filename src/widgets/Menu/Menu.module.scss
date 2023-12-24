@@ -1,0 +1,38 @@
+.root {
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    padding: 8px 0 11px;
+    background-color: var(--Background-White);
+    border-bottom: 1px solid;
+
+    .navigation {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        max-width: 1020px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 50px;
+        box-sizing: border-box;
+
+        .logo {
+            color: var(--Basic-Black, #111);
+            font-family: Druk Wide Cyr;
+            font-size: 19.781px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            letter-spacing: -0.396px;
+        }
+
+        .menuButtonContainer {
+            display: flex;
+            width: 421.873px;
+            justify-content: space-between;
+            flex-shrink: 0;
+            align-items: flex-end;
+        }
+    }
+}

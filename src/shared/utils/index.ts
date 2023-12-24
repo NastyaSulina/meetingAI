@@ -1,0 +1,1 @@
+export { checkIsValidId } from './checkIsValidId'

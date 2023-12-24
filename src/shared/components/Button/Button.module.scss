@@ -1,0 +1,47 @@
+.root {
+    --Inactive-Grey: #bebebe;
+    --Orange-Pressed: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%), #ff5924;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    padding: 14px 52px;
+    border-radius: 40px;
+    border: 0;
+
+    cursor: pointer;
+
+    color: var(--Basic-White);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 450;
+    line-height: 125%;
+
+    &:hover {
+        background: var(--Orange);
+    }
+
+    &:active {
+        background: var(--Orange-Pressed);
+    }
+
+    &:disabled {
+        background: var(--Inactive-Grey);
+    }
+}
+
+.black {
+    background: var(--Basic-Black);
+}
+
+.white {
+    background: var(--Basic-White);
+    color: var(--Basic-Black);
+}
+
+.gradient {
+    background: var(--O-P-Gradient);
+    color: var(--Basic-Black);
+}

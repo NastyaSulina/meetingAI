@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import checkIsValidId from '../../shared/checkIsValidId'
+import { checkIsValidId } from '../../shared/utils'
 import styles from './SummaryPage.module.scss'
 
 const SummaryPage = () => {
