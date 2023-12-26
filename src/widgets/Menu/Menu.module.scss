@@ -35,4 +35,11 @@
             align-items: flex-end;
         }
     }
+
+    @media screen and (max-width: 500px) {
+        .navigation {
+            align-items: center;
+            flex-direction: column;
+        }
+    }
 }

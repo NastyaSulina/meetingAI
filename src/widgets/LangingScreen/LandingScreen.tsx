@@ -3,6 +3,7 @@ import cn from 'classnames'
 import { Button, ButtonType, Text, TextType } from '../../shared/components'
 import styles from './LandingScreen.module.scss'
 import Figures from './_assets/figures.png'
+import Heading from './_assets/points.png'
 
 export const LandingScreen = () => {
     return (
@@ -12,7 +13,7 @@ export const LandingScreen = () => {
                     text='Приложение для резюмирования Zoom-встреч'
                     textType={TextType.additionalText}
                 />
-                <h1 className={styles.heading}>points</h1>
+                <img className={styles.heading} src={Heading} alt='' />
                 <img className={styles.images} src={Figures} alt='' />
                 <div className={styles.buttonContainer}>
                     <Button
