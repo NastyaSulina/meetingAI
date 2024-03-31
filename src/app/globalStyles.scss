@@ -15,8 +15,8 @@
 
 @font-face {
     font-family: 'Druk Wide Cyr';
-    font-style: bold;
     font-weight: 700;
+    font-style: bold;
     src:
         local('Druk Wide Cyr'),
         url('/src/app/fonts/Druk-Wide-Cyr.woff2') format('woff2'),
@@ -33,6 +33,7 @@
 
 body {
     margin: 0;
+
     font-family: 'Suisse Intl', 'Arial', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

@@ -4,25 +4,28 @@
 
     .rootContainer {
         position: relative;
+
+        box-sizing: border-box;
         max-width: 1020px;
         margin: 0 auto;
-        box-sizing: border-box;
         padding: 80px 50px 70px;
+    }
+
+    .numbering {
+        margin-bottom: 50px;
+
+        font-size: 10px;
+        font-weight: 450;
+        font-style: normal;
+        line-height: 125%;
+
+        color: var(--Basic-White);
     }
 
     @media screen and (max-width: 800px) {
         .rootContainer {
             padding: 70px 10px 50px;
         }
-    }
-
-    .numbering {
-        margin-bottom: 50px;
-        color: var(--Basic-White);
-        font-size: 10px;
-        font-style: normal;
-        font-weight: 450;
-        line-height: 125%;
     }
 }
 
@@ -35,9 +38,9 @@
 /* Главный экран */
 .mainScreen {
     .heading {
-        margin: -16px 0 0 0px;
         width: 100%;
         max-width: 930px;
+        margin: -16px 0 0 0px;
     }
 
     .images {
@@ -51,16 +54,16 @@
 
     @media screen and (max-width: 800px) {
         .heading {
-            margin: 10px 0 0 0;
             width: 100%;
+            margin: 10px 0 0 0;
         }
     }
 }
 
 /* Первый экран: Point 01 */
 .point1 {
-    background: var(--Basic-Black);
     color: var(--Basic-White, #fff);
+    background: var(--Basic-Black);
 
     .rootContainer {
         background: url('/src/widgets/LangingScreen/_assets/circles.png') no-repeat bottom 100px
@@ -69,13 +72,14 @@
     }
 
     .text {
+        max-width: 800px;
+
         letter-spacing: 0.35px;
 
         font-size: 32px;
-        font-style: normal;
         font-weight: 500;
+        font-style: normal;
         line-height: 125%;
-        max-width: 800px;
     }
 
     @media screen and (max-width: 800px) {
@@ -87,8 +91,8 @@
 
 /* Второй экран: Point 02 */
 .point2 {
-    background-color: var(--Background-White);
     color: var(--Basic-Black);
+    background-color: var(--Background-White);
 
     .rootContainer {
         background: url('/src/widgets/LangingScreen/_assets/image.png') no-repeat bottom 10px right;
@@ -101,9 +105,10 @@
 
     .textContainer {
         display: flex;
-        max-width: 413px;
         flex-direction: column;
         align-items: flex-start;
+
+        max-width: 413px;
         gap: 15px;
 
         & button {

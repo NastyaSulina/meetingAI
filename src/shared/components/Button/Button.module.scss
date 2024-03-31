@@ -5,20 +5,22 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
 
     padding: 14px 52px;
-    border-radius: 40px;
-    border: 0;
 
     cursor: pointer;
-    transition: 0.3s all;
+    text-align: center;
+
+    font-size: 15px;
+    font-weight: 450;
+    font-style: normal;
+    line-height: 125%;
 
     color: var(--Basic-White);
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 450;
-    line-height: 125%;
+    border: 0;
+    border-radius: 40px;
+
+    transition: 0.3s all;
 
     &:hover {
         background: var(--Orange);
@@ -38,11 +40,11 @@
 }
 
 .white {
-    background: var(--Basic-White);
     color: var(--Basic-Black);
+    background: var(--Basic-White);
 }
 
 .gradient {
-    background: var(--O-P-Gradient);
     color: var(--Basic-Black);
+    background: var(--O-P-Gradient);
 }

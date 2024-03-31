@@ -12,7 +12,7 @@ export const FirstScreen = () => {
                     В сфере IT, удалённом обучении и бизнесе <br /> стало очень{' '}
                     <Highlights
                         text='много онлайн-встреч'
-                        isLight
+                        isTextColorLight
                         highlightsType={HighlightsType.stroke}
                     />
                     <br /> В силу их большого количества и возможных пересечений, становится сложно

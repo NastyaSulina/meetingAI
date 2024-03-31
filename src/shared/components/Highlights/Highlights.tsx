@@ -4,8 +4,9 @@ import styles from './Highlights.module.scss'
 
 type Props = {
     text?: string
-    isLight?: boolean
+    isTextColorLight?: boolean
     highlightsType: HighlightsType
+    withArrow?: boolean
 }
 
 export enum HighlightsType {
@@ -14,13 +15,19 @@ export enum HighlightsType {
     gradientFill = 'gradientFill',
 }
 
-export const Highlights: FC<Props> = ({ text = '', highlightsType, isLight = false }) => {
+export const Highlights: FC<Props> = ({
+    highlightsType,
+    text = '',
+    isTextColorLight = false,
+    withArrow = false,
+}) => {
     return (
         <span
             className={cn(
                 styles.root,
                 styles[highlightsType],
-                isLight ? styles.light : styles.default,
+                isTextColorLight ? styles.light : styles.default,
+                withArrow && styles.withArrow,
             )}
         >
             {text}
