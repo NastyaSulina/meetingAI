@@ -1,16 +1,23 @@
 import React, { FC } from 'react'
 import styles from './Menu.module.scss'
-import { MenuButton } from '../../shared/components/MenuButton'
+import { MenuButton, Logo } from '../../shared/components'
+
+const MENU_LIST = [
+    { text: 'Как это работает', onClick: () => {} },
+    { text: 'О приложении', onClick: () => {} },
+    { text: 'Контакты', onClick: () => {} },
+]
 
 export const Menu: FC = () => {
     return (
         <div className={styles.root}>
             <nav className={styles.navigation}>
-                <div className={styles.logo}>points</div>
+                <Logo />
+
                 <div className={styles.menuButtonContainer}>
-                    <MenuButton text='Как это работает' onClick={() => {}} />
-                    <MenuButton text='О приложении' onClick={() => {}} />
-                    <MenuButton text='Контакты' onClick={() => {}} />
+                    {MENU_LIST.map((menuItem, key) => (
+                        <MenuButton key={key} text={menuItem.text} onClick={menuItem.onClick} />
+                    ))}
                 </div>
             </nav>
         </div>
