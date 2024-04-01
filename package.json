@@ -13,8 +13,8 @@
         "style:lint": "stylelint \"**/*.{css,scss}\"",
         "style:fix": "stylelint \"**/*.{css,scss}\" --fix",
         "prettier:write": "prettier --write 'src/**/*.{js,jsx,ts,tsx,scss}'",
-        "storybook": "storybook dev -p 6006  --debug-webpack",
-        "build-storybook": "storybook build  --debug-webpack"
+        "storybook": "storybook dev -p 6006",
+        "build-storybook": "storybook build"
     },
     "author": "imgrau",
     "license": "ISC",

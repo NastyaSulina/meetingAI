@@ -1,8 +1,115 @@
-.root {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
+.screen {
     width: 100%;
-    height: 100%;
+    min-height: 500px;
+
+    .screenContainer {
+        position: relative;
+
+        box-sizing: border-box;
+        max-width: 1020px;
+        margin: 0 auto;
+        padding: 80px 50px 70px;
+
+        @media screen and (max-width: 800px) {
+            padding: 70px 10px 50px;
+        }
+    }
+
+    .numbering {
+        margin-bottom: 50px;
+
+        font-size: 10px;
+        font-weight: 450;
+        font-style: normal;
+        line-height: 125%;
+
+        color: var(--Basic-White);
+    }
+
+    @media screen and (max-width: 800px) {
+        min-height: 300px;
+    }
+}
+
+/* Главный экран */
+.mainScreen {
+    .heading {
+        width: 100%;
+        max-width: 930px;
+        margin: -16px 0 0 0px;
+    }
+
+    .images {
+        width: 100%;
+        margin: -15px 0 -5px 0;
+    }
+
+    .buttonContainer {
+        text-align: center;
+    }
+
+    @media screen and (max-width: 800px) {
+        .heading {
+            width: 100%;
+            margin: 10px 0 0 0;
+        }
+    }
+}
+
+/* Первый экран: Point 01 */
+.pointFirst {
+    color: var(--Basic-White, #fff);
+    background: var(--Basic-Black);
+
+    // .rootContainer {
+    //     background: url('/src/widgets/LangingScreen/_assets/circles.png') no-repeat bottom 100px
+    //         right 70px;
+    //     background-size: 240px auto;
+    // }
+
+    .textContainer {
+        max-width: 770px;
+
+        letter-spacing: 0.35px;
+
+        font-size: 32px;
+
+        & span:last-child {
+            margin-top: 9px;
+        }
+    }
+
+    @media screen and (max-width: 800px) {
+        .textContainer {
+            font-size: 24px;
+        }
+    }
+}
+
+/* Второй экран: Point 02 */
+.pointSecond {
+    color: var(--Basic-Black);
+    background-color: var(--Background-White);
+
+    // .rootContainer {
+    //     background: url('/src/widgets/LangingScreen/_assets/image.png') no-repeat bottom 10px right;
+    //     background-size: 60% auto;
+    // }
+
+    .numbering {
+        color: var(--Basic-Black);
+    }
+
+    .textContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        max-width: 413px;
+        gap: 15px;
+
+        & button {
+            margin-top: 35px;
+        }
+    }
 }

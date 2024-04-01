@@ -34,9 +34,11 @@
 body {
     margin: 0;
 
+    letter-spacing: 0.35px;
+
     font-family: 'Suisse Intl', 'Arial', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 
     background: var(--Background-White);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }

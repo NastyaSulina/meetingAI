@@ -8,15 +8,16 @@
 
 .root {
     display: inline-flex;
-
     justify-content: center;
     align-items: center;
 
     box-sizing: border-box;
+    padding: 0 18px 4px;
 
-    padding: 0px 18px 5px 18px;
+    white-space: nowrap;
 
-    color: var(--color);
+    font-size: inherit;
+    line-height: 1;
 
     color: var(--color);
     border-radius: 19px;

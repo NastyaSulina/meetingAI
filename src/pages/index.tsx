@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import LandingPage from './LandingPage'
+import { LandingPage } from './LandingPage'
 import SummaryPage from './SummaryPage'
 import ErrorPage from './ErrorPage'
 

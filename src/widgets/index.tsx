@@ -1,1 +1,1 @@
-export * from './LangingScreen'
+export { Menu } from './Menu'
