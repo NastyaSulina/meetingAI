@@ -113,3 +113,38 @@
         }
     }
 }
+
+/* Второй экран: Point 02 */
+.pointThird {
+    position: relative;
+
+    overflow: hidden;
+
+    color: var(--Basic-Black);
+    background-color: var(--Light-Grey);
+
+    .numbering {
+        color: var(--Basic-Black);
+    }
+
+    .textContainer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+
+        margin-top: 20px;
+
+        font-size: 32px;
+
+        gap: 8px;
+    }
+
+    .figureContainer {
+        position: absolute;
+        top: 50px;
+        right: -20px;
+
+        transform: rotate(30deg);
+    }
+}

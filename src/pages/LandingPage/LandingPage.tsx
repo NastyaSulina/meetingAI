@@ -7,6 +7,8 @@ import {
     TextType,
     Button,
     ButtonType,
+    Figure,
+    FigureType,
 } from '../../shared/components'
 import styles from './LandingPage.module.scss'
 import { Menu } from '../../widgets'
@@ -86,6 +88,40 @@ export const LandingPage = () => {
                             onClick={() => {}}
                         />
                     </div>
+                </div>
+            </div>
+
+            {/* Третий экран: Point 03 */}
+
+            <div className={cn(styles.screen, styles.pointThird)}>
+                <div className={styles.screenContainer}>
+                    <div className={styles.numbering}>→ POINT 03</div>
+                    <Text textType={TextType.header} text='Points поможет с:' />
+                    <div className={styles.textContainer}>
+                        <Highlights
+                            withArrow
+                            highlightsType={HighlightsType.gradientFill}
+                            text='регулярными рабочими встречами'
+                        />
+                        <Highlights
+                            withArrow
+                            highlightsType={HighlightsType.greenFill}
+                            text='бизнес-встречами'
+                        />
+                        <Highlights
+                            withArrow
+                            highlightsType={HighlightsType.stroke}
+                            text='учебными собраниями'
+                        />
+                        <Highlights
+                            withArrow
+                            highlightsType={HighlightsType.stroke}
+                            text='личными звонками'
+                        />
+                    </div>
+                </div>
+                <div className={styles.figureContainer}>
+                    <Figure figureType={FigureType.ARC} width={345} height={172} fill='black' />
                 </div>
             </div>
         </>
