@@ -124,6 +124,39 @@ export const LandingPage = () => {
                     <Figure figureType={FigureType.ARC} width={345} height={172} fill='black' />
                 </div>
             </div>
+
+            {/* Четвертый экран: Point 04 */}
+
+            <div className={cn(styles.screen, styles.pointFourth)}>
+                <div className={styles.screenContainer}>
+                    <div className={styles.numbering}>→ POINT 04</div>
+                    <Text textType={TextType.header} text='Итоги встречи' />
+                    <div className={styles.textContainer}>
+                        <Text
+                            textType={TextType.bodyParagraph}
+                            text='По итогам встречи с Points вы получите информацию
+                            о прошедшем zoom звонке. Перетаскивайте карточки, чтобы узнать, что входит в резюме каждой конференции!'
+                        />
+                    </div>
+                    {/* <CardsWidget /> */}
+                </div>
+            </div>
+
+            {/* Четвертый экран: Footer */}
+
+            <div className={cn(styles.screen, styles.pointFourth)}>
+                <div className={styles.screenContainer}>
+                    <div className={styles.numbering}>→ POINT 04</div>
+                    <Text textType={TextType.header} text='Итоги встречи' />
+                    <div className={styles.textContainer}>
+                        <Text
+                            textType={TextType.bodyParagraph}
+                            text='По итогам встречи с Points вы получите информацию
+                            о прошедшем zoom звонке. Перетаскивайте карточки, чтобы узнать, что входит в резюме каждой конференции!'
+                        />
+                    </div>
+                </div>
+            </div>
         </>
     )
 }

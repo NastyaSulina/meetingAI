@@ -7,7 +7,7 @@ type Props = {
 
 export const Logo: React.FC<Props> = ({ fontSize = 19.78 }) => {
     return (
-        <div className={styles.root} style={{ fontSize: `${fontSize}px` }}>
+        <div className={styles.root} style={{ fontSize: `${fontSize}px` }} aria-hidden>
             Points
         </div>
     )

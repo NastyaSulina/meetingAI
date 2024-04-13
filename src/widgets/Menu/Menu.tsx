@@ -14,11 +14,13 @@ export const Menu: FC = () => {
             <nav className={styles.navigation}>
                 <Logo />
 
-                <div className={styles.menuButtonContainer}>
+                <ul className={styles.menuButtonContainer}>
                     {MENU_LIST.map((menuItem, key) => (
-                        <MenuButton key={key} text={menuItem.text} onClick={menuItem.onClick} />
+                        <li>
+                            <MenuButton key={key} text={menuItem.text} onClick={menuItem.onClick} />
+                        </li>
                     ))}
-                </div>
+                </ul>
             </nav>
         </div>
     )
