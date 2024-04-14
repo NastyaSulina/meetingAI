@@ -14,7 +14,7 @@
         "style:fix": "stylelint \"**/*.{css,scss}\" --fix",
         "prettier:write": "prettier --write 'src/**/*.{js,jsx,ts,tsx,scss}'",
         "storybook": "storybook dev -p 6006",
-        "build-storybook": "storybook build"
+        "build-storybook": "storybook build -o dist-storybook"
     },
     "author": "imgrau",
     "license": "ISC",
