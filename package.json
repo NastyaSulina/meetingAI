@@ -4,9 +4,9 @@
     "description": "",
     "private": true,
     "scripts": {
-        "start": "webpack-dev-server --open --config config/webpack.dev.js",
-        "build:dev": "webpack --node-env=development --config config/webpack.dev.js",
-        "build:prod": "webpack --node-env=production --config config/webpack.prod.js",
+        "start": "webpack-dev-server --open --config webpack/webpack.dev.js",
+        "build:dev": "webpack --node-env=development --config webpack/webpack.dev.js",
+        "build:prod": "webpack --node-env=production --config webpack/webpack.prod.js",
         "ts:check": "npx tsc --noEmit",
         "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
         "lint:write": "eslint 'src/**/*.{js,jsx,ts,tsx}' --fix",

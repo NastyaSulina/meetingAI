@@ -4,6 +4,8 @@ on:
     push:
         branches:
             - main
+        paths: ['.storybook/**', 'src/shared/**', 'src/widgets/**']
+
 permissions:
     contents: write
     pages: write
@@ -23,6 +25,6 @@ jobs:
             - name: Deploy
               uses: JamesIves/github-pages-deploy-action@v4
               with:
-                  FOLDER: dist-storybook
-                  BRANCH: gh-pages
-                  CLEAN: true
+                  folder: dist-storybook
+                  branch: gh-pages
+                  clean: true

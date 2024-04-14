@@ -3,5 +3,5 @@ import styles from './Footer.module.scss'
 import {} from '../../shared/components'
 
 export const Footer: FC = () => {
-    return <div className={styles.root}></div>
+    return <div className={styles.root} />
 }

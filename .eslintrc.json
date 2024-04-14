@@ -37,5 +37,6 @@
                 "unnamedComponents": "arrow-function"
             }
         ]
-    }
+    },
+    "ignorePatterns": ["node_modules/", "dist/", "dist-storybook/"]
 }

@@ -1,27 +1,28 @@
 name: deploy
 
 on:
-  push:
-    branches:
-      - main
+    push:
+        branches:
+            - main
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: get-image-version
-        run: sh ./scripts/get-version.sh
-        env:
-          OAUTH: ${{ secrets.OAUTH }}
-          REGISTRY_ID: ${{ secrets.REGISTRY_ID }}
-          IMAGE_NAME: frontend
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
 
-      - name: deploy-docker-frontend
-        run: sh ./scripts/deploy.sh
-        env:
-          OAUTH: ${{ secrets.OAUTH }}
-          REGISTRY_ID: ${{ secrets.REGISTRY_ID }}
-          FULL_CHAIN: ${{ secrets.FULL_CHAIN }}
-          KEY: ${{ secrets.KEY }}
-          VERSION_NUMBER: ${{ env.NEW_VERSION }}
+            - name: Get Image version
+              run: sh ./scripts/get-version.sh
+              env:
+                  OAUTH: ${{ secrets.OAUTH }}
+                  REGISTRY_ID: ${{ secrets.REGISTRY_ID }}
+                  IMAGE_NAME: frontend
+
+            - name: Deploy Docker Frontend
+              run: sh ./scripts/deploy.sh
+              env:
+                  VERSION_NUMBER: ${{ env.NEW_VERSION }}
+                  OAUTH: ${{ secrets.OAUTH }}
+                  REGISTRY_ID: ${{ secrets.REGISTRY_ID }}
+                  FULL_CHAIN: ${{ secrets.FULL_CHAIN }}
+                  KEY: ${{ secrets.KEY }}

@@ -2,6 +2,7 @@ module.exports = {
     plugins: ['stylelint-order'],
     extends: ['stylelint-config-prettier'],
     customSyntax: 'postcss-scss',
+    ignoreFiles: ['node_modules/*', 'dist/*', 'dist-storybook/*'],
     rules: {
         'block-no-empty': true,
         'color-named': 'never',
@@ -41,6 +42,7 @@ module.exports = {
                     'align-items',
                     'align-content',
                     'align-self',
+                    'gap',
                 ],
             },
             {
