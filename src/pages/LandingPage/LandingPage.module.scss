@@ -104,9 +104,9 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        gap: 15px;
 
         max-width: 413px;
-        gap: 15px;
 
         & button {
             margin-top: 35px;
@@ -133,11 +133,11 @@
         flex-wrap: wrap;
         align-items: flex-start;
 
+        gap: 8px;
+
         margin-top: 20px;
 
         font-size: 32px;
-
-        gap: 8px;
     }
 
     .figureContainer {
@@ -167,12 +167,11 @@
         flex-direction: row;
         flex-wrap: wrap;
         align-items: flex-start;
+        gap: 8px;
 
         margin-top: 20px;
 
         font-size: 32px;
-
-        gap: 8px;
     }
 
     .figureContainer {

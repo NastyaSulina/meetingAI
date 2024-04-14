@@ -1,51 +1,58 @@
 .root {
-    position: fixed;
-    z-index: 100;
-
     width: 100%;
-    padding: 8px 0 11px;
+    padding: 20px 0;
+
+    color: var(--Basic-White);
 
     border-bottom: 1px solid;
-    background-color: var(--Background-White);
+    background-color: var(--Basic-Black);
 
-    .navigation {
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        width: 400px;
+    }
+
+    .footerContainer {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        align-items: flex-start;
 
         box-sizing: border-box;
 
         max-width: 1020px;
         margin-right: auto;
+        margin-bottom: 50px;
         margin-left: auto;
         padding: 0 50px;
 
-        .logo {
-            letter-spacing: -0.396px;
+        .formContainer {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
 
-            font-family: Druk Wide Cyr;
-            font-size: 19.781px;
-            font-weight: 700;
-            font-style: normal;
-            line-height: normal;
-
-            color: var(--Basic-Black, #111);
+            width: 100%;
         }
 
-        .menuButtonContainer {
+        .textContainer {
             display: flex;
             flex-shrink: 0;
             justify-content: space-between;
-            align-items: flex-end;
+            align-items: flex-start;
 
-            width: 421.873px;
-        }
-    }
+            width: 542px;
+            margin: 0;
 
-    @media screen and (max-width: 500px) {
-        .navigation {
-            flex-direction: column;
-            align-items: center;
+            list-style: none;
+
+            color: var(--Basic-White);
+
+            & span {
+                max-width: 210px;
+            }
         }
     }
 }

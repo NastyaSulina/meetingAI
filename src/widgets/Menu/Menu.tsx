@@ -16,8 +16,8 @@ export const Menu: FC = () => {
 
                 <ul className={styles.menuButtonContainer}>
                     {MENU_LIST.map((menuItem, key) => (
-                        <li>
-                            <MenuButton key={key} text={menuItem.text} onClick={menuItem.onClick} />
+                        <li key={key}>
+                            <MenuButton text={menuItem.text} onClick={menuItem.onClick} />
                         </li>
                     ))}
                 </ul>

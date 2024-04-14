@@ -11,6 +11,8 @@
     --O-P-Gradient: linear-gradient(90deg, #ff5924 0%, #ff8f8c 50.69%, #f5c0ee 100%);
     --G-P-Gradient: linear-gradient(90deg, #eaff6a 0%, #ffe1b7 51.74%, #f5c0ee 100%);
     --O-G-Gradient: linear-gradient(90deg, #ff5924 0%, #ffb54a 51.22%, #eaff6a 100%);
+
+    --Font-Family-Basic: 'Suisse Intl';
 }
 
 @font-face {
@@ -41,4 +43,10 @@ body {
     background: var(--Background-White);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    a {
+        text-decoration: none;
+
+        color: inherit;
+    }
 }

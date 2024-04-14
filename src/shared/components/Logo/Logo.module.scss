@@ -7,5 +7,9 @@
     font-style: normal;
     line-height: normal;
 
-    color: var(--Basic-Black, #111);
+    color: var(--Basic-Black);
+}
+
+.isWhite {
+    color: var(--Basic-White);
 }

@@ -10,6 +10,9 @@ const meta = {
     tags: ['autodocs'],
     argTypes: {
         fontSize: { control: { type: 'range', min: 19, max: 200 } },
+        isWhite: {
+            control: 'boolean',
+        },
     },
 } satisfies Meta<typeof Logo>
 
@@ -19,5 +22,6 @@ type Story = StoryObj<typeof meta>
 export const DefaultLogo: Story = {
     args: {
         fontSize: 19.78,
+        isWhite: false,
     },
 }

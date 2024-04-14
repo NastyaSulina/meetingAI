@@ -11,7 +11,7 @@ import {
     FigureType,
 } from '../../shared/components'
 import styles from './LandingPage.module.scss'
-import { Menu } from '../../widgets'
+import { Menu, Footer, CardsWidget } from '../../widgets'
 import Figures from './_assets/figures.png'
 import Heading from './_assets/points.png'
 
@@ -138,25 +138,12 @@ export const LandingPage = () => {
                             о прошедшем zoom звонке. Перетаскивайте карточки, чтобы узнать, что входит в резюме каждой конференции!'
                         />
                     </div>
-                    {/* <CardsWidget /> */}
+
+                    <CardsWidget />
                 </div>
             </div>
 
-            {/* Четвертый экран: Footer */}
-
-            <div className={cn(styles.screen, styles.pointFourth)}>
-                <div className={styles.screenContainer}>
-                    <div className={styles.numbering}>→ POINT 04</div>
-                    <Text textType={TextType.header} text='Итоги встречи' />
-                    <div className={styles.textContainer}>
-                        <Text
-                            textType={TextType.bodyParagraph}
-                            text='По итогам встречи с Points вы получите информацию
-                            о прошедшем zoom звонке. Перетаскивайте карточки, чтобы узнать, что входит в резюме каждой конференции!'
-                        />
-                    </div>
-                </div>
-            </div>
+            <Footer withForm />
         </>
     )
 }

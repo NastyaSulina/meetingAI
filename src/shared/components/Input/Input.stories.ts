@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Input } from './Input'
+import { Input, InputType } from './Input'
 
 const meta = {
     title: 'Components/Input',
@@ -7,9 +7,7 @@ const meta = {
     parameters: {
         layout: 'centered',
     },
-    // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
     tags: ['autodocs'],
-    // More on argTypes: https://storybook.js.org/docs/api/argtypes
     argTypes: {
         label: {
             control: 'text',
@@ -17,16 +15,35 @@ const meta = {
         placeholder: {
             control: 'text',
         },
+        required: {
+            control: 'boolean',
+        },
+        inputType: {
+            control: 'select',
+            options: InputType,
+        },
     },
 } satisfies Meta<typeof Input>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const InputDefault: Story = {
+export const InputText: Story = {
     args: {
         label: 'Ваше имя:',
         placeholder: 'Анастасия',
-        inputName: 'test-input',
+        inputName: 'test-1',
+        required: true,
+        inputType: InputType.input,
+    },
+}
+
+export const TextArea: Story = {
+    args: {
+        label: 'Ваш запрос:',
+        placeholder: 'Добрый день...',
+        inputName: 'test-2',
+        required: true,
+        inputType: InputType.textarea,
     },
 }

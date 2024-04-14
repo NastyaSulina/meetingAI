@@ -1,36 +1,59 @@
 .root {
-    width: 315px;
+    width: 100%;
+    min-width: 250px;
 
     .label {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
 
+        font-size: 12px;
+
         & span {
             margin-bottom: 5px;
 
             text-align: left;
 
-            font-size: 12px;
             font-weight: 450;
             line-height: 15px;
+
+            outline: none;
+        }
+
+        & input,
+        & textarea {
+            box-sizing: border-box;
+            max-width: 100%;
+
+            height: 30px;
+            padding: 8px 12px;
+
+            font-family: var(--Font-Family-Basic);
+
+            border: 1px solid var(--Basic-Black);
+
+            &::placeholder {
+                color: rgb(99, 99, 99);
+            }
+        }
+
+        textarea:focus,
+        input:focus {
+            outline: none;
         }
 
         & input {
-            max-width: 100%;
-            max-height: 30px;
-            padding: 0 6px 4px;
+            height: 30px;
 
-            border: 1px solid var(--Basic-Black);
             border-radius: 40px;
+        }
 
-            &::placeholder {
-                padding: 0 6px 4px;
+        & textarea {
+            height: 120px;
 
-                font-size: 11px;
+            resize: none;
 
-                color: rgb(71, 71, 71);
-            }
+            border-radius: 10px;
         }
     }
 }
