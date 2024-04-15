@@ -9,6 +9,8 @@
 
         font-size: 12px;
 
+        color: var(--Basic-White);
+
         & span {
             margin-bottom: 5px;
 
@@ -30,10 +32,13 @@
 
             font-family: var(--Font-Family-Basic);
 
-            border: 1px solid var(--Basic-Black);
+            color: var(--Basic-White);
+
+            border: 1px solid var(--Basic-White);
+            background-color: var(--Basic-Black);
 
             &::placeholder {
-                color: rgb(99, 99, 99);
+                color: rgb(206, 206, 206);
             }
         }
 
@@ -54,6 +59,23 @@
             resize: none;
 
             border-radius: 10px;
+        }
+    }
+}
+
+.isWhite {
+    .label {
+        color: var(--Basic-Black);
+
+        & input,
+        & textarea {
+            color: var(--Basic-Black);
+            border: 1px solid var(--Basic-Black);
+            background-color: var(--Basic-White);
+
+            &::placeholder {
+                color: rgb(99, 99, 99);
+            }
         }
     }
 }

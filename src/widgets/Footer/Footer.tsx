@@ -1,22 +1,37 @@
 import React, { FC } from 'react'
 import styles from './Footer.module.scss'
-import { Logo, Text, TextType, Input, InputType, Button, ButtonType } from '../../shared/components'
+import {
+    Logo,
+    Text,
+    TextType,
+    Input,
+    InputType,
+    Button,
+    ButtonType,
+    Eye,
+} from '../../shared/components'
 
 type Props = {
     withForm?: boolean
 }
 
+// TODO: переделать на фигуры, решить, как закрепить глазик
+// Сделать отправку формы на почту
+// Сделать скроллбар у textarea
+
 export const Footer: FC<Props> = ({ withForm = false }) => {
     return (
         <div className={styles.root}>
-            {withForm && (
-                <div className={styles.footerContainer}>
-                    <div className={styles.formContainer}>
-                        <Text textType={TextType.header} text='А что оно делает?' />
-                        {/* <Text
-                            textType={TextType.bodyParagraph}
-                            text='Points автоматически резюмирует ключевые моменты из ваших встреч, облегчая доступ к самой важной информации без необходимости просмотра всей записи встречи.'
-                        /> */}
+            <div className={styles.footerContainer}>
+                {withForm && (
+                    <>
+                        <div className={styles.headerContainer}>
+                            <Text textType={TextType.header} text='Обратная связь' />
+                            <Text
+                                textType={TextType.bodyParagraph}
+                                text='Напишите нам, если у вас есть вопросы по работе программы или любые другие предложения'
+                            />
+                        </div>
                         <form className={styles.form}>
                             <Input
                                 inputType={InputType.input}
@@ -42,22 +57,26 @@ export const Footer: FC<Props> = ({ withForm = false }) => {
                                 onClick={() => {}}
                             />
                         </form>
+                    </>
+                )}
+
+                <div className={styles.informationContainer}>
+                    <Logo isWhite />
+
+                    <div className={styles.textContainer}>
+                        <a href='mailto:example@gmail.com'>
+                            <Text textType={TextType.captions} text='example@gmail.com' />
+                        </a>
+                        <Text
+                            textType={TextType.captions}
+                            text='Учебный проект студенток СПбГУ, Факультет искусств'
+                        />
+                        <Text textType={TextType.captions} text='2023' />
                     </div>
                 </div>
-            )}
 
-            <div className={styles.footerContainer}>
-                <Logo isWhite />
-
-                <div className={styles.textContainer}>
-                    <a href='mailto:example@gmail.com'>
-                        <Text textType={TextType.additionalText} text='example@gmail.com' />
-                    </a>
-                    <Text
-                        textType={TextType.additionalText}
-                        text='Учебный проект студенток СПбГУ, Факультет искусств'
-                    />
-                    <Text textType={TextType.additionalText} text='2023' />
+                <div className={styles.eye}>
+                    <Eye />
                 </div>
             </div>
         </div>

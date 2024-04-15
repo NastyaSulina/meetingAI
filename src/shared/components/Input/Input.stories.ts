@@ -22,6 +22,9 @@ const meta = {
             control: 'select',
             options: InputType,
         },
+        isWhite: {
+            control: 'boolean',
+        },
     },
 } satisfies Meta<typeof Input>
 
@@ -35,6 +38,7 @@ export const InputText: Story = {
         inputName: 'test-1',
         required: true,
         inputType: InputType.input,
+        isWhite: true,
     },
 }
 
@@ -45,5 +49,6 @@ export const TextArea: Story = {
         inputName: 'test-2',
         required: true,
         inputType: InputType.textarea,
+        isWhite: false,
     },
 }

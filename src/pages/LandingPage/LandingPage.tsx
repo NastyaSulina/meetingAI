@@ -43,7 +43,7 @@ export const LandingPage = () => {
 
             {/* Первый экран: Point 01 */}
 
-            <div className={cn(styles.screen, styles.pointFirst)}>
+            {/* <div className={cn(styles.screen, styles.pointFirst)}>
                 <div className={styles.screenContainer}>
                     <div className={styles.numbering}>→ POINT 01</div>
                     <div className={styles.textContainer}>
@@ -69,11 +69,11 @@ export const LandingPage = () => {
                         />
                     </div>
                 </div>
-            </div>
+            </div> */}
 
             {/* Второй экран: Point 02 */}
 
-            <div className={cn(styles.screen, styles.pointSecond)}>
+            {/* <div className={cn(styles.screen, styles.pointSecond)}>
                 <div className={styles.screenContainer}>
                     <div className={styles.numbering}>→ POINT 02</div>
                     <div className={styles.textContainer}>
@@ -89,11 +89,11 @@ export const LandingPage = () => {
                         />
                     </div>
                 </div>
-            </div>
+            </div> */}
 
             {/* Третий экран: Point 03 */}
 
-            <div className={cn(styles.screen, styles.pointThird)}>
+            {/* <div className={cn(styles.screen, styles.pointThird)}>
                 <div className={styles.screenContainer}>
                     <div className={styles.numbering}>→ POINT 03</div>
                     <Text textType={TextType.header} text='Points поможет с:' />
@@ -123,11 +123,11 @@ export const LandingPage = () => {
                 <div className={styles.figureContainer}>
                     <Figure figureType={FigureType.ARC} width={345} height={172} fill='black' />
                 </div>
-            </div>
+            </div> */}
 
             {/* Четвертый экран: Point 04 */}
 
-            <div className={cn(styles.screen, styles.pointFourth)}>
+            {/* <div className={cn(styles.screen, styles.pointFourth)}>
                 <div className={styles.screenContainer}>
                     <div className={styles.numbering}>→ POINT 04</div>
                     <Text textType={TextType.header} text='Итоги встречи' />
@@ -141,7 +141,7 @@ export const LandingPage = () => {
 
                     <CardsWidget />
                 </div>
-            </div>
+            </div> */}
 
             <Footer withForm />
         </>

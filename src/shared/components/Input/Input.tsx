@@ -1,5 +1,6 @@
 import React, { useState, FC } from 'react'
 import styles from './Input.module.scss'
+import cn from 'classnames'
 
 type Props = {
     label?: string
@@ -7,6 +8,7 @@ type Props = {
     inputName: string
     inputType: InputType
     required: boolean
+    isWhite?: boolean
 }
 
 export enum InputType {
@@ -32,12 +34,13 @@ export const Input: FC<Props> = ({
     placeholder = '',
     inputName,
     inputType,
-    required,
+    required = false,
+    isWhite = false,
 }) => {
     const inputProps = useInput()
 
     return (
-        <div className={styles.root}>
+        <div className={cn(styles.root, isWhite && styles.isWhite)}>
             <label className={styles.label}>
                 <span>{label}</span>
 
