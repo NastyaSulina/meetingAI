@@ -4,7 +4,7 @@ import styles from './MenuButton.module.scss'
 
 type Props = {
     text?: string
-    onClick: () => void
+    onClick?: () => void
 }
 
 export const MenuButton: FC<Props> = ({ text = '', onClick }) => {

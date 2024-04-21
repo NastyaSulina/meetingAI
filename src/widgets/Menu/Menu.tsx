@@ -3,9 +3,9 @@ import styles from './Menu.module.scss'
 import { MenuButton, Logo } from '../../shared/components'
 
 const MENU_LIST = [
-    { text: 'Как это работает', onClick: () => {} },
-    { text: 'О приложении', onClick: () => {} },
-    { text: 'Контакты', onClick: () => {} },
+    { text: 'Как это работает', href: '#pointSecond' },
+    { text: 'О приложении', href: '#pointFourth' },
+    { text: 'Контакты', href: '#footer' },
 ]
 
 export const Menu: FC = () => {
@@ -17,7 +17,9 @@ export const Menu: FC = () => {
                 <ul className={styles.menuButtonContainer}>
                     {MENU_LIST.map((menuItem, key) => (
                         <li key={key}>
-                            <MenuButton text={menuItem.text} onClick={menuItem.onClick} />
+                            <a href={menuItem.href}>
+                                <MenuButton text={menuItem.text} />
+                            </a>
                         </li>
                     ))}
                 </ul>

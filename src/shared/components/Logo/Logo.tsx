@@ -1,6 +1,6 @@
 import * as React from 'react'
-import styles from './Logo.module.scss'
 import cn from 'classnames'
+import styles from './Logo.module.scss'
 
 type Props = {
     fontSize?: number

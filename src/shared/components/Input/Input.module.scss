@@ -40,6 +40,25 @@
             &::placeholder {
                 color: rgb(206, 206, 206);
             }
+
+            &::-webkit-scrollbar {
+                width: 15px;
+            }
+
+            &::-webkit-scrollbar-track {
+                margin: 5px 0;
+
+                border-radius: 40px;
+                background-color: var(--Basic-Black);
+            }
+
+            &::-webkit-scrollbar-thumb {
+                border: 12px solid var(--Basic-Black);
+                border-left: none;
+                border-radius: 2.5px;
+
+                background-color: var(--Basic-White);
+            }
         }
 
         textarea:focus,

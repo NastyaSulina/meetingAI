@@ -1,3 +1,4 @@
+/* eslint global-require: 0 */
 export const CARDS_LIST = [
     {
         title: 'Резюме',
@@ -6,7 +7,10 @@ export const CARDS_LIST = [
         isWhite: true,
         width: 105.98,
         height: 117.86,
-        index: 0,
+        left: 9,
+        top: 30,
+        index: 1,
+        transform: 'rotate(-10deg)',
     },
     {
         title: 'Важные цитаты',
@@ -15,7 +19,10 @@ export const CARDS_LIST = [
         isWhite: false,
         width: 182.19,
         height: 91.26,
-        index: 1,
+        left: 18,
+        top: 18,
+        index: 2,
+        transform: 'rotate(0)',
     },
     {
         title: 'Ключевые слова',
@@ -24,7 +31,10 @@ export const CARDS_LIST = [
         isWhite: true,
         width: 81,
         height: 87,
-        index: 2,
+        left: 36,
+        top: 26,
+        index: 3,
+        transform: 'rotate(10deg)',
     },
     {
         title: 'Полный текст + видеозапись',
@@ -33,7 +43,10 @@ export const CARDS_LIST = [
         isWhite: false,
         width: 115,
         height: 107,
-        index: 3,
+        index: 4,
+        left: 50,
+        top: 17,
+        transform: 'rotate(0)',
     },
     {
         title: 'Основная информация',
@@ -42,7 +55,10 @@ export const CARDS_LIST = [
         isWhite: true,
         width: 101.68,
         height: 105.47,
-        index: 4,
+        left: 63,
+        top: 23,
+        index: 5,
+        transform: 'rotate(-25deg)',
     },
     {
         title: 'Zoom-чат',
@@ -51,6 +67,9 @@ export const CARDS_LIST = [
         isWhite: false,
         width: 168.32,
         height: 59.56,
-        index: 5,
+        index: 6,
+        left: 26,
+        top: 13,
+        transform: 'rotate(20deg)',
     },
 ]

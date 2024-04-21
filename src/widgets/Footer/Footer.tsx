@@ -1,27 +1,14 @@
 import React, { FC } from 'react'
 import styles from './Footer.module.scss'
-import {
-    Logo,
-    Text,
-    TextType,
-    Input,
-    InputType,
-    Button,
-    ButtonType,
-    Eye,
-} from '../../shared/components'
+import { Logo, Text, TextType, Input, InputType, Button, ButtonType } from '../../shared/components'
 
 type Props = {
     withForm?: boolean
 }
 
-// TODO: переделать на фигуры, решить, как закрепить глазик
-// Сделать отправку формы на почту
-// Сделать скроллбар у textarea
-
 export const Footer: FC<Props> = ({ withForm = false }) => {
     return (
-        <div className={styles.root}>
+        <div id='footer' className={styles.root}>
             <div className={styles.footerContainer}>
                 {withForm && (
                     <>
@@ -60,10 +47,10 @@ export const Footer: FC<Props> = ({ withForm = false }) => {
                     </>
                 )}
 
-                <div className={styles.informationContainer}>
+                <div className={styles.information}>
                     <Logo isWhite />
 
-                    <div className={styles.textContainer}>
+                    <div className={styles.text}>
                         <a href='mailto:example@gmail.com'>
                             <Text textType={TextType.captions} text='example@gmail.com' />
                         </a>
@@ -73,10 +60,6 @@ export const Footer: FC<Props> = ({ withForm = false }) => {
                         />
                         <Text textType={TextType.captions} text='2023' />
                     </div>
-                </div>
-
-                <div className={styles.eye}>
-                    <Eye />
                 </div>
             </div>
         </div>

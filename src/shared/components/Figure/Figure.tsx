@@ -7,6 +7,7 @@ type Props = {
     width: number
     height: number
     fill: string
+    children?: React.JSX.Element | React.JSX.Element[]
 }
 
 export enum FigureType {
@@ -15,12 +16,14 @@ export enum FigureType {
     CIRCLES = 'circles',
 }
 
-export const Figure: FC<Props> = ({ figureType, width, height, fill }) => {
+export const Figure: FC<Props> = ({ figureType, width, height, fill, children }) => {
     return (
         <div
             className={cn(styles.root, styles[figureType])}
             style={{ width: `${width}px`, height: `${height}px`, background: fill }}
             aria-hidden
-        />
+        >
+            {children}
+        </div>
     )
 }

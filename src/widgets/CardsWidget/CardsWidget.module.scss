@@ -1,63 +1,5 @@
-// .root {
-//     display: flex;
-//     flex-wrap: wrap;
-// }
-
-// .card {
-//     display: flex;
-//     flex-direction: column;
-//     align-content: flex-start;
-//     justify-content: space-between;
-//     box-sizing: border-box;
-//     position: relative;
-
-//     min-width: 207px;
-//     max-width: 207px;
-//     height: 275px;
-//     padding: 12px 20px;
-
-//     border-radius: 14px;
-
-//     .image {
-//         position: absolute;
-//         margin-left: auto;
-//         margin-right: auto;
-//         left: 0;
-//         right: 0;
-//         text-align: center;
-
-//         padding: 20px 0;
-//     }
-
-//     .textContainer {
-//         padding-bottom: 10px;
-//         display: flex;
-//         flex-direction: column;
-
-//         & span:last-child {
-//             margin-top: 8px;
-//         }
-//     }
-// }
-
-// .white {
-//     background-color: var(--Basic-White);
-
-//     color: var(--Basic-Black);
-//     border: 1px solid var(--Basic-Black);
-// }
-
-// .black {
-//     background-color: var(--Basic-Black);
-
-//     color: var(--Basic-White);
-//     border: 1px solid var(--Basic-White);
-// }
-
 .root {
     position: relative;
-
-    overflow: auto;
 
     height: 500px;
 }
@@ -65,25 +7,58 @@
 .card {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    align-content: flex-start;
 
     box-sizing: border-box;
-    padding: 10px;
 
-    cursor: pointer;
+    min-width: 207px;
+    min-height: 275px;
+    padding: 12px 20px;
 
-    border-radius: 10px;
+    border-radius: 14px;
 
-    transition: all 0.3s ease;
+    .image {
+        position: absolute;
+        right: 0;
+        left: 0;
 
-    &.white {
-        color: var(--Basic-Black);
-        background-color: var(--Basic-White);
+        margin-right: auto;
+        margin-left: auto;
+
+        padding: 20px 0;
+
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+
+        text-align: center;
+        -webkit-user-drag: none;
+
+        user-drag: none;
     }
 
-    &.black {
-        color: var(--Basic-White);
-        background-color: var(--Basic-Black);
+    .textContainer {
+        display: flex;
+        flex-direction: column;
+
+        padding-bottom: 10px;
+
+        & span:last-child {
+            margin-top: 8px;
+        }
     }
+}
+
+.white {
+    color: var(--Basic-Black);
+    border: 1px solid var(--Basic-Black);
+    background-color: var(--Basic-White);
+}
+
+.black {
+    color: var(--Basic-White);
+    border: 1px solid var(--Basic-White);
+    background-color: var(--Basic-Black);
 }

@@ -17,29 +17,28 @@
         flex-wrap: wrap;
         justify-content: space-between;
 
+        box-sizing: border-box;
+
         max-width: 1020px;
         margin-right: auto;
         margin-left: auto;
         padding: 0 50px;
 
-        background: url('/src/widgets/Footer/_assets/image.png') no-repeat top 21px left 55px;
-        background-size: 44% auto;
-
-        .eye {
-            position: absolute;
-            top: 254px;
-            left: 150px;
-        }
-
         .headerContainer {
             display: flex;
             flex-direction: column;
 
-            max-width: 430px;
+            width: 50%;
+
+            max-width: 380px;
             margin-bottom: 40px;
 
             & span:last-child {
                 margin-top: 12px;
+            }
+
+            @media screen and (max-width: $maxWidthTablet) {
+                width: 100%;
             }
         }
 
@@ -48,17 +47,21 @@
             flex-direction: column;
             gap: 20px;
 
-            width: 315px;
+            width: 50%;
+            max-width: 315px;
 
             & button {
                 width: fit-content;
                 margin-top: 44px;
             }
+
+            @media screen and (max-width: $maxWidthTablet) {
+                width: 100%;
+            }
         }
 
-        .informationContainer {
+        .information {
             display: flex;
-            flex-direction: row;
             flex-wrap: wrap;
             justify-content: space-between;
 
@@ -66,7 +69,7 @@
 
             margin-top: 150px;
 
-            .textContainer {
+            .text {
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: space-between;
@@ -86,13 +89,11 @@
 
             @media screen and (max-width: $maxWidthTablet) {
                 flex-direction: column;
-                align-items: flex-start;
 
                 margin-top: 80px;
 
-                .textContainer {
+                .text {
                     flex-direction: column;
-                    align-items: flex-start;
                     gap: 20px;
 
                     padding-top: 10px;
@@ -101,11 +102,7 @@
         }
 
         @media screen and (max-width: $maxWidthTablet) {
-            background: none;
-
-            .eye {
-                display: none;
-            }
+            padding: 0 30px 0 20px;
         }
     }
 }

@@ -1,6 +1,6 @@
 import React, { useState, FC } from 'react'
-import styles from './Input.module.scss'
 import cn from 'classnames'
+import styles from './Input.module.scss'
 
 type Props = {
     label?: string

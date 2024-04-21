@@ -1,3 +1,5 @@
+@import '../../../app/variables';
+
 .light {
     --color: var(--Basic-White);
 }
@@ -21,6 +23,10 @@
 
     color: var(--color);
     border-radius: 19px;
+
+    @media screen and (max-width: $maxWidthTablet) {
+        padding: 0 8px 4px;
+    }
 }
 
 .stroke {

@@ -1,18 +1,43 @@
-.screen {
+@import '../../app/variables';
+
+/* Общее */
+.root {
     width: 100%;
-    min-height: 500px;
+    margin: 0;
 
-    .screenContainer {
-        position: relative;
+    .screen {
+        overflow: hidden;
 
-        box-sizing: border-box;
-        max-width: 1020px;
-        margin: 0 auto;
-        padding: 80px 50px 70px;
+        min-height: 500px;
 
-        @media screen and (max-width: 800px) {
-            padding: 70px 10px 50px;
+        color: var(--Basic-Black);
+        background: var(--Basic-White);
+
+        .pointContainer {
+            position: relative;
+
+            box-sizing: border-box;
+            max-width: 1020px;
+            margin: 0 auto;
+            padding: 80px 50px 70px;
+
+            @media screen and (max-width: $maxWidthTablet) {
+                padding: 70px 20px 50px;
+            }
         }
+    }
+
+    .isBlack {
+        color: var(--Basic-White);
+        background: var(--Basic-Black);
+
+        .numbering {
+            color: var(--Basic-White);
+        }
+    }
+
+    .isGray {
+        background: var(--Light-Grey);
     }
 
     .numbering {
@@ -23,64 +48,68 @@
         font-style: normal;
         line-height: 125%;
 
-        color: var(--Basic-White);
-    }
-
-    @media screen and (max-width: 800px) {
-        min-height: 300px;
+        color: var(--Basic-Black);
     }
 }
 
 /* Главный экран */
 .mainScreen {
-    .heading {
-        width: 100%;
-        max-width: 930px;
-        margin: -16px 0 0 0px;
-    }
-
-    .images {
-        width: 100%;
-        margin: -15px 0 -5px 0;
-    }
+    padding-top: 100px !important;
 
     .buttonContainer {
+        margin-top: 285px;
+
         text-align: center;
     }
 
-    @media screen and (max-width: 800px) {
+    .headerContainer {
+        position: relative;
+
         .heading {
             width: 100%;
-            margin: 10px 0 0 0;
+            max-width: 930px;
+            margin: -18px 0 0 0px;
+
+            @media screen and (max-width: $maxWidthTablet) {
+                margin: 8px 0 0 0px;
+            }
+        }
+
+        .eye {
+            position: absolute;
+            top: 35%;
+            left: 29%;
+
+            @media screen and (max-width: $maxWidthTablet) {
+                top: 40%;
+                left: 29%;
+
+                transform: scale(0.8);
+            }
+
+            @media screen and (max-width: $maxWidthPhone) {
+                display: none;
+            }
         }
     }
 }
 
 /* Первый экран: Point 01 */
 .pointFirst {
-    color: var(--Basic-White, #fff);
-    background: var(--Basic-Black);
-
-    // .rootContainer {
-    //     background: url('/src/widgets/LangingScreen/_assets/circles.png') no-repeat bottom 100px
-    //         right 70px;
-    //     background-size: 240px auto;
-    // }
-
-    .textContainer {
+    .text {
         max-width: 770px;
 
-        letter-spacing: 0.35px;
+        letter-spacing: 0.4px;
 
         font-size: 32px;
+        font-weight: 500;
+        line-height: 125%;
 
         & span:last-child {
             margin-top: 9px;
         }
-    }
 
-    @media screen and (max-width: 800px) {
-        .textContainer {
+        @media screen and (max-width: $maxWidthTablet) {
             font-size: 24px;
         }
     }
@@ -89,18 +118,16 @@
 /* Второй экран: Point 02 */
 .pointSecond {
     color: var(--Basic-Black);
-    background-color: var(--Background-White);
+    background: url('/src/pages/LandingPage/_assets/image.png') no-repeat bottom 10px right 10px;
 
-    // .rootContainer {
-    //     background: url('/src/widgets/LangingScreen/_assets/image.png') no-repeat bottom 10px right;
-    //     background-size: 60% auto;
-    // }
+    background-color: var(--Background-White);
+    background-size: 60% auto;
 
     .numbering {
         color: var(--Basic-Black);
     }
 
-    .textContainer {
+    .text {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -112,73 +139,64 @@
             margin-top: 35px;
         }
     }
+
+    @media screen and (max-width: $maxWidthTablet) {
+        height: 600px;
+
+        background: url('/src/pages/LandingPage/_assets/image.png') no-repeat bottom 10px center;
+        background-size: 90% auto;
+    }
 }
 
-/* Второй экран: Point 02 */
+/* Третий экран: Point 03 */
 .pointThird {
     position: relative;
 
-    overflow: hidden;
-
-    color: var(--Basic-Black);
-    background-color: var(--Light-Grey);
-
-    .numbering {
-        color: var(--Basic-Black);
-    }
-
-    .textContainer {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: flex-start;
-
-        gap: 8px;
-
+    .text {
         margin-top: 20px;
 
+        letter-spacing: 0.4px;
+
         font-size: 32px;
-    }
+        line-height: 125%;
 
-    .figureContainer {
-        position: absolute;
-        top: 50px;
-        right: -20px;
+        & > span:first-child {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: 10px;
+        }
 
-        transform: rotate(30deg);
+        @media screen and (max-width: $maxWidthTablet) {
+            font-size: 24px;
+        }
     }
 }
 
-/* Второй экран: Point 02 */
+/* Четвертый экран: Point 04 */
 .pointFourth {
     position: relative;
 
-    overflow: hidden;
-
-    color: var(--Basic-Black);
-    background-color: var(--Basic-White);
-
-    .numbering {
-        color: var(--Basic-Black);
-    }
-
-    .textContainer {
+    .text {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         align-items: flex-start;
         gap: 8px;
 
-        margin-top: 20px;
+        width: 450px;
+
+        margin: 20px 0;
 
         font-size: 32px;
     }
 
-    .figureContainer {
-        position: absolute;
-        top: 50px;
-        right: -20px;
+    // .figureContainer {
+    //     position: absolute;
+    //     top: 50px;
+    //     right: -20px;
 
-        transform: rotate(30deg);
-    }
+    //     transform: rotate(30deg);
+    // }
 }

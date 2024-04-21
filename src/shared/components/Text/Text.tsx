@@ -4,9 +4,11 @@ import styles from './Text.module.scss'
 type Props = {
     text?: string
     textType: TextType
+    children?: React.JSX.Element | React.JSX.Element[]
 }
 
 export enum TextType {
+    default = 'default',
     header = 'header',
     subhead = 'subhead',
     additionalText = 'additionalText',
@@ -15,6 +17,6 @@ export enum TextType {
     bPHighlights = 'bPHighlights',
 }
 
-export const Text: FC<Props> = ({ text = '', textType }) => {
-    return <span className={(styles.root, styles[textType])}>{text}</span>
+export const Text: FC<Props> = ({ text = '', textType, children }) => {
+    return <span className={(styles.root, styles[textType])}>{children ?? text}</span>
 }
