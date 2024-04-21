@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { fn } from '@storybook/test'
 import { Input, InputType } from './Input'
 
 const meta = {
@@ -26,6 +27,7 @@ const meta = {
             control: 'boolean',
         },
     },
+    args: { onInputChange: fn() },
 } satisfies Meta<typeof Input>
 
 export default meta
@@ -39,6 +41,7 @@ export const InputText: Story = {
         required: true,
         inputType: InputType.input,
         isWhite: true,
+        id: 'test1',
     },
 }
 
@@ -50,5 +53,6 @@ export const TextArea: Story = {
         required: true,
         inputType: InputType.textarea,
         isWhite: false,
+        id: 'test2',
     },
 }

@@ -6,7 +6,7 @@ type Props = {
     text?: string
     ariaLabel?: string
     buttonType: ButtonType
-    onClick: () => void
+    onClick: (e: any) => void
 }
 
 export enum ButtonType {

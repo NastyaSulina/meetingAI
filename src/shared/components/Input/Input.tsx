@@ -1,47 +1,44 @@
-import React, { useState, FC } from 'react'
+import React from 'react'
 import cn from 'classnames'
 import styles from './Input.module.scss'
-
-type Props = {
-    label?: string
-    placeholder?: string
-    inputName: string
-    inputType: InputType
-    required: boolean
-    isWhite?: boolean
-}
 
 export enum InputType {
     input = 'input',
     textarea = 'textarea',
 }
 
-function useInput(defaultValue = '') {
-    const [value, setValue] = useState(defaultValue)
+type Props = {
+    inputType: InputType
+    label: string
+    inputName: string
+    required?: boolean
+    value?: string
+    onInputChange?: (
+        event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+        inputName: string,
+    ) => void
+    placeholder?: string
+    id?: string
+    type?: string
 
-    function onChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
-        setValue(e.target.value)
-    }
-
-    return {
-        value,
-        onChange,
-    }
+    isWhite?: boolean
 }
 
-export const Input: FC<Props> = ({
-    label = '',
-    placeholder = '',
-    inputName,
+export const Input: React.FC<Props> = ({
     inputType,
-    required = false,
-    isWhite = false,
+    label = '',
+    inputName,
+    required,
+    onInputChange,
+    placeholder,
+    id,
+    type,
+    isWhite,
+    ...inputProps
 }) => {
-    const inputProps = useInput()
-
     return (
         <div className={cn(styles.root, isWhite && styles.isWhite)}>
-            <label className={styles.label}>
+            <label className={styles.label} htmlFor={inputName}>
                 <span>{label}</span>
 
                 {inputType === InputType.input ? (
@@ -51,6 +48,9 @@ export const Input: FC<Props> = ({
                         name={inputName}
                         type='text'
                         required={required}
+                        onChange={(e) => {
+                            onInputChange(e, inputName)
+                        }}
                     />
                 ) : (
                     <textarea
@@ -58,6 +58,9 @@ export const Input: FC<Props> = ({
                         placeholder={placeholder}
                         name={inputName}
                         required={required}
+                        onChange={(e) => {
+                            onInputChange(e, inputName)
+                        }}
                     />
                 )}
             </label>
