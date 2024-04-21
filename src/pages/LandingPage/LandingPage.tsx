@@ -12,6 +12,7 @@ import {
 import styles from './LandingPage.module.scss'
 import { Menu, Footer, CardsWidget } from '../../widgets'
 import Heading from './_assets/points.png'
+import { downloadApp } from '../../shared/utils'
 
 export const LandingPage = () => {
     return (
@@ -37,7 +38,7 @@ export const LandingPage = () => {
                             text='Скачать для Zoom Desktop'
                             buttonType={ButtonType.black}
                             ariaLabel=''
-                            onClick={() => {}}
+                            onClick={downloadApp}
                         />
                     </div>
                 </div>
@@ -90,7 +91,7 @@ export const LandingPage = () => {
                         <Button
                             buttonType={ButtonType.black}
                             text='Попробовать'
-                            onClick={() => {}}
+                            onClick={downloadApp}
                         />
                     </div>
                 </div>
