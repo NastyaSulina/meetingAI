@@ -73,7 +73,7 @@
         }
 
         & textarea {
-            height: 120px;
+            min-height: 120px;
 
             resize: none;
 
@@ -94,6 +94,16 @@
 
             &::placeholder {
                 color: rgb(99, 99, 99);
+            }
+
+            &::-webkit-scrollbar-track {
+                background-color: var(--Basic-White);
+            }
+
+            &::-webkit-scrollbar-thumb {
+                border: 12px solid var(--Basic-White);
+
+                background-color: var(--Basic-Black);
             }
         }
     }

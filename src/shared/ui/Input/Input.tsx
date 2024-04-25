@@ -20,8 +20,8 @@ type Props = {
     placeholder?: string
     id?: string
     type?: string
-
     isWhite?: boolean
+    readOnly?: boolean
 }
 
 export const Input: React.FC<Props> = ({

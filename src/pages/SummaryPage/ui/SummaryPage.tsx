@@ -3,8 +3,9 @@ import { useParams } from 'react-router-dom'
 import { useAppSelector } from '@/app/appStore'
 import KeyWords from '@/entities/meeting/ui/KeyWords'
 import MeetingInfo from '@/entities/meeting/ui/MeetingInfo'
-import { Menu } from '@/widgets/Menu'
 import { fetchMeeting } from '@/entities/meeting/api/fetchMeeting'
+import { Summary, Menu, Video } from '@/widgets'
+import { Button, ButtonType } from '@/shared/ui'
 import styles from './SummaryPage.module.scss'
 
 export const SummaryPage = () => {
@@ -22,7 +23,7 @@ export const SummaryPage = () => {
     }, [])
 
     const meeting = useAppSelector((state) => state.meeting)
-    const { keyWords, participants, date, duration } = meeting
+    const { keyWords, participants, date, duration, summary } = meeting
 
     return (
         <div className={styles.root}>
@@ -30,8 +31,22 @@ export const SummaryPage = () => {
 
             <div className={styles.content}>
                 <h1 className={styles.title}>Итоги встречи</h1>
+
                 <KeyWords keyWords={keyWords} />
-                <MeetingInfo participants={participants} date={date} duration={duration} />
+
+                <div className={styles.wrapper}>
+                    <MeetingInfo participants={participants} date={date} duration={duration} />
+                    <div className={styles.videoContainer}>
+                        <Video />
+                        <Button
+                            buttonType={ButtonType.black}
+                            text='Скачать видео'
+                            onClick={() => {}}
+                        />
+                    </div>
+                </div>
+
+                <Summary text={summary.text} originalText={summary.originalText} />
             </div>
         </div>
     )

@@ -1,0 +1,42 @@
+.root {
+    --Inactive-Grey: #bebebe;
+    --Orange-Pressed: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%), #ff5924;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: content-box;
+
+    width: 27px;
+    height: 27px;
+
+    padding: 1px;
+
+    cursor: pointer;
+    text-align: center;
+
+    border: 0;
+
+    transition: 0.3s all;
+
+    &:hover {
+        outline: none;
+    }
+
+    &:active {
+        outline: none;
+    }
+}
+
+.copy {
+    background: url('/src/shared/assets/copy.svg') no-repeat;
+}
+
+.edit {
+    background: url('/src/shared/assets/edit.svg') no-repeat;
+}
+
+.reset {
+    background: url('/src/shared/assets/reset.svg') no-repeat;
+}

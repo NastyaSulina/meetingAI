@@ -5,3 +5,5 @@ export type MeetingInfo = {
     duration: string
     participants: Array<string>
 }
+
+export type Summary = { originalText: string; text: string }

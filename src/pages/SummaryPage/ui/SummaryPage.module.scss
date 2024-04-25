@@ -6,6 +6,10 @@
     height: 100%;
 
     .content {
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+
         box-sizing: border-box;
         width: 100%;
         max-width: 1020px;
@@ -13,7 +17,7 @@
         padding: 0 50px 70px;
 
         .title {
-            margin: 10px 0px 50px;
+            margin: 10px 0 0;
 
             text-align: left;
             text-transform: lowercase;
@@ -22,6 +26,28 @@
             font-size: 72px;
             font-weight: 700;
             line-height: 58px;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 20px;
+
+            .videoContainer {
+                box-sizing: border-box;
+                width: 100%;
+                min-height: 400px;
+                padding: 20px 18px;
+
+                border-radius: 15px;
+
+                background-color: var(--Light-Grey);
+
+                & > button {
+                    margin-top: 20px;
+                }
+            }
         }
     }
 }
