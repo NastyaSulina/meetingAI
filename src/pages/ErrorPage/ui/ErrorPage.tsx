@@ -1,9 +1,9 @@
 import React from 'react'
+import { Menu } from '@/widgets'
+import { Eye, Figure, FigureType, TextType, Text } from '@/shared/components'
 import styles from './ErrorPage.module.scss'
-import { Figure, FigureType, Eye, Text, TextType } from '../../shared/components'
-import { Menu } from '../../widgets'
 
-const ErrorPage = () => {
+export const ErrorPage = () => {
     return (
         <>
             <Menu />
@@ -29,5 +29,3 @@ const ErrorPage = () => {
         </>
     )
 }
-
-export default ErrorPage

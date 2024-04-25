@@ -1,8 +1,8 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import { LandingPage } from './LandingPage'
-import SummaryPage from './SummaryPage'
-import ErrorPage from './ErrorPage'
+import LandingPage from '@/pages/LandingPage/ui'
+import SummaryPage from '@/pages/SummaryPage/ui'
+import ErrorPage from '@/pages/ErrorPage/ui'
 
 const Routing = () => {
     return (

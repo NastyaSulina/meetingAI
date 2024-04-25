@@ -16,6 +16,6 @@ exports.MiniCssExtractPlugin = new MiniCssExtractPlugin({
 
 // Генерирует HTML-файл в директории /dist
 exports.HtmlWebpackPlugin = new HtmlWebpackPlugin({
-    template: path.resolve(__dirname, '../../src/index.html'),
+    template: path.resolve(__dirname, '../../index.html'),
     filename: 'index.html',
 })

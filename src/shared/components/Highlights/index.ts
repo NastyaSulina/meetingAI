@@ -1,1 +1,1 @@
-export { Highlights, HighlightsType } from './Highlights'
+export { Highlights, HighlightsType, HighlightsSize } from './Highlights'

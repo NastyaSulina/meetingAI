@@ -1,8 +1,7 @@
-/* eslint-disable @typescript-eslint/no-throw-literal */
 /* eslint-disable no-console */
-// В этой ручке получаем все данные о встречи на данный момент: id, title, keyWords
+/* eslint-disable @typescript-eslint/no-throw-literal */
 
-export const getKeyWords = async (id: string) =>
+export const fetchMeeting = async (id: string) =>
     fetch(`https://points-app.ru:8002/api/meeting/${id}`)
         .then((resp) => {
             if (!resp.ok) {

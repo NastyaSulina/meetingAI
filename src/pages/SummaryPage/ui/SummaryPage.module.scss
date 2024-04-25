@@ -1,0 +1,27 @@
+.root {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 100%;
+
+    .content {
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 1020px;
+        margin: 60px auto 0;
+        padding: 0 50px 70px;
+
+        .title {
+            margin: 10px 0px 50px;
+
+            text-align: left;
+            text-transform: lowercase;
+
+            font-family: var(--Font-Family-Accent);
+            font-size: 72px;
+            font-weight: 700;
+            line-height: 58px;
+        }
+    }
+}

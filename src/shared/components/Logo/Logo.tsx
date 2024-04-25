@@ -9,12 +9,13 @@ type Props = {
 
 export const Logo: React.FC<Props> = ({ fontSize = 19.78, isWhite = false }) => {
     return (
-        <div
+        <a
             className={cn(styles.root, isWhite && styles.isWhite)}
             style={{ fontSize: `${fontSize}px` }}
-            aria-hidden
+            // TODO: Добавить навигацию на главную
+            href='/'
         >
             Points
-        </div>
+        </a>
     )
 }

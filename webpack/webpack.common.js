@@ -6,11 +6,12 @@ const {
     fontsRules,
     htmlRules,
     tsScriptsRules,
+    cssRules,
 } = require('./rules')
 const { HtmlWebpackPlugin, MiniCssExtractPlugin } = require('./plugins')
 
 module.exports = {
-    entry: path.resolve(__dirname, '../src/index.tsx'),
+    entry: path.resolve(__dirname, '../src/app/appEntry.tsx'),
     output: {
         filename: 'bundle.[contenthash].js',
         path: path.resolve(__dirname, '../dist'),
@@ -20,9 +21,20 @@ module.exports = {
     },
     resolve: {
         extensions: ['.*', '.tsx', '.ts', '.js', '.jsx'],
+        alias: {
+            '@': path.resolve(__dirname, '../src'),
+        },
     },
     module: {
-        rules: [scriptsRules, tsScriptsRules, imagesRules, stylesRules, fontsRules, htmlRules],
+        rules: [
+            scriptsRules,
+            tsScriptsRules,
+            imagesRules,
+            stylesRules,
+            fontsRules,
+            htmlRules,
+            cssRules,
+        ],
     },
     plugins: [HtmlWebpackPlugin, MiniCssExtractPlugin],
 }

@@ -6,6 +6,7 @@ type Props = {
     text?: string
     isTextColorLight?: boolean
     highlightsType: HighlightsType
+    highlightsSize?: HighlightsSize
     withArrow?: boolean
 }
 
@@ -15,8 +16,14 @@ export enum HighlightsType {
     gradientFill = 'gradientFill',
 }
 
+export enum HighlightsSize {
+    default = 'default',
+    little = 'little',
+}
+
 export const Highlights: FC<Props> = ({
     highlightsType,
+    highlightsSize = HighlightsSize.default,
     text = '',
     isTextColorLight = false,
     withArrow = false,
@@ -26,6 +33,7 @@ export const Highlights: FC<Props> = ({
             className={cn(
                 styles.root,
                 styles[highlightsType],
+                styles[highlightsSize],
                 isTextColorLight ? styles.light : styles.default,
                 withArrow && styles.withArrow,
             )}

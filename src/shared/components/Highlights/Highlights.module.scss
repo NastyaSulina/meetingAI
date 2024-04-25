@@ -14,12 +14,8 @@
     align-items: center;
 
     box-sizing: border-box;
-    padding: 0 18px 4px;
 
     white-space: nowrap;
-
-    font-size: inherit;
-    line-height: 1;
 
     color: var(--color);
     border-radius: 19px;
@@ -27,6 +23,20 @@
     @media screen and (max-width: $maxWidthTablet) {
         padding: 0 8px 4px;
     }
+}
+
+.default {
+    padding: 0 18px 4px;
+
+    font-size: inherit;
+    line-height: 1;
+}
+
+.little {
+    padding: 0 18px 3px;
+
+    font-size: 15px;
+    line-height: 32px;
 }
 
 .stroke {

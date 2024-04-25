@@ -8,11 +8,17 @@ import {
     Button,
     ButtonType,
     Eye,
-} from '../../shared/components'
+} from '@/shared/components'
+import { Menu, Footer, CardsWidget } from '@/widgets'
+import Heading from '@/shared/assets/points.png'
+import { downloadApp } from '@/shared/utils'
 import styles from './LandingPage.module.scss'
-import { Menu, Footer, CardsWidget } from '../../widgets'
-import Heading from './_assets/points.png'
-import { downloadApp } from '../../shared/utils'
+
+/*
+    Эта страница намеренно не была разделена на составные части — отдельные экраны,
+    потому что в данном лендинге содержится только статичная информация:
+    нет необходимости декомпозировать экраны с неповторяющимися картинками и текстом.
+*/
 
 export const LandingPage = () => {
     return (

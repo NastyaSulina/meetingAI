@@ -35,6 +35,12 @@ exports.stylesRules = {
     ],
 }
 
+// styles css
+exports.cssRules = {
+    test: /\.css$/i,
+    use: ['style-loader', 'css-loader'],
+}
+
 // images
 exports.imagesRules = {
     test: /\.(png|svg|jpg|jpeg|gif)$/i,

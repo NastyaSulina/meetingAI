@@ -11,6 +11,11 @@
         "plugin:prettier/recommended",
         "plugin:storybook/recommended"
     ],
+    "settings": {
+        "import/resolver": {
+            "typescript": {}
+        }
+    },
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaFeatures": {
@@ -36,7 +41,9 @@
                 "namedComponents": "arrow-function",
                 "unnamedComponents": "arrow-function"
             }
-        ]
+        ],
+        "no-nested-ternary": ["warn"],
+        "jsx-a11y/control-has-associated-label": ["warn"]
     },
     "ignorePatterns": ["node_modules/", "dist/", "dist-storybook/"]
 }

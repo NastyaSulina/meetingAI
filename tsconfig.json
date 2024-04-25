@@ -1,7 +1,10 @@
 {
     "typeRoots": ["./node_modules/@types"],
     "compilerOptions": {
-        "baseUrl": "./src",
+        "baseUrl": ".",
+        "paths": {
+            "@*": ["src*"]
+        },
         "outDir": "./dist/",
         "noImplicitAny": true,
         "target": "es5",
