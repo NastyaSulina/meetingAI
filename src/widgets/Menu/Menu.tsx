@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import styles from './Menu.module.scss'
-import { MenuButton, Logo } from '../../shared/components'
+import { MenuButton, Logo } from '../../shared/ui'
 
 const MENU_LIST = [
     { text: 'Как это работает', href: '#pointSecond' },

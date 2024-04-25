@@ -4,7 +4,7 @@ export const downloadApp = (e: any) => {
     // TODO: поправить, чтобы это работало без ограничений
 
     const link = document.createElement('a')
-    const url = 'src/shared/utils/_assets/image.png'
+    const url = 'src/shared/assets/image.png'
 
     link.href = url
     link.download = url

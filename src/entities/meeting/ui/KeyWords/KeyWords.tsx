@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { Highlights, HighlightsType, HighlightsSize } from '../../../../shared/components'
+import { Highlights, HighlightsType, HighlightsSize } from '../../../../shared/ui'
 import { KeyWords as KeyWordsType } from '../../model/types'
 import styles from './KeyWords.module.scss'
 

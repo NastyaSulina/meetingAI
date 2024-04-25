@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { Highlights, HighlightsType, HighlightsSize, Text, TextType } from '@/shared/components'
+import { Highlights, HighlightsType, HighlightsSize, Text, TextType } from '@/shared/ui'
 import { MeetingInfo as MeetingInfoType } from '../../model/types'
 import styles from './MeetingInfo.module.scss'
 

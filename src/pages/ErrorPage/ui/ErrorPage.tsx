@@ -1,6 +1,6 @@
 import React from 'react'
 import { Menu } from '@/widgets'
-import { Eye, Figure, FigureType, TextType, Text } from '@/shared/components'
+import { Eye, Figure, FigureType, TextType, Text } from '@/shared/ui'
 import styles from './ErrorPage.module.scss'
 
 export const ErrorPage = () => {

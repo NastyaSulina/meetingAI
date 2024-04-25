@@ -1,14 +1,6 @@
 import React from 'react'
 import cn from 'classnames'
-import {
-    Highlights,
-    HighlightsType,
-    Text,
-    TextType,
-    Button,
-    ButtonType,
-    Eye,
-} from '@/shared/components'
+import { Highlights, HighlightsType, Text, TextType, Button, ButtonType, Eye } from '@/shared/ui'
 import { Menu, Footer, CardsWidget } from '@/widgets'
 import Heading from '@/shared/assets/points.png'
 import { downloadApp } from '@/shared/utils'

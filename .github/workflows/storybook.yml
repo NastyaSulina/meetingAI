@@ -4,7 +4,7 @@ on:
     push:
         branches:
             - main
-        paths: ['.storybook/**', 'src/shared/**', 'src/widgets/**']
+        paths: ['.storybook/**', 'src/shared/**']
 
 permissions:
     contents: write

@@ -3,7 +3,7 @@ import React, { FC, useRef, useState, useEffect } from 'react'
 import cn from 'classnames'
 import styles from './CardsWidget.module.scss'
 import { CARDS_LIST } from './CardsWidget.const'
-import { Text, TextType } from '../../shared/components'
+import { Text, TextType } from '../../shared/ui'
 
 interface CardProps {
     title: string
