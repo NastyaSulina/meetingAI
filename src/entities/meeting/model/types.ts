@@ -1,4 +1,5 @@
 export type KeyWords = Array<string>
+export type Quotes = Array<string>
 
 export type MeetingInfo = {
     date: string
@@ -6,4 +7,4 @@ export type MeetingInfo = {
     participants: Array<string>
 }
 
-export type Summary = { originalText: string; text: string }
+export type Summary = { originalText: string; userText: string }

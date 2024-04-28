@@ -4,8 +4,9 @@ import { useAppSelector } from '@/app/appStore'
 import KeyWords from '@/entities/meeting/ui/KeyWords'
 import MeetingInfo from '@/entities/meeting/ui/MeetingInfo'
 import { fetchMeeting } from '@/entities/meeting/api/fetchMeeting'
-import { Summary, Menu, Video } from '@/widgets'
+import { Summary, Menu, Video, Footer } from '@/widgets'
 import { Button, ButtonType } from '@/shared/ui'
+import Quotes from '@/entities/meeting/ui/Quotes'
 import styles from './SummaryPage.module.scss'
 
 export const SummaryPage = () => {
@@ -20,10 +21,10 @@ export const SummaryPage = () => {
         }
 
         fetchData().then((response) => console.log(response))
-    }, [])
+    }, [id])
 
     const meeting = useAppSelector((state) => state.meeting)
-    const { keyWords, participants, date, duration, summary } = meeting
+    const { keyWords, participants, date, duration, summary, quotes } = meeting
 
     return (
         <div className={styles.root}>
@@ -45,9 +46,18 @@ export const SummaryPage = () => {
                         />
                     </div>
                 </div>
-
-                <Summary text={summary.text} originalText={summary.originalText} />
             </div>
+
+            <div className={styles.grayScreen}>
+                <div className={styles.content}>
+                    <div className={styles.wrapper}>
+                        <Summary userText={summary.userText} originalText={summary.originalText} />
+                        <Quotes quotes={quotes} />
+                    </div>
+                </div>
+            </div>
+
+            <Footer />
         </div>
     )
 }

@@ -25,12 +25,14 @@
         & input,
         & textarea {
             box-sizing: border-box;
+            width: 100%;
             max-width: 100%;
 
             height: 30px;
             padding: 8px 12px;
 
             font-family: var(--Font-Family-Basic);
+            font-size: inherit;
 
             color: var(--Basic-White);
 
@@ -102,9 +104,20 @@
 
             &::-webkit-scrollbar-thumb {
                 border: 12px solid var(--Basic-White);
+                border-left: none;
+                border-radius: 2.5px;
 
                 background-color: var(--Basic-Black);
             }
+        }
+    }
+}
+
+.isEnlarged {
+    .label {
+        & textarea {
+            height: 400px;
+            padding: 20px;
         }
     }
 }

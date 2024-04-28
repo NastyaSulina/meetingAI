@@ -14,10 +14,10 @@ import { setSummary } from '@/entities/meeting/model/slice'
 import { Summary as SummaryType } from '@/entities/meeting/model/types'
 import styles from './Summary.module.scss'
 
-export const Summary: FC<SummaryType> = ({ text, originalText }) => {
+export const Summary: FC<SummaryType> = ({ userText, originalText }) => {
     const dispatch = useDispatch()
 
-    const [summary, setLocalSummary] = useState(text)
+    const [summary, setLocalSummary] = useState(userText)
     const [isEditing, setIsEditing] = useState(false)
 
     useEffect(() => {
@@ -28,21 +28,27 @@ export const Summary: FC<SummaryType> = ({ text, originalText }) => {
         event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     ) => {
         const { value } = event.target
-        setLocalSummary(value || text)
+
+        setLocalSummary(value || userText)
     }
 
     const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
+
         dispatch(setSummary(summary))
         setIsEditing(false)
     }
 
-    const handleResetClick = () => {
+    const handleResetClick = (event: MouseEvent) => {
+        event.preventDefault()
+
+        dispatch(setSummary(originalText))
         setLocalSummary(originalText)
-        setIsEditing(false)
     }
 
-    const handleCopyClick = () => {
+    const handleCopyClick = (event: MouseEvent) => {
+        event.preventDefault()
+
         navigator.clipboard.writeText(summary)
     }
 
@@ -69,6 +75,7 @@ export const Summary: FC<SummaryType> = ({ text, originalText }) => {
                         />
                     </div>
                 </div>
+
                 <Input
                     inputType={InputType.textarea}
                     label=''
@@ -78,8 +85,10 @@ export const Summary: FC<SummaryType> = ({ text, originalText }) => {
                     onInputChange={handleInputChange}
                     id='summary'
                     required
+                    isEnlarged
                     readOnly={!isEditing}
                 />
+
                 {isEditing && (
                     <Button
                         buttonType={ButtonType.black}

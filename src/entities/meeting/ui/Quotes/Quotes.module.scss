@@ -1,0 +1,17 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    .card {
+        box-sizing: border-box;
+        max-width: 445px;
+        height: fit-content;
+        padding: 20px 40px;
+
+        border-radius: 15px;
+
+        background: var(--O-P-Gradient);
+    }
+}

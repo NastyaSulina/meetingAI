@@ -31,7 +31,7 @@
         .wrapper {
             display: flex;
             flex-direction: row;
-            align-items: flex-start;
+            justify-content: space-between;
             gap: 20px;
 
             .videoContainer {
@@ -49,5 +49,9 @@
                 }
             }
         }
+    }
+
+    .grayScreen {
+        background-color: var(--Light-Grey);
     }
 }
