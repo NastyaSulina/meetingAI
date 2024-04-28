@@ -44,7 +44,7 @@ export const LandingPage = () => {
 
             {/* Первый экран: Point 01 */}
 
-            <div className={cn(styles.screen, styles.isBlack)}>
+            <div className={cn(styles.screen, styles.isBlack)} data-aos='fade-in'>
                 <div className={cn(styles.pointContainer, styles.pointFirst)}>
                     <div className={styles.numbering}>→ POINT 01</div>
                     <div className={styles.text}>
@@ -75,7 +75,7 @@ export const LandingPage = () => {
             {/* Второй экран: Point 02 */}
 
             <div id='pointSecond' className={styles.screen}>
-                <div className={cn(styles.pointContainer, styles.pointSecond)}>
+                <div className={cn(styles.pointContainer, styles.pointSecond)} data-aos='slide-up'>
                     <div className={styles.numbering}>→ POINT 02</div>
                     <div className={styles.text}>
                         <Text textType={TextType.header} text='А что оно делает?' />
@@ -101,7 +101,7 @@ export const LandingPage = () => {
                 <div className={cn(styles.pointContainer, styles.pointThird)}>
                     <div className={styles.numbering}>→ POINT 03</div>
                     <Text textType={TextType.header} text='Points поможет с:' />
-                    <div className={styles.text}>
+                    <div className={styles.text} data-aos='slide-right'>
                         <Text textType={TextType.default}>
                             <Highlights
                                 withArrow
@@ -141,8 +141,9 @@ export const LandingPage = () => {
                             о прошедшем zoom звонке. Перетаскивайте карточки, чтобы узнать, что входит в резюме каждой конференции!'
                         />
                     </div>
-
-                    <CardsWidget />
+                    <div data-aos='zoom-in'>
+                        <CardsWidget />
+                    </div>
                 </div>
             </div>
 

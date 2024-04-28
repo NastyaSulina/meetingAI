@@ -5,13 +5,16 @@ import Routing from './appRouter'
 import { store } from './appStore'
 import './globalStyles.scss'
 import 'video-react/dist/video-react.css'
+import { AnimationProvider } from './providers/AnimationProvider'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 
 root.render(
     <React.StrictMode>
         <Provider store={store}>
-            <Routing />
+            <AnimationProvider>
+                <Routing />
+            </AnimationProvider>
         </Provider>
     </React.StrictMode>,
 )
