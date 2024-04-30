@@ -10,7 +10,7 @@ const MENU_LIST = [
 
 export const Menu: FC = () => {
     return (
-        <div className={styles.root}>
+        <div className={styles.root} data-test-id='menu'>
             <nav className={styles.navigation}>
                 <Logo />
 

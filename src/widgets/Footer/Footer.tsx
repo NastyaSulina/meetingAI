@@ -37,7 +37,7 @@ export const Footer: FC<Props> = ({ withForm = false }) => {
     }
 
     return (
-        <div id='footer' className={styles.root}>
+        <div id='footer' className={styles.root} data-test-id='footer'>
             <div className={styles.footerContainer}>
                 {withForm && (
                     <>

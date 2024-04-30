@@ -9,3 +9,6 @@
 
 *storybook.log
 *storybook-static
+
+/testplane-report
+selenium.log

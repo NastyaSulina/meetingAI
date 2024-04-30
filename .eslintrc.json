@@ -45,5 +45,15 @@
         "no-nested-ternary": ["warn"],
         "jsx-a11y/control-has-associated-label": ["warn"]
     },
-    "ignorePatterns": ["node_modules/", "dist/", "dist-storybook/"]
+    "ignorePatterns": ["node_modules/", "dist/", "dist-storybook/"],
+    "overrides": [
+        {
+            "files": ["e2e/**/*"],
+            "parserOptions": {
+                "parser": "@typescript-eslint/parser",
+                "project": "./tsconfig.json",
+                "tsconfigRootDir": "./"
+            }
+        }
+    ]
 }
