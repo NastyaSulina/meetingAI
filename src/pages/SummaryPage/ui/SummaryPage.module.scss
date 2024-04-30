@@ -1,3 +1,5 @@
+@import '../../../app/variables';
+
 .root {
     display: flex;
     flex-direction: column;
@@ -47,6 +49,19 @@
                 & > button {
                     margin-top: 20px;
                 }
+            }
+        }
+
+        @media screen and (max-width: $maxWidthTablet) {
+            margin: 26px auto 0;
+            padding: 20px;
+
+            .title {
+                font-size: 55px;
+                line-height: 44px;
+            }
+            .wrapper {
+                flex-direction: column;
             }
         }
     }

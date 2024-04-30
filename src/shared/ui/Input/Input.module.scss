@@ -32,7 +32,9 @@
             padding: 8px 12px;
 
             font-family: var(--Font-Family-Basic);
-            font-size: inherit;
+            font-size: 15px;
+            font-weight: 450;
+            line-height: 19px;
 
             color: var(--Basic-White);
 
@@ -116,7 +118,7 @@
 .isEnlarged {
     .label {
         & textarea {
-            height: 400px;
+            height: 464px;
             padding: 20px;
         }
     }

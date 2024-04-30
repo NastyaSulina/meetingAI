@@ -33,8 +33,18 @@
             max-width: 380px;
             margin-bottom: 40px;
 
-            & span:last-child {
+            .header {
+                font-size: 34px;
+                font-weight: 500;
+                line-height: 42.5px;
+            }
+
+            .info {
                 margin-top: 12px;
+
+                font-size: 15px;
+                font-weight: 450;
+                line-height: 18.75px;
             }
 
             @media screen and (max-width: $maxWidthTablet) {
@@ -82,8 +92,12 @@
 
                 color: var(--Basic-White);
 
-                & span {
+                .captions {
                     max-width: 210px;
+
+                    font-size: 10px;
+                    font-weight: 450;
+                    line-height: 12.5px;
                 }
             }
 

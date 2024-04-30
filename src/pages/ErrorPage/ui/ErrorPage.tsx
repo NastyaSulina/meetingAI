@@ -1,6 +1,6 @@
 import React from 'react'
 import { Menu } from '@/widgets'
-import { Eye, Figure, FigureType, TextType, Text } from '@/shared/ui'
+import { Eye, Figure, FigureType } from '@/shared/ui'
 import styles from './ErrorPage.module.scss'
 
 export const ErrorPage = () => {
@@ -9,10 +9,7 @@ export const ErrorPage = () => {
             <Menu />
 
             <div className={styles.wrapper}>
-                <Text
-                    text='Попалась ошибка! Такой страницы не существует...'
-                    textType={TextType.subhead}
-                />
+                <h1 className={styles.header}>Попалась ошибка! Такой страницы не существует...</h1>
                 <div className={styles.figure}>
                     <Figure
                         figureType={FigureType.STAR}

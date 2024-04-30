@@ -12,9 +12,12 @@
 
     background: var(--Basic-Black);
 
-    & span {
+    .header {
         max-width: 200px;
         padding: 0 0px 150px 0;
+
+        font-size: 17px;
+        font-weight: 500;
 
         line-height: 140%;
 

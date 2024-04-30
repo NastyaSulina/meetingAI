@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react'
 import styles from './Footer.module.scss'
-import { Logo, Text, TextType, Input, InputType, Button, ButtonType } from '../../shared/ui'
+import { Logo, Input, InputType, Button, ButtonType } from '../../shared/ui'
 
 type Props = {
     withForm?: boolean
@@ -42,11 +42,11 @@ export const Footer: FC<Props> = ({ withForm = false }) => {
                 {withForm && (
                     <>
                         <div className={styles.headerContainer}>
-                            <Text textType={TextType.header} text='Обратная связь' />
-                            <Text
-                                textType={TextType.bodyParagraph}
-                                text='Напишите нам, если у вас есть вопросы по работе программы или любые другие предложения'
-                            />
+                            <h2 className={styles.header}>Обратная связь</h2>
+                            <span className={styles.info}>
+                                Напишите нам, если у вас есть вопросы по работе программы или любые
+                                другие предложения
+                            </span>
                         </div>
                         <form className={styles.form} onSubmit={handleFormSubmit}>
                             <Input
@@ -89,14 +89,13 @@ export const Footer: FC<Props> = ({ withForm = false }) => {
                     <Logo isWhite />
 
                     <div className={styles.text}>
-                        <a href='mailto:example@gmail.com'>
-                            <Text textType={TextType.captions} text='example@gmail.com' />
+                        <a className={styles.captions} href='mailto:example@gmail.com'>
+                            example@gmail.com
                         </a>
-                        <Text
-                            textType={TextType.captions}
-                            text='Учебный проект студенток СПбГУ, Факультет искусств'
-                        />
-                        <Text textType={TextType.captions} text='2023' />
+                        <span className={styles.captions}>
+                            Учебный проект студенток СПбГУ, Факультет искусств
+                        </span>
+                        <span className={styles.captions}>2024</span>
                     </div>
                 </div>
             </div>

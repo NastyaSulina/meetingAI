@@ -3,12 +3,9 @@ import React, { FC } from 'react'
 import { Highlights, HighlightsType, HighlightsSize } from '@/shared/ui'
 import { KeyWords as KeyWordsType } from '../../model/types'
 import styles from './KeyWords.module.scss'
-import { KeyWordsSkeleton } from './KeyWordsSkeleton'
 
 export const KeyWords: FC<{ keyWords: KeyWordsType }> = ({ keyWords }) => {
-    return keyWords.length === 0 ? (
-        <KeyWordsSkeleton />
-    ) : (
+    return (
         <div className={styles.root}>
             {keyWords.map((keyWord, index) => (
                 <Highlights

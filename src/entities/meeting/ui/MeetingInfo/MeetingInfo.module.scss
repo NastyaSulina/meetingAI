@@ -1,3 +1,5 @@
+@import '../../../../app/variables';
+
 .root {
     display: flex;
     flex-direction: column;
@@ -19,13 +21,44 @@
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
+        gap: 12px;
 
-        & span:last-child {
-            margin-top: 5px;
+        .subtitle {
+            font-size: 15px;
+            font-weight: 450;
+            line-height: 18.75px;
+        }
+
+        .info {
+            font-size: 32px;
+            font-weight: 500;
+            line-height: 28.8px;
         }
 
         .participants {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            width: fit-content;
             margin-top: 10px;
+        }
+    }
+
+    @media screen and (max-width: $maxWidthTablet) {
+        max-width: 100%;
+        min-height: 166px;
+
+        .subtitle {
+            font-size: 12px;
+            font-weight: 450;
+            line-height: 15px;
+        }
+
+        .info {
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 21.6px;
         }
     }
 }

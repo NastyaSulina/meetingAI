@@ -3,7 +3,6 @@ import React, { FC, useRef, useState, useEffect } from 'react'
 import cn from 'classnames'
 import styles from './CardsWidget.module.scss'
 import { CARDS_LIST } from './CardsWidget.const'
-import { Text, TextType } from '../../shared/ui'
 
 interface CardProps {
     title: string
@@ -95,13 +94,13 @@ const DraggableCard: FC<CardProps> = ({
             }}
             onMouseDown={handleMouseDown}
         >
-            <Text textType={TextType.captions} text={`ИТОГ 0${index}`} />
+            <span className={styles.captions}>{`ИТОГ 0${index}`}</span>
 
             <img className={styles.image} style={{ height, width }} src={image} alt='' />
 
             <div className={styles.textContainer}>
-                <Text textType={TextType.subhead} text={title} />
-                <Text textType={TextType.additionalText} text={description} />
+                <span className={styles.subhead}>{title}</span>
+                <span className={styles.additionalText}>{description}</span>
             </div>
         </div>
     )

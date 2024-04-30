@@ -32,7 +32,7 @@ export const SummaryPage = () => {
 
     return (
         <div className={styles.root}>
-            <Menu />
+            {/* <Menu /> */}
 
             <div className={styles.content}>
                 <h1 className={styles.title}>Итоги встречи</h1>

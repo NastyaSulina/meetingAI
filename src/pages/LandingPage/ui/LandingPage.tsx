@@ -1,6 +1,6 @@
 import React from 'react'
 import cn from 'classnames'
-import { Highlights, HighlightsType, Text, TextType, Button, ButtonType, Eye } from '@/shared/ui'
+import { Highlights, HighlightsType, Button, ButtonType, Eye } from '@/shared/ui'
 import { Menu, Footer, CardsWidget } from '@/widgets'
 import Heading from '@/shared/assets/points.png'
 import { downloadApp } from '@/shared/utils'
@@ -21,10 +21,9 @@ export const LandingPage = () => {
 
             <div className={cn(styles.screen)}>
                 <div className={cn(styles.pointContainer, styles.mainScreen)}>
-                    <Text
-                        text='Приложение для резюмирования Zoom-встреч'
-                        textType={TextType.additionalText}
-                    />
+                    <span className={styles.description}>
+                        Приложение для резюмирования Zoom-встреч
+                    </span>
                     <div className={styles.headerContainer}>
                         <img className={styles.heading} src={Heading} alt='' />
                         <div className={styles.eye}>
@@ -44,30 +43,23 @@ export const LandingPage = () => {
 
             {/* Первый экран: Point 01 */}
 
-            <div className={cn(styles.screen, styles.isBlack)} data-aos='fade-in'>
-                <div className={cn(styles.pointContainer, styles.pointFirst)}>
+            <div className={cn(styles.screen, styles.isBlack)}>
+                <div className={cn(styles.pointContainer, styles.pointFirst)} data-aos='fade-in'>
                     <div className={styles.numbering}>→ POINT 01</div>
                     <div className={styles.text}>
-                        <Text
-                            textType={TextType.default}
-                            text='В сфере IT, удалённом обучении и бизнесе стало очень '
-                        >
-                            <>
-                                В сфере IT, удалённом обучении и бизнесе стало очень{' '}
-                                <Highlights
-                                    isTextColorLight
-                                    highlightsType={HighlightsType.stroke}
-                                    text='много онлайн-встреч'
-                                />
-                                <br />В силу их большого количества и возможных пересечений,
-                                становится сложно удерживать всю информацию в голове. Наше
-                                приложение разработано для того, чтобы помочь вам{' '}
-                                <Highlights
-                                    highlightsType={HighlightsType.greenFill}
-                                    text='справиться с этой проблемой'
-                                />
-                            </>
-                        </Text>
+                        В сфере IT, удалённом обучении и бизнесе стало очень{' '}
+                        <Highlights
+                            isTextColorLight
+                            highlightsType={HighlightsType.stroke}
+                            text='много онлайн-встреч'
+                        />
+                        <br />В силу их большого количества и возможных пересечений, становится
+                        сложно удерживать всю информацию в голове. Наше приложение разработано для
+                        того, чтобы помочь вам{' '}
+                        <Highlights
+                            highlightsType={HighlightsType.greenFill}
+                            text='справиться с этой проблемой'
+                        />
                     </div>
                 </div>
             </div>
@@ -78,14 +70,12 @@ export const LandingPage = () => {
                 <div className={cn(styles.pointContainer, styles.pointSecond)} data-aos='slide-up'>
                     <div className={styles.numbering}>→ POINT 02</div>
                     <div className={styles.text}>
-                        <Text textType={TextType.header} text='А что оно делает?' />
-                        <Text textType={TextType.bodyParagraph}>
-                            <>
-                                <b>Points </b>автоматически резюмирует ключевые моменты из ваших
-                                встреч, облегчая доступ к самой важной информации без необходимости
-                                просмотра всей записи встречи.
-                            </>
-                        </Text>
+                        <h2 className={styles.header}>А что оно делает?</h2>
+                        <span className={styles.additionalText}>
+                            <b>Points </b>автоматически резюмирует ключевые моменты из ваших встреч,
+                            облегчая доступ к самой важной информации без необходимости просмотра
+                            всей записи встречи.
+                        </span>
                         <Button
                             buttonType={ButtonType.black}
                             text='Попробовать'
@@ -100,30 +90,28 @@ export const LandingPage = () => {
             <div className={cn(styles.screen, styles.isGray)}>
                 <div className={cn(styles.pointContainer, styles.pointThird)}>
                     <div className={styles.numbering}>→ POINT 03</div>
-                    <Text textType={TextType.header} text='Points поможет с:' />
+                    <h2 className={styles.header}>Points поможет с:</h2>
                     <div className={styles.text} data-aos='slide-right'>
-                        <Text textType={TextType.default}>
-                            <Highlights
-                                withArrow
-                                highlightsType={HighlightsType.gradientFill}
-                                text='регулярными рабочими встречами'
-                            />
-                            <Highlights
-                                withArrow
-                                highlightsType={HighlightsType.greenFill}
-                                text='бизнес-встречами'
-                            />
-                            <Highlights
-                                withArrow
-                                highlightsType={HighlightsType.stroke}
-                                text='учебными собраниями'
-                            />
-                            <Highlights
-                                withArrow
-                                highlightsType={HighlightsType.stroke}
-                                text='личными звонками'
-                            />
-                        </Text>
+                        <Highlights
+                            withArrow
+                            highlightsType={HighlightsType.gradientFill}
+                            text='регулярными рабочими встречами'
+                        />
+                        <Highlights
+                            withArrow
+                            highlightsType={HighlightsType.greenFill}
+                            text='бизнес-встречами'
+                        />
+                        <Highlights
+                            withArrow
+                            highlightsType={HighlightsType.stroke}
+                            text='учебными собраниями'
+                        />
+                        <Highlights
+                            withArrow
+                            highlightsType={HighlightsType.stroke}
+                            text='личными звонками'
+                        />
                     </div>
                 </div>
             </div>
@@ -133,13 +121,11 @@ export const LandingPage = () => {
             <div id='pointFourth' className={styles.screen}>
                 <div className={cn(styles.pointContainer, styles.pointFourth)}>
                     <div className={styles.numbering}>→ POINT 04</div>
-                    <Text textType={TextType.header} text='Итоги встречи' />
+                    <h2 className={styles.header}>Итоги встречи</h2>
                     <div className={styles.text}>
-                        <Text
-                            textType={TextType.bodyParagraph}
-                            text='По итогам встречи с Points вы получите информацию
-                            о прошедшем zoom звонке. Перетаскивайте карточки, чтобы узнать, что входит в резюме каждой конференции!'
-                        />
+                        По итогам встречи с Points вы получите информацию о прошедшем zoom звонке.
+                        Перетаскивайте карточки, чтобы узнать, что входит в резюме каждой
+                        конференции!
                     </div>
                     <div data-aos='zoom-in'>
                         <CardsWidget />

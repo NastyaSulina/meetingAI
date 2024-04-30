@@ -1,6 +1,5 @@
 import React from 'react'
 import cn from 'classnames'
-// import { TextType, Text } from '@/shared/ui/Text'
 import styles from './Input.module.scss'
 
 export enum InputType {
@@ -44,9 +43,8 @@ export const Input: React.FC<Props> = ({
             className={cn(styles.root, isWhite && styles.isWhite, isEnlarged && styles.isEnlarged)}
         >
             <label className={styles.label} htmlFor={inputName}>
-                <span>{label}</span>
+                {label && <span>{label}</span>}
 
-                {/* <Text textType={TextType.bodyParagraph}> */}
                 {inputType === InputType.input ? (
                     <input
                         {...inputProps}
@@ -69,7 +67,6 @@ export const Input: React.FC<Props> = ({
                         }}
                     />
                 )}
-                {/* </Text> */}
             </label>
         </div>
     )

@@ -1,14 +1,5 @@
 import React, { FC, useState, useEffect } from 'react'
-import {
-    Input,
-    InputType,
-    Button,
-    ButtonType,
-    IconButton,
-    IconButtonType,
-    Text,
-    TextType,
-} from '@/shared/ui'
+import { Input, InputType, Button, ButtonType, IconButton, IconButtonType } from '@/shared/ui'
 import { useDispatch } from 'react-redux'
 import { setSummary } from '@/entities/meeting/model/slice'
 import { Summary as SummaryType } from '@/entities/meeting/model/types'
@@ -56,7 +47,7 @@ export const Summary: FC<SummaryType> = ({ userText, originalText }) => {
         <div className={styles.root}>
             <form className={styles.form} onSubmit={handleFormSubmit}>
                 <div className={styles.formHeader}>
-                    <Text textType={TextType.header} text='Резюме' />
+                    <h2 className={styles.header}>Резюме</h2>
                     <div className={styles.buttonGroup}>
                         <IconButton
                             iconButtonType={IconButtonType.copy}

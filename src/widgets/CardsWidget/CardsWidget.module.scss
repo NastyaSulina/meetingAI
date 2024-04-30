@@ -18,6 +18,12 @@
 
     border-radius: 14px;
 
+    .captions {
+        font-size: 9.95px;
+        font-weight: 450;
+        line-height: 12.44px;
+    }
+
     .image {
         position: absolute;
         right: 0;
@@ -45,8 +51,18 @@
 
         padding-bottom: 10px;
 
-        & span:last-child {
+        .subhead {
+            font-size: 16.92px;
+            font-weight: 500;
+            line-height: 16.92px;
+        }
+
+        .additionalText {
             margin-top: 8px;
+
+            font-size: 9.95px;
+            font-weight: 450;
+            line-height: 12.44px;
         }
     }
 }

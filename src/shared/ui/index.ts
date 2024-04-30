@@ -1,5 +1,4 @@
 export * from './Button'
-export * from './Text'
 export * from './Logo'
 export * from './MenuButton'
 export * from './Highlights'

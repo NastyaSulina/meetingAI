@@ -1,32 +1,46 @@
 import React, { FC } from 'react'
-import { Highlights, HighlightsType, HighlightsSize, Text, TextType } from '@/shared/ui'
+import { Highlights, HighlightsType, HighlightsSize } from '@/shared/ui'
 import { MeetingInfo as MeetingInfoType } from '../../model/types'
 import styles from './MeetingInfo.module.scss'
 
 export const MeetingInfo: FC<MeetingInfoType> = ({ date, duration, participants }) => {
+    const INFORMATION_ITEMS = [
+        {
+            subtitle: '→ Дата встречи',
+            info: date,
+        },
+        {
+            subtitle: '→ Длительность встречи',
+            info: duration,
+        },
+        {
+            subtitle: '→ Участники',
+            info: participants,
+        },
+    ]
+
     return (
         <div className={styles.root}>
-            <div className={styles.infoWrapper}>
-                <Text textType={TextType.bodyParagraph} text='→ Дата встречи' />
-                <Text textType={TextType.header} text={date} />
-            </div>
-            <div className={styles.infoWrapper}>
-                <Text textType={TextType.bodyParagraph} text='→ Длительность встречи' />
-                <Text textType={TextType.header} text={duration} />
-            </div>
-            <div className={styles.infoWrapper}>
-                <Text textType={TextType.bodyParagraph} text='→ Участники' />
-                <div className={styles.participants}>
-                    {participants.map((participant, key) => (
-                        <Highlights
-                            key={key}
-                            highlightsType={HighlightsType.stroke}
-                            highlightsSize={HighlightsSize.little}
-                            text={participant}
-                        />
-                    ))}
+            {INFORMATION_ITEMS.map((item) => (
+                <div className={styles.infoWrapper}>
+                    <span className={styles.subtitle}>{item.subtitle}</span>
+
+                    {Array.isArray(item.info) ? (
+                        <span className={styles.participants}>
+                            {item.info.map((participant, key) => (
+                                <Highlights
+                                    key={key}
+                                    highlightsType={HighlightsType.stroke}
+                                    highlightsSize={HighlightsSize.little}
+                                    text={participant}
+                                />
+                            ))}
+                        </span>
+                    ) : (
+                        <span className={styles.info}>{item.info}</span>
+                    )}
                 </div>
-            </div>
+            ))}
         </div>
     )
 }

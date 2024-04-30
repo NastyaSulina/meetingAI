@@ -62,6 +62,12 @@
         text-align: center;
     }
 
+    .description {
+        font-size: 12px;
+        font-weight: 450;
+        line-height: 15px;
+    }
+
     .headerContainer {
         position: relative;
 
@@ -105,8 +111,16 @@
         font-weight: 500;
         line-height: 125%;
 
-        & span:last-child {
-            margin-top: 9px;
+        .header {
+            font-size: 32px;
+            font-weight: 500;
+            line-height: 28.8px;
+        }
+
+        .additionalText {
+            font-size: 15px;
+            font-weight: 700;
+            line-height: 18.75px;
         }
 
         @media screen and (max-width: $maxWidthTablet) {
@@ -123,6 +137,12 @@
 
     .numbering {
         color: var(--Basic-Black);
+    }
+
+    .header {
+        font-size: 32px;
+        font-weight: 500;
+        line-height: 40px;
     }
 
     .text {
@@ -150,6 +170,12 @@
 .pointThird {
     position: relative;
 
+    .header {
+        font-size: 32px;
+        font-weight: 500;
+        line-height: 40px;
+    }
+
     .text {
         margin-top: 20px;
 
@@ -157,14 +183,6 @@
 
         font-size: 32px;
         line-height: 125%;
-
-        & > span:first-child {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            align-items: flex-start;
-            gap: 10px;
-        }
 
         @media screen and (max-width: $maxWidthTablet) {
             font-size: 24px;
@@ -175,6 +193,12 @@
 /* Четвертый экран: Point 04 */
 .pointFourth {
     position: relative;
+
+    .header {
+        font-size: 32px;
+        font-weight: 500;
+        line-height: 28.8px;
+    }
 
     .text {
         display: flex;
@@ -187,7 +211,9 @@
 
         margin: 20px 0;
 
-        font-size: 32px;
+        font-size: 15px;
+        font-weight: 450;
+        line-height: 18.75px;
     }
 
     // .figureContainer {
