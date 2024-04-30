@@ -7,10 +7,14 @@ import { fetchMeeting } from '@/entities/meeting/api/fetchMeeting'
 import { Summary, Menu, Video, Footer } from '@/widgets'
 import { Button, ButtonType } from '@/shared/ui'
 import Quotes from '@/entities/meeting/ui/Quotes'
+import { transformMeetingData } from '@/entities/meeting/model/transform'
+import { setMeeting } from '@/entities/meeting/model/slice'
+import { useDispatch } from 'react-redux'
 import styles from './SummaryPage.module.scss'
 
 export const SummaryPage = () => {
     const { id } = useParams()
+    const dispatch = useDispatch()
 
     // TODO: вынести в middleware?
     useEffect(() => {
@@ -20,7 +24,7 @@ export const SummaryPage = () => {
             return response
         }
 
-        fetchData().then((response) => console.log(response))
+        // fetchData().then((response) => dispatch(setMeeting(transformMeetingData(response))))
     }, [id])
 
     const meeting = useAppSelector((state) => state.meeting)

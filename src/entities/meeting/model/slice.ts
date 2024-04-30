@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 
 export interface State {
+    id: string
     keyWords: Array<string>
     date: string
     duration: string
@@ -12,10 +13,11 @@ export interface State {
         userText: string
     }
     quotes: Array<string>
+    transcript: string
 }
 
 const initialState: State = {
-    // description,
+    id: '0',
     keyWords: [
         'художник',
         'искусство',
@@ -41,6 +43,7 @@ const initialState: State = {
         'И в этом смысле хорошее искусство — то, которое сочетает в себе три компонента. Первый — оно задействует интеллектуальные ресурсы зрителя. Второй — оно обладает высочайшими эстетическими свойствами. Музеи прочие институции демонстрируют, к какому уровню следует стремиться.',
         'Для меня успех — это успеть. С каждой секундой времени жизни все меньше, а ты должен успеть сказать все, что ты должен сказать.',
     ],
+    transcript: 'Всем привет! Всем привет! Всем привет',
 }
 
 export const meetingSlice = createSlice({
@@ -56,9 +59,19 @@ export const meetingSlice = createSlice({
         setSummary: (state, action: PayloadAction<string>) => {
             state.summary.userText = action.payload
         },
+        setMeeting: (state, action: PayloadAction<State>) => {
+            state.id = action.payload.id
+            state.keyWords = [...action.payload.keyWords]
+            state.date = action.payload.date
+            state.duration = action.payload.duration
+            state.participants = [...action.payload.participants]
+            state.summary = { ...action.payload.summary }
+            state.quotes = action.payload.quotes
+            state.transcript = action.payload.transcript
+        },
     },
 })
 
-export const { setKeyWords, setDate, setSummary } = meetingSlice.actions
+export const { setKeyWords, setDate, setSummary, setMeeting } = meetingSlice.actions
 
 export default meetingSlice.reducer
