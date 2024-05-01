@@ -34,7 +34,7 @@ export const Highlights: FC<Props> = ({
                 styles.root,
                 styles[highlightsType],
                 styles[highlightsSize],
-                isTextColorLight ? styles.light : styles.default,
+                isTextColorLight ? styles.light : styles.dark,
                 withArrow && styles.withArrow,
             )}
         >

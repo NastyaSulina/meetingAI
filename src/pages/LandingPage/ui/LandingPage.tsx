@@ -49,8 +49,8 @@ export const LandingPage = () => {
                     <div className={styles.text}>
                         В сфере IT, удалённом обучении и бизнесе стало очень{' '}
                         <Highlights
-                            isTextColorLight
                             highlightsType={HighlightsType.stroke}
+                            isTextColorLight
                             text='много онлайн-встреч'
                         />
                         <br />В силу их большого количества и возможных пересечений, становится

@@ -48,11 +48,11 @@
     "ignorePatterns": ["node_modules/", "dist/", "dist-storybook/"],
     "overrides": [
         {
-            "files": ["e2e/**/*"],
+            "files": ["./e2e/**/*"],
             "parserOptions": {
                 "parser": "@typescript-eslint/parser",
                 "project": "./tsconfig.json",
-                "tsconfigRootDir": "./"
+                "tsconfigRootDir": "./e2e/"
             }
         }
     ]

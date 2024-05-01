@@ -28,16 +28,38 @@
 
 @font-face {
     font-family: 'Suisse Intl';
+    font-weight: 400;
+    font-style: normal;
     src:
         local('Suisse Intl'),
         url('/src/app/fonts/SuisseIntl-Regular.woff2') format('woff2'),
         url('/src/app/fonts/SuisseIntl-Regular.woff') format('woff');
 }
 
+@font-face {
+    font-family: 'Suisse Intl';
+    font-weight: 500;
+    font-style: normal;
+    src:
+        local('Suisse Intl'),
+        url('/src/app/fonts/SuisseIntl-Medium.woff2') format('woff2'),
+        url('/src/app/fonts/SuisseIntl-Medium.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Suisse Intl';
+    font-weight: 700;
+    font-style: normal;
+    src:
+        local('Suisse Intl'),
+        url('/src/app/fonts/SuisseIntl-SemiBold.woff2') format('woff2'),
+        url('/src/app/fonts/SuisseIntl-Medium.woff') format('woff');
+}
+
 body {
     margin: 0;
 
-    letter-spacing: 0.35px;
+    // letter-spacing: 0.35px;
 
     font-family: 'Suisse Intl', 'Arial', sans-serif;
 
