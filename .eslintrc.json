@@ -43,7 +43,8 @@
             }
         ],
         "no-nested-ternary": ["warn"],
-        "jsx-a11y/control-has-associated-label": ["warn"]
+        "jsx-a11y/control-has-associated-label": ["warn"],
+        "no-plusplus": ["off"]
     },
     "ignorePatterns": ["node_modules/", "dist/", "dist-storybook/"],
     "overrides": [

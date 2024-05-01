@@ -34,6 +34,8 @@
             margin-bottom: 40px;
 
             .header {
+                margin: 0;
+
                 font-size: 34px;
                 font-weight: 500;
                 line-height: 42.5px;
@@ -104,13 +106,19 @@
             @media screen and (max-width: $maxWidthTablet) {
                 flex-direction: column;
 
-                margin-top: 80px;
+                margin: 80px 0 120px;
 
                 .text {
                     flex-direction: column;
                     gap: 20px;
 
                     padding-top: 10px;
+
+                    .captions {
+                        font-size: 12px;
+                        font-weight: 450;
+                        line-height: 15px;
+                    }
                 }
             }
         }

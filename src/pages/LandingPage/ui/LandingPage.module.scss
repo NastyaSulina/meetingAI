@@ -5,7 +5,7 @@
     width: 100%;
     margin: 0;
 
-    .screen {
+    .section {
         overflow: hidden;
 
         min-height: 500px;
@@ -19,7 +19,7 @@
             box-sizing: border-box;
             max-width: 1020px;
             margin: 0 auto;
-            padding: 80px 50px 70px;
+            padding: 80px 50px 100px;
 
             @media screen and (max-width: $maxWidthTablet) {
                 padding: 70px 20px 50px;
@@ -53,13 +53,86 @@
 }
 
 /* Главный экран */
-.mainScreen {
-    padding-top: 100px !important;
+.mainSection {
+    padding-top: 80px !important;
 
     .buttonContainer {
         margin-top: 285px;
 
         text-align: center;
+
+        @media screen and (max-width: $maxWidthTablet) {
+            margin-top: 335px;
+        }
+    }
+
+    .figures {
+        position: relative;
+
+        transition: 3s ease;
+
+        & div:nth-child(1) {
+            position: absolute;
+            top: 85px;
+            left: 0;
+
+            transform: rotate(20deg);
+        }
+
+        & div:nth-child(2) {
+            position: absolute;
+            top: 10px;
+            left: 210px;
+
+            transform: rotate(340deg);
+        }
+
+        & div:nth-child(3) {
+            position: absolute;
+            top: -30px;
+            right: 0;
+
+            transform: rotate(340deg);
+        }
+
+        .figureText {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            height: 100%;
+            padding: 0 60px;
+
+            text-align: center;
+            vertical-align: inherit;
+
+            font-size: 17px;
+            font-weight: 500;
+            line-height: 17px;
+        }
+
+        @media screen and (max-width: $maxWidthTablet) {
+            & div:nth-child(1) {
+                top: -9px;
+                left: -50px;
+
+                transform: rotate(340deg) scale(0.7);
+            }
+
+            & div:nth-child(2) {
+                top: -19px;
+                left: 64px;
+
+                transform: rotate(15deg) scale(0.7);
+            }
+
+            & div:nth-child(3) {
+                top: 48px;
+                right: -10px;
+
+                transform: rotate(340deg) scale(0.7);
+            }
+        }
     }
 
     .description {
@@ -105,26 +178,19 @@
     .text {
         max-width: 770px;
 
-        letter-spacing: 0.4px;
+        letter-spacing: 0px;
 
         font-size: 32px;
         font-weight: 500;
         line-height: 125%;
 
-        .header {
-            font-size: 32px;
-            font-weight: 500;
-            line-height: 28.8px;
-        }
-
-        .additionalText {
-            font-size: 15px;
-            font-weight: 700;
-            line-height: 18.75px;
+        & span:last-child {
+            margin-top: 10px;
         }
 
         @media screen and (max-width: $maxWidthTablet) {
-            font-size: 24px;
+            font-size: 20px;
+            line-height: 135%;
         }
     }
 }
@@ -139,12 +205,6 @@
         color: var(--Basic-Black);
     }
 
-    .header {
-        font-size: 32px;
-        font-weight: 500;
-        line-height: 40px;
-    }
-
     .text {
         display: flex;
         flex-direction: column;
@@ -152,6 +212,22 @@
         gap: 15px;
 
         max-width: 413px;
+
+        .header {
+            margin: 0;
+
+            font-size: 32px;
+            font-weight: 500;
+            line-height: 28.8px;
+        }
+
+        .additionalText {
+            letter-spacing: -0.2px;
+
+            font-size: 15px;
+            font-weight: 450;
+            line-height: 18.75px;
+        }
 
         & button {
             margin-top: 35px;
@@ -176,16 +252,43 @@
         line-height: 40px;
     }
 
-    .text {
+    .highlightsContainer {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+
         margin-top: 20px;
 
-        letter-spacing: 0.4px;
+        letter-spacing: 0.6px;
 
         font-size: 32px;
         line-height: 125%;
 
         @media screen and (max-width: $maxWidthTablet) {
-            font-size: 24px;
+            font-size: 20px;
+        }
+    }
+
+    .figures {
+        position: relative;
+
+        transition: 3s ease;
+
+        & div {
+            position: absolute;
+            top: -200px;
+            right: -100px;
+
+            transform: rotate(20deg);
+        }
+
+        @media screen and (max-width: $maxWidthTablet) {
+            & div {
+                top: -300px;
+                right: -120px;
+
+                transform: rotate(20deg) scale(0.6);
+            }
         }
     }
 }
@@ -195,6 +298,8 @@
     position: relative;
 
     .header {
+        margin: 0;
+
         font-size: 32px;
         font-weight: 500;
         line-height: 28.8px;
@@ -207,7 +312,7 @@
         align-items: flex-start;
         gap: 8px;
 
-        width: 450px;
+        max-width: 450px;
 
         margin: 20px 0;
 
@@ -215,12 +320,4 @@
         font-weight: 450;
         line-height: 18.75px;
     }
-
-    // .figureContainer {
-    //     position: absolute;
-    //     top: 50px;
-    //     right: -20px;
-
-    //     transform: rotate(30deg);
-    // }
 }

@@ -11,6 +11,7 @@ export const CARDS_LIST = [
         top: 30,
         index: 1,
         transform: 'rotate(-10deg)',
+        originalZIndex: 6,
     },
     {
         title: 'Важные цитаты',
@@ -23,6 +24,7 @@ export const CARDS_LIST = [
         top: 18,
         index: 2,
         transform: 'rotate(0)',
+        originalZIndex: 5,
     },
     {
         title: 'Ключевые слова',
@@ -35,6 +37,7 @@ export const CARDS_LIST = [
         top: 26,
         index: 3,
         transform: 'rotate(10deg)',
+        originalZIndex: 4,
     },
     {
         title: 'Полный текст + видеозапись',
@@ -47,6 +50,7 @@ export const CARDS_LIST = [
         left: 50,
         top: 17,
         transform: 'rotate(0)',
+        originalZIndex: 3,
     },
     {
         title: 'Основная информация',
@@ -59,6 +63,7 @@ export const CARDS_LIST = [
         top: 23,
         index: 5,
         transform: 'rotate(-25deg)',
+        originalZIndex: 2,
     },
     {
         title: 'Zoom-чат',
@@ -71,5 +76,6 @@ export const CARDS_LIST = [
         left: 26,
         top: 13,
         transform: 'rotate(20deg)',
+        originalZIndex: 1,
     },
 ]

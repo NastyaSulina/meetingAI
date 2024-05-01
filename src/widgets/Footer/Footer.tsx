@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react'
+import { Logo, Input, InputType, Button, ButtonType } from '@/shared/ui'
 import styles from './Footer.module.scss'
-import { Logo, Input, InputType, Button, ButtonType } from '../../shared/ui'
 
 type Props = {
     withForm?: boolean

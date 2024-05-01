@@ -15,9 +15,9 @@ interface CardProps {
     index: number
     top?: number
     left?: number
+    originalZIndex: number
 }
 
-// TODO: fix z-index
 const DraggableCard: FC<CardProps> = ({
     title,
     description,
@@ -29,12 +29,13 @@ const DraggableCard: FC<CardProps> = ({
     transform,
     top: initialTop,
     left: initialLeft,
+    originalZIndex,
 }) => {
     const ref = useRef<HTMLDivElement>(null)
     const [isDragging, setIsDragging] = useState(false)
     const [offsetX, setOffsetX] = useState(0)
     const [offsetY, setOffsetY] = useState(0)
-    const [zIndex, setZIndex] = useState(0)
+    const [currentZIndex, setCurrentZIndex] = useState(originalZIndex)
 
     useEffect(() => {
         const handleMouseMove = (e: MouseEvent) => {
@@ -70,13 +71,25 @@ const DraggableCard: FC<CardProps> = ({
 
     const handleMouseDown = (e: React.MouseEvent) => {
         setIsDragging(true)
-        setZIndex(1)
 
         const boundingBox = ref.current?.getBoundingClientRect()
         if (boundingBox) {
             setOffsetX(e.clientX - boundingBox.left)
             setOffsetY(e.clientY - boundingBox.top)
         }
+
+        const cards = document.getElementsByClassName(styles.card)
+
+        let maxIndex = 0
+        for (let i = 0; i < cards.length; i++) {
+            const card = cards[i] as HTMLDivElement
+            if (card !== ref.current) {
+                maxIndex = Math.max(+card.style.zIndex, maxIndex)
+            }
+        }
+
+        ref.current.style.zIndex = (maxIndex + 1).toString()
+        setCurrentZIndex(maxIndex + 1)
     }
 
     return (
@@ -90,7 +103,7 @@ const DraggableCard: FC<CardProps> = ({
                 width: `${width}px`,
                 height: `${height}px`,
                 transform,
-                zIndex,
+                zIndex: currentZIndex,
             }}
             onMouseDown={handleMouseDown}
         >

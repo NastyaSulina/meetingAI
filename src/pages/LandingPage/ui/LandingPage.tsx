@@ -1,6 +1,14 @@
 import React from 'react'
 import cn from 'classnames'
-import { Highlights, HighlightsType, Button, ButtonType, Eye } from '@/shared/ui'
+import {
+    Highlights,
+    HighlightsType,
+    Button,
+    ButtonType,
+    Eye,
+    Figure,
+    FigureType,
+} from '@/shared/ui'
 import { Menu, Footer, CardsWidget } from '@/widgets'
 import Heading from '@/shared/assets/points.png'
 import { downloadApp } from '@/shared/utils'
@@ -19,8 +27,8 @@ export const LandingPage = () => {
 
             {/* Главный баннер */}
 
-            <div className={cn(styles.screen)}>
-                <div className={cn(styles.pointContainer, styles.mainScreen)}>
+            <section className={cn(styles.section)}>
+                <div className={cn(styles.pointContainer, styles.mainSection)}>
                     <span className={styles.description}>
                         Приложение для резюмирования Zoom-встреч
                     </span>
@@ -30,20 +38,47 @@ export const LandingPage = () => {
                             <Eye />
                         </div>
                     </div>
+                    <div className={styles.figures}>
+                        <Figure
+                            figureType={FigureType.CIRCLES}
+                            width={300}
+                            height={160}
+                            fill='var(--Green)'
+                        >
+                            <span className={styles.figureText}>Быстрый обзор ваших встреч</span>
+                        </Figure>
+                        <Figure
+                            figureType={FigureType.ARC}
+                            width={320}
+                            height={160}
+                            fill='var(--Basic-Black)'
+                        />
+                        <Figure
+                            figureType={FigureType.STAR}
+                            width={315}
+                            height={315}
+                            fill='var(--Orange)'
+                        >
+                            <span className={styles.figureText}>
+                                Экономьте время, не пропуская важное
+                            </span>
+                        </Figure>
+                    </div>
                     <div className={styles.buttonContainer}>
                         <Button
                             text='Скачать для Zoom Desktop'
                             buttonType={ButtonType.black}
                             ariaLabel=''
                             onClick={downloadApp}
+                            isAnimated
                         />
                     </div>
                 </div>
-            </div>
+            </section>
 
             {/* Первый экран: Point 01 */}
 
-            <div className={cn(styles.screen, styles.isBlack)}>
+            <section className={cn(styles.section, styles.isBlack)}>
                 <div className={cn(styles.pointContainer, styles.pointFirst)} data-aos='fade-in'>
                     <div className={styles.numbering}>→ POINT 01</div>
                     <div className={styles.text}>
@@ -62,11 +97,11 @@ export const LandingPage = () => {
                         />
                     </div>
                 </div>
-            </div>
+            </section>
 
             {/* Второй экран: Point 02 */}
 
-            <div id='pointSecond' className={styles.screen}>
+            <section id='purpose' data-test-id='purpose' className={styles.section}>
                 <div className={cn(styles.pointContainer, styles.pointSecond)} data-aos='slide-up'>
                     <div className={styles.numbering}>→ POINT 02</div>
                     <div className={styles.text}>
@@ -80,18 +115,19 @@ export const LandingPage = () => {
                             buttonType={ButtonType.black}
                             text='Попробовать'
                             onClick={downloadApp}
+                            isAnimated
                         />
                     </div>
                 </div>
-            </div>
+            </section>
 
             {/* Третий экран: Point 03 */}
 
-            <div className={cn(styles.screen, styles.isGray)}>
+            <section className={cn(styles.section, styles.isGray)}>
                 <div className={cn(styles.pointContainer, styles.pointThird)}>
                     <div className={styles.numbering}>→ POINT 03</div>
                     <h2 className={styles.header}>Points поможет с:</h2>
-                    <div className={styles.text} data-aos='slide-right'>
+                    <div className={styles.highlightsContainer} data-aos='slide-right'>
                         <Highlights
                             withArrow
                             highlightsType={HighlightsType.gradientFill}
@@ -113,12 +149,21 @@ export const LandingPage = () => {
                             text='личными звонками'
                         />
                     </div>
+
+                    <div className={styles.figures}>
+                        <Figure
+                            figureType={FigureType.ARC}
+                            width={320}
+                            height={160}
+                            fill='var(--Basic-Black)'
+                        />
+                    </div>
                 </div>
-            </div>
+            </section>
 
             {/* Четвертый экран: Point 04 */}
 
-            <div id='pointFourth' className={styles.screen}>
+            <section id='cards' data-test-id='cards' className={styles.section}>
                 <div className={cn(styles.pointContainer, styles.pointFourth)}>
                     <div className={styles.numbering}>→ POINT 04</div>
                     <h2 className={styles.header}>Итоги встречи</h2>
@@ -131,7 +176,7 @@ export const LandingPage = () => {
                         <CardsWidget />
                     </div>
                 </div>
-            </div>
+            </section>
 
             <Footer withForm />
         </div>
