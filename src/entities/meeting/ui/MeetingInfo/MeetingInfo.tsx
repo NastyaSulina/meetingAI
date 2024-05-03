@@ -22,23 +22,25 @@ export const MeetingInfo: FC<MeetingInfoType> = ({ date, duration, participants 
     return (
         <div className={styles.root}>
             {INFORMATION_ITEMS.map((item) => (
-                <div className={styles.infoWrapper}>
-                    <span className={styles.subtitle}>{item.subtitle}</span>
+                <div className={styles.infoWrapper} key={item.subtitle}>
+                    {!!item.info && [
+                        <span className={styles.subtitle}>{item.subtitle}</span>,
 
-                    {Array.isArray(item.info) ? (
-                        <span className={styles.participants}>
-                            {item.info.map((participant, key) => (
-                                <Highlights
-                                    key={key}
-                                    highlightsType={HighlightsType.stroke}
-                                    highlightsSize={HighlightsSize.little}
-                                    text={participant}
-                                />
-                            ))}
-                        </span>
-                    ) : (
-                        <span className={styles.info}>{item.info}</span>
-                    )}
+                        Array.isArray(item.info) ? (
+                            <span className={styles.participants}>
+                                {item.info.map((participant, key) => (
+                                    <Highlights
+                                        key={key}
+                                        highlightsType={HighlightsType.stroke}
+                                        highlightsSize={HighlightsSize.little}
+                                        text={participant}
+                                    />
+                                ))}
+                            </span>
+                        ) : (
+                            <span className={styles.info}>{item.info}</span>
+                        ),
+                    ]}
                 </div>
             ))}
         </div>

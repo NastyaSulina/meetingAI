@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useAppSelector } from '@/app/appStore'
-import KeyWords from '@/entities/meeting/ui/KeyWords'
+import { KeyWords, KeyWordsSkeleton } from '@/entities/meeting/ui/KeyWords'
 import MeetingInfo from '@/entities/meeting/ui/MeetingInfo'
 import { fetchMeeting } from '@/entities/meeting/api/fetchMeeting'
 import { Summary, Menu, Video, Footer } from '@/widgets'
 import { Button, ButtonType } from '@/shared/ui'
-import Quotes from '@/entities/meeting/ui/Quotes'
+import { Quotes, QuotesSkeleton } from '@/entities/meeting/ui/Quotes'
 import { transformMeetingData } from '@/entities/meeting/model/transform'
 import { setMeeting } from '@/entities/meeting/model/slice'
 import { useDispatch } from 'react-redux'
@@ -24,7 +24,7 @@ export const SummaryPage = () => {
             return response
         }
 
-        // fetchData().then((response) => dispatch(setMeeting(transformMeetingData(response))))
+        fetchData().then((response) => dispatch(setMeeting(transformMeetingData(response))))
     }, [id])
 
     const meeting = useAppSelector((state) => state.meeting)
@@ -37,7 +37,7 @@ export const SummaryPage = () => {
             <div className={styles.content}>
                 <h1 className={styles.title}>Итоги встречи</h1>
 
-                <KeyWords keyWords={keyWords} />
+                {quotes.length === 0 ? <KeyWordsSkeleton /> : <KeyWords keyWords={keyWords} />}
 
                 <div className={styles.wrapper}>
                     <MeetingInfo participants={participants} date={date} duration={duration} />
@@ -56,7 +56,7 @@ export const SummaryPage = () => {
                 <div className={styles.content}>
                     <div className={styles.wrapper}>
                         <Summary userText={summary.userText} originalText={summary.originalText} />
-                        <Quotes quotes={quotes} />
+                        {quotes.length === 0 ? <QuotesSkeleton /> : <Quotes quotes={quotes} />}
                     </div>
                 </div>
             </div>

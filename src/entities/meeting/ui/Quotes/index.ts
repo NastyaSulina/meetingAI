@@ -1,3 +1,2 @@
-import { Quotes } from './Quotes'
-
-export default Quotes
+export { Quotes } from './Quotes'
+export { QuotesSkeleton } from './QuotesSkeleton'

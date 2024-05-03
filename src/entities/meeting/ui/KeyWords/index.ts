@@ -1,3 +1,2 @@
-import { KeyWords } from './KeyWords'
-
-export default KeyWords
+export { KeyWords } from './KeyWords'
+export { KeyWordsSkeleton } from './KeyWordsSkeleton'
