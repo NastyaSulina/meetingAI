@@ -17,6 +17,7 @@ export interface State {
     description: string
     title: string
     done: boolean
+    videoLink: string
 }
 
 const initialState: State = {
@@ -34,6 +35,7 @@ const initialState: State = {
     description: '',
     title: '',
     done: false,
+    videoLink: '',
 }
 
 export const meetingSlice = createSlice({
@@ -61,6 +63,7 @@ export const meetingSlice = createSlice({
             state.description = action.payload.description
             state.title = action.payload.title
             state.done = action.payload.done
+            state.videoLink = action.payload.videoLink
         },
     },
 })

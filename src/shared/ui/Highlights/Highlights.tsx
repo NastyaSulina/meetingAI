@@ -14,6 +14,7 @@ export enum HighlightsType {
     stroke = 'stroke',
     greenFill = 'greenFill',
     gradientFill = 'gradientFill',
+    orangeFill = 'orangeFill',
 }
 
 export enum HighlightsSize {

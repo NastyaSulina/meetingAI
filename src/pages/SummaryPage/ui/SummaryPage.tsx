@@ -31,6 +31,7 @@ export const SummaryPage = () => {
         title,
         description,
         done,
+        videoLink,
     } = meeting
 
     // TODO: вынести в middleware?
@@ -53,7 +54,7 @@ export const SummaryPage = () => {
                         timeoutId = null
                     }
                 } else {
-                    // navigate('/error')
+                    navigate('/error')
                 }
             } catch (error) {
                 console.error('Error fetching meeting:', error)
@@ -89,7 +90,7 @@ export const SummaryPage = () => {
                         description={description}
                     />
                     <div className={styles.videoContainer}>
-                        <Video />
+                        <Video videoLink={videoLink} />
                         <Button
                             buttonType={ButtonType.black}
                             text='Скачать видео'
@@ -99,7 +100,7 @@ export const SummaryPage = () => {
                 </div>
             </div>
 
-            <div className={styles.grayScreen}>
+            <div className={styles.grayScreen} data-aos='fade-in'>
                 <div className={styles.content}>
                     <div className={styles.wrapper}>
                         {summary.generatedText ? (
@@ -118,9 +119,7 @@ export const SummaryPage = () => {
             <DropDown header='Полная текстовая расшифровка' number={3}>
                 {transcript ? <Transcript transcript={transcript} /> : <TranscriptSkeleton />}
             </DropDown>
-            <DropDown header='Zoom-чат (Демоверсия)' number={4}>
-                <></>
-            </DropDown>
+            <DropDown header='Zoom-чат (В разработке)' number={4} />
 
             <Footer />
         </div>

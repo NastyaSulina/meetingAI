@@ -4,7 +4,7 @@ import styles from './DropDown.module.scss'
 
 type Props = {
     header: string
-    children: ReactNode
+    children?: ReactNode
     number: number
 }
 
@@ -17,7 +17,7 @@ export const DropDown: FC<Props> = ({ header, children = '', number }) => {
 
     return (
         <div className={cn(styles.root)} onClick={toggleDropdown}>
-            <div className={styles.wrapper}>
+            <div className={styles.wrapper} data-aos='slide-right'>
                 <div className={cn(styles.top)}>
                     <div className={cn(styles.number)}>{`→ 0${number}`}</div>
                     <div className={cn(styles.header)}>{header}</div>

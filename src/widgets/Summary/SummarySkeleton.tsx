@@ -1,16 +1,17 @@
 import React, { FC } from 'react'
 import styles from './Summary.module.scss'
 import { Skeleton } from '@/shared/ui/Skeleton'
-
+// TODO: поправить скелетон
 export const SummarySkeleton: FC = () => {
     return (
         <div className={styles.root}>
             <div className={styles.form}>
                 <div className={styles.formHeader}>
                     <h2 className={styles.header}>Резюме</h2>
+
                     <div className={styles.buttonGroup}>
-                        {[...Array(3)].map(() => (
-                            <Skeleton width={30} height={30} radius={50} isDark />
+                        {[...Array(3)].map((_, key) => (
+                            <Skeleton width={30} height={30} radius={50} isDark key={key} />
                         ))}
                     </div>
                 </div>

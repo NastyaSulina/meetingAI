@@ -1,14 +1,10 @@
 import React, { FC } from 'react'
-import { Player } from 'video-react'
 import styles from './Video.module.scss'
 
-export const Video: FC = () => {
+export const Video: FC<{ videoLink: string }> = ({ videoLink }) => {
     return (
         <div className={styles.root}>
-            <Player>
-                {/* <Player poster='/assets/poster.png'> */}
-                {/* <source src='' /> */}
-            </Player>
+            <video src={videoLink} controls />
         </div>
     )
 }

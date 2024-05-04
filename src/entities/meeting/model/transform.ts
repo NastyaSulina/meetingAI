@@ -14,6 +14,7 @@ export function transformMeetingData(data: any) {
         title,
         description,
         done,
+        videoLink,
     } = data ?? {}
 
     return {
@@ -31,5 +32,6 @@ export function transformMeetingData(data: any) {
         title: title || '',
         description: description || '',
         done: Boolean(done),
+        videoLink: videoLink || '',
     }
 }
