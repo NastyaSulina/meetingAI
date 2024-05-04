@@ -1,22 +1,35 @@
-import { getDateDefaultFromJSDate } from '@/shared/utils/dateFormatter'
+import { getDateDefaultFromJSDate, getTimeDefaultFromISO } from '@/shared/utils/dateFormatter'
 
 export function transformMeetingData(data: any) {
-    const { duration, id, keyWords, participants, transcript, summary, quotes, createdAt } =
-        data ?? {}
+    const {
+        duration,
+        id,
+        keyWords,
+        participants,
+        transcript,
+        summary,
+        customSummary,
+        quotes,
+        createdAt,
+        title,
+        description,
+        done,
+    } = data ?? {}
 
     return {
         id,
         keyWords: keyWords || [],
-        date: createdAt
-            ? getDateDefaultFromJSDate(new Date(createdAt))
-            : getDateDefaultFromJSDate(),
-        duration: duration || 'N мин',
-        participants: participants || ['Аноним'],
+        date: createdAt ? getDateDefaultFromJSDate(new Date(createdAt)) : '', // TODO: заменить на поле startTime
+        duration: duration ? getTimeDefaultFromISO(duration) : '',
+        participants: participants || [],
         summary: {
-            originalText: summary || '',
-            userText: summary || '',
+            generatedText: summary || '',
+            userText: customSummary || '',
         },
         quotes: quotes || [],
         transcript: transcript || '',
+        title: title || '',
+        description: description || '',
+        done: Boolean(done),
     }
 }

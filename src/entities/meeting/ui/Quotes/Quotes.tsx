@@ -9,6 +9,7 @@ export const Quotes: FC<{ quotes: QuotesType }> = ({ quotes }) => {
             {quotes.map((quote, index) => (
                 <div className={styles.card} key={index}>
                     <span className={styles.text}>{quote}</span>
+                    <div className={styles.number}>{`Цитата ${index + 1}`}</div>
                 </div>
             ))}
         </div>

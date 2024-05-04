@@ -1,27 +1,49 @@
+@import '../../app/variables';
+
 .root {
+    position: relative;
+
     width: 100%;
-    max-width: 443px;
+    max-width: 100%;
 
-    .formHeader {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-
-        width: 100%;
-        margin-bottom: 10px;
-
-        .header {
-            font-family: Suisse Intl;
-            font-size: 32px;
-            font-weight: 500;
-            line-height: 40px;
-        }
-
-        .buttonGroup {
+    .form {
+        margin-bottom: 20px;
+        .formHeader {
             display: flex;
             flex-direction: row;
-            gap: 5px;
+            justify-content: space-between;
+            align-items: center;
+
+            width: 100%;
+            margin-bottom: 10px;
+
+            .header {
+                margin: 10px 0;
+
+                font-family: Suisse Intl;
+                font-size: 32px;
+                font-weight: 500;
+                line-height: 40px;
+
+                @media screen and (max-width: $maxWidthTablet) {
+                    font-size: 24px;
+                    line-height: 21.6px;
+                }
+            }
+
+            .buttonGroup {
+                display: flex;
+                flex-direction: row;
+                gap: 5px;
+            }
         }
     }
+
+    .submitButton {
+        position: absolute;
+    }
+
+    // @media screen and (max-width: $maxWidthTablet) {
+    //     max-width: 100%;
+    // }
 }

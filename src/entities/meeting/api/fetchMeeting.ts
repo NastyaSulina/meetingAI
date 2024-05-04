@@ -12,3 +12,22 @@ export const fetchMeeting = async (id: string) =>
         .catch((err) => {
             console.log('Error in fetch', err)
         })
+
+export const mutateUserSummary = async (id: string, userText: string | null) =>
+    await fetch(`https://points-app.ru:8002/api/meeting/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-type': 'application/json',
+        },
+        body: JSON.stringify({
+            id: id,
+            customSummary: userText,
+        }),
+    })
+        .then((result) => {
+            console.log('Error !!!!!!', result)
+            return result.json()
+        })
+        .catch((err) => {
+            console.log('Error in fetch', err)
+        })

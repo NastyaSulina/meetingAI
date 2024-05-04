@@ -28,6 +28,16 @@
 
 @font-face {
     font-family: 'Suisse Intl';
+    font-weight: 300;
+    font-style: normal;
+    src:
+        local('Suisse Intl'),
+        url('/src/app/fonts/SuisseIntl-Light.woff2') format('woff2'),
+        url('/src/app/fonts/SuisseIntl-Light.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Suisse Intl';
     font-weight: 400;
     font-style: normal;
     src:
@@ -48,12 +58,22 @@
 
 @font-face {
     font-family: 'Suisse Intl';
-    font-weight: 700;
+    font-weight: 600;
     font-style: normal;
     src:
         local('Suisse Intl'),
         url('/src/app/fonts/SuisseIntl-SemiBold.woff2') format('woff2'),
-        url('/src/app/fonts/SuisseIntl-Medium.woff') format('woff');
+        url('/src/app/fonts/SuisseIntl-SemiBold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Suisse Intl';
+    font-weight: 700;
+    font-style: normal;
+    src:
+        local('Suisse Intl'),
+        url('/src/app/fonts/SuisseIntl-Bold.woff2') format('woff2'),
+        url('/src/app/fonts/SuisseIntl-Bold.woff') format('woff');
 }
 
 body {

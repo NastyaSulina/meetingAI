@@ -6,7 +6,11 @@
     flex-wrap: wrap;
     gap: 10px;
 
+    width: 100%;
+
     .header {
+        margin: 10px 0;
+
         font-size: 32px;
         font-weight: 500;
         line-height: 40px;
@@ -14,7 +18,7 @@
 
     .card {
         box-sizing: border-box;
-        max-width: 445px;
+        // max-width: 445px;
         height: fit-content;
         padding: 20px 40px;
 
@@ -26,6 +30,14 @@
             font-size: 17px;
             font-weight: 500;
             line-height: 17px;
+        }
+
+        .number {
+            margin-top: 8px;
+
+            font-size: 10px;
+            font-weight: 400;
+            line-height: 12.5px;
         }
     }
 

@@ -18,7 +18,7 @@
         margin: 60px auto 0;
         padding: 0 50px 70px;
 
-        .title {
+        .pageTitle {
             margin: 10px 0 0;
 
             text-align: left;
@@ -28,6 +28,13 @@
             font-size: 72px;
             font-weight: 700;
             line-height: 58px;
+        }
+
+        .meetingTitle {
+            margin: -10px 0;
+
+            font-size: 24px;
+            font-weight: 500;
         }
 
         .wrapper {
@@ -56,12 +63,13 @@
             margin: 26px auto 0;
             padding: 20px;
 
-            .title {
+            .pageTitle {
                 font-size: 55px;
                 line-height: 44px;
             }
             .wrapper {
                 flex-direction: column;
+                gap: 60px;
             }
         }
     }

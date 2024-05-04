@@ -1,0 +1,65 @@
+@import '../../../app/variables';
+
+.root {
+    width: 100%;
+
+    border-bottom: 1px solid var(--Basic-Black);
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 1020px;
+        margin: 0 auto;
+        padding: 0 28px;
+    }
+
+    .top {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+
+        height: 96px;
+
+        .header {
+            font-size: 32px;
+            font-weight: 500;
+            line-height: 40px;
+
+            @media screen and (max-width: $maxWidthTablet) {
+                font-size: 24px;
+                line-height: 21.6px;
+            }
+        }
+    }
+
+    .content {
+        overflow: hidden;
+
+        height: 0;
+        padding: 0 22px;
+
+        transition: height 0.3s ease;
+    }
+
+    .open {
+        height: auto;
+        padding-bottom: 40px;
+    }
+
+    @media screen and (max-width: $maxWidthTablet) {
+        .wrapper {
+            padding: 0 20px;
+        }
+
+        .content {
+            padding: 0;
+        }
+
+        .open {
+            padding-bottom: 40px;
+        }
+    }
+}

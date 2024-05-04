@@ -3,7 +3,7 @@ import { Highlights, HighlightsType, HighlightsSize } from '@/shared/ui'
 import { MeetingInfo as MeetingInfoType } from '../../model/types'
 import styles from './MeetingInfo.module.scss'
 
-export const MeetingInfo: FC<MeetingInfoType> = ({ date, duration, participants }) => {
+export const MeetingInfo: FC<MeetingInfoType> = ({ date, duration, participants, description }) => {
     const INFORMATION_ITEMS = [
         {
             subtitle: '→ Дата встречи',
@@ -13,36 +13,39 @@ export const MeetingInfo: FC<MeetingInfoType> = ({ date, duration, participants 
             subtitle: '→ Длительность встречи',
             info: duration,
         },
-        {
-            subtitle: '→ Участники',
-            info: participants,
-        },
     ]
 
     return (
         <div className={styles.root}>
-            {INFORMATION_ITEMS.map((item) => (
-                <div className={styles.infoWrapper} key={item.subtitle}>
-                    {!!item.info && [
-                        <span className={styles.subtitle}>{item.subtitle}</span>,
+            {INFORMATION_ITEMS.map((item) => {
+                return item.info ? (
+                    <div className={styles.infoWrapper} key={item.subtitle}>
+                        <span className={styles.subtitle}>{item.subtitle}</span>
+                        <span className={styles.info}>{item.info}</span>
+                    </div>
+                ) : null
+            })}
 
-                        Array.isArray(item.info) ? (
-                            <span className={styles.participants}>
-                                {item.info.map((participant, key) => (
-                                    <Highlights
-                                        key={key}
-                                        highlightsType={HighlightsType.stroke}
-                                        highlightsSize={HighlightsSize.little}
-                                        text={participant}
-                                    />
-                                ))}
-                            </span>
-                        ) : (
-                            <span className={styles.info}>{item.info}</span>
-                        ),
-                    ]}
+            {description && (
+                <div className={styles.infoWrapper}>
+                    <span className={styles.subtitle}>{'→ Краткое описание'}</span>
+                    <span className={styles.infoDescription}>{description}</span>
                 </div>
-            ))}
+            )}
+
+            <div className={styles.infoWrapper}>
+                {participants.length !== 0 && [
+                    <span className={styles.subtitle}>{'→ Участники'}</span>,
+                    participants.map((participant, key) => (
+                        <Highlights
+                            key={key}
+                            highlightsType={HighlightsType.stroke}
+                            highlightsSize={HighlightsSize.little}
+                            text={participant}
+                        />
+                    )),
+                ]}
+            </div>
         </div>
     )
 }
