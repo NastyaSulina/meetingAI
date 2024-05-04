@@ -5,6 +5,7 @@ import { KeyWords, KeyWordsSkeleton } from '@/entities/meeting/ui/KeyWords'
 import MeetingInfo from '@/entities/meeting/ui/MeetingInfo'
 import { fetchMeeting } from '@/entities/meeting/api/fetchMeeting'
 import { Summary, Menu, Video, Footer, Transcript } from '@/widgets'
+import cn from 'classnames'
 import { DropDown } from '@/shared/ui'
 import { Quotes, QuotesSkeleton } from '@/entities/meeting/ui/Quotes'
 import { transformMeetingData } from '@/entities/meeting/model/transform'
@@ -76,7 +77,9 @@ export const SummaryPage = () => {
             <Menu />
 
             <div className={styles.content}>
-                <h1 className={styles.pageTitle}>{done ? 'Итоги встречи:' : 'Загрузка...'}</h1>
+                <h1 className={cn(styles.pageTitle, !done && styles.loading)}>
+                    {done ? 'Итоги встречи:' : 'Загрузка...'}
+                </h1>
                 <h2 className={styles.meetingTitle}>
                     {title || <Skeleton width={300} height={27.5} />}
                 </h2>
