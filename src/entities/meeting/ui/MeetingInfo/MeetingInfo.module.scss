@@ -6,7 +6,7 @@
     gap: 28px;
 
     box-sizing: border-box;
-    width: 100%;
+    width: 50%;
 
     min-width: 287px;
     min-height: 450px;
@@ -50,6 +50,7 @@
     }
 
     @media screen and (max-width: $maxWidthTablet) {
+        width: 100%;
         max-width: 100%;
         min-height: 166px;
 

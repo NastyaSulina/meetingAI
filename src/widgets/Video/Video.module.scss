@@ -1,11 +1,14 @@
-.wrapper {
-    position: relative;
+.root {
+    .movie {
+        display: block;
 
-    padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
-}
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        // max-width: 600px;
+    }
 
-.player {
-    position: absolute;
-    top: 0;
-    left: 0;
+    .buttonContainer {
+        margin-top: 20px;
+    }
 }

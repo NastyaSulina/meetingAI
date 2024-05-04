@@ -23,7 +23,7 @@ import styles from './LandingPage.module.scss'
 export const LandingPage = () => {
     return (
         <div className={styles.root}>
-            <Menu />
+            <Menu withLinks />
 
             {/* Главный баннер */}
 

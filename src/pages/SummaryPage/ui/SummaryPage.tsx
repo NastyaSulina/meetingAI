@@ -5,15 +5,16 @@ import { KeyWords, KeyWordsSkeleton } from '@/entities/meeting/ui/KeyWords'
 import MeetingInfo from '@/entities/meeting/ui/MeetingInfo'
 import { fetchMeeting } from '@/entities/meeting/api/fetchMeeting'
 import { Summary, Menu, Video, Footer, Transcript } from '@/widgets'
-import { Button, ButtonType, DropDown } from '@/shared/ui'
+import { DropDown } from '@/shared/ui'
 import { Quotes, QuotesSkeleton } from '@/entities/meeting/ui/Quotes'
 import { transformMeetingData } from '@/entities/meeting/model/transform'
 import { setMeeting } from '@/entities/meeting/model/slice'
 import { useDispatch } from 'react-redux'
-import styles from './SummaryPage.module.scss'
 import { SummarySkeleton } from '@/widgets/Summary'
 import { Skeleton } from '@/shared/ui/Skeleton'
 import { TranscriptSkeleton } from '@/widgets/Transcript'
+import { VideoSkeleton } from '@/widgets/Video'
+import styles from './SummaryPage.module.scss'
 
 export const SummaryPage = () => {
     const { id } = useParams()
@@ -75,9 +76,9 @@ export const SummaryPage = () => {
             <Menu />
 
             <div className={styles.content}>
-                <h1 className={styles.pageTitle}>Итоги встречи:</h1>
+                <h1 className={styles.pageTitle}>{done ? 'Итоги встречи:' : 'Загрузка...'}</h1>
                 <h2 className={styles.meetingTitle}>
-                    {title ? title : <Skeleton width={300} height={27.5} />}
+                    {title || <Skeleton width={300} height={27.5} />}
                 </h2>
 
                 {quotes.length === 0 ? <KeyWordsSkeleton /> : <KeyWords keyWords={keyWords} />}
@@ -90,12 +91,7 @@ export const SummaryPage = () => {
                         description={description}
                     />
                     <div className={styles.videoContainer}>
-                        <Video videoLink={videoLink} />
-                        <Button
-                            buttonType={ButtonType.black}
-                            text='Скачать видео'
-                            onClick={() => {}}
-                        />
+                        {videoLink ? <Video videoLink={videoLink} /> : <VideoSkeleton />}
                     </div>
                 </div>
             </div>

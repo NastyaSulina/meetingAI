@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
-import styles from './Summary.module.scss'
 import { Skeleton } from '@/shared/ui/Skeleton'
+import styles from './Summary.module.scss'
 // TODO: поправить скелетон
 export const SummarySkeleton: FC = () => {
     return (
@@ -16,7 +16,7 @@ export const SummarySkeleton: FC = () => {
                     </div>
                 </div>
 
-                <Skeleton width={443} height={464} isDark />
+                <Skeleton height={464} isDark isFullScreen />
             </div>
         </div>
     )
