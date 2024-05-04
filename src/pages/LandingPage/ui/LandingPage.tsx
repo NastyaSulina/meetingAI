@@ -29,9 +29,7 @@ export const LandingPage = () => {
 
             <section className={cn(styles.section)}>
                 <div className={cn(styles.pointContainer, styles.mainSection)}>
-                    <span className={styles.description}>
-                        Приложение для резюмирования Zoom-встреч
-                    </span>
+                    <h1 className={styles.description}>Приложение для резюмирования Zoom-встреч</h1>
                     <div className={styles.headerContainer}>
                         <img className={styles.heading} src={Heading} alt='' />
                         <div className={styles.eye}>

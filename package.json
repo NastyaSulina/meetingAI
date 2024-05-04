@@ -12,8 +12,8 @@
         "lint:write": "eslint 'src/**/*.{js,jsx,ts,tsx}' --fix",
         "style:lint": "stylelint \"**/*.{css,scss}\"",
         "style:fix": "stylelint \"**/*.{css,scss}\" --fix",
-        "test": "npm run selenium:start && npm start && testplane --set all",
-        "selenium:start": "npx selenium-standalone install && npx selenium-standalone start",
+        "test": "testplane --set all",
+        "selenium:start": "npx selenium-standalone start",
         "prettier:write": "prettier --write 'src/**/*.{js,jsx,ts,tsx,scss}'",
         "storybook": "storybook dev -p 6006",
         "build-storybook": "storybook build -o dist-storybook"

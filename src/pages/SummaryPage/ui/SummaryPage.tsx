@@ -56,7 +56,7 @@ export const SummaryPage = () => {
                         timeoutId = null
                     }
                 } else {
-                    navigate('/error')
+                    // navigate('/error')
                 }
             } catch (error) {
                 console.error('Error fetching meeting:', error)
