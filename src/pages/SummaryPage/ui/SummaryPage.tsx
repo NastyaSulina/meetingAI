@@ -21,20 +21,6 @@ export const SummaryPage = () => {
     const { id } = useParams()
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const meeting = useAppSelector((state) => state.meeting)
-    const {
-        keyWords,
-        participants,
-        date,
-        duration,
-        summary,
-        quotes,
-        transcript,
-        title,
-        description,
-        done,
-        videoLink,
-    } = meeting
 
     // TODO: вынести в middleware?
     useEffect(() => {
@@ -44,12 +30,13 @@ export const SummaryPage = () => {
             try {
                 const response = await fetchMeeting(id)
                 console.log('Ответ от сервера:', response)
-                console.log('Done', done)
+                console.log('Done', response.done)
 
-                if (response) {
+                if (Boolean(response)) {
                     dispatch(setMeeting(transformMeetingData(response)))
 
                     if (!response.done) {
+                        console.log('Сработало условие', response.done)
                         timeoutId = setTimeout(fetchAndProcessMeeting, 10000)
                     } else {
                         clearTimeout(timeoutId)
@@ -70,7 +57,22 @@ export const SummaryPage = () => {
                 clearTimeout(timeoutId)
             }
         }
-    }, [id, done])
+    }, [])
+
+    const meeting = useAppSelector((state) => state.meeting)
+    const {
+        keyWords,
+        participants,
+        date,
+        duration,
+        summary,
+        quotes,
+        transcript,
+        title,
+        description,
+        done,
+        videoLink,
+    } = meeting
 
     return (
         <div className={styles.root}>

@@ -1,6 +1,6 @@
 import React, { FC, useState, useEffect, useRef } from 'react'
 
-export const Eye: FC<{ scale?: number }> = ({ scale }) => {
+export const Eye: FC<{ scale?: number }> = ({ scale = 1 }) => {
     const [leftEyePosition, setLeftEyePosition] = useState({ x: 12, y: 15 })
     const [rightEyePosition, setRightEyePosition] = useState({ x: 30, y: 15 })
 

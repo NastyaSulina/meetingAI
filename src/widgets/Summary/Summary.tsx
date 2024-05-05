@@ -47,7 +47,7 @@ export const Summary: FC<SummaryType> = ({ userText, generatedText }) => {
     }
 
     return (
-        <div className={styles.root}>
+        <div className={styles.root} data-test-id='summary'>
             <form className={styles.form} onSubmit={handleFormSubmit}>
                 <div className={styles.formHeader}>
                     <h2 className={styles.header}>Резюме</h2>

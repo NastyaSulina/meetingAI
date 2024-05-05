@@ -7,14 +7,37 @@ describe('Лендинг', () => {
     })
 
     it('На странице есть футер', async ({ browser }) => {
-        const footer = await browser.$('[data-test-id="footer"]')
-
-        assert.isTrue(await footer.isDisplayed())
+        const $footer = await browser.$('[data-test-id="footer"]')
+        await expect($footer).toBeDisplayed()
     })
 
     it('На странице есть меню', async ({ browser }) => {
-        const menu = await browser.$('[data-test-id="menu"]')
+        const $menu = await browser.$('[data-test-id="menu"]')
+        await expect($menu).toBeDisplayed()
+    })
 
-        assert.isTrue(await menu.isDisplayed())
+    it('Заполняются поля формы', async ({ browser }) => {
+        await browser.scroll(0, 4000)
+
+        const $footer = await browser.$('[data-test-id="footer"]')
+
+        const $nameInput = await $footer.$('[name="test1"]')
+        const $emailInput = await $footer.$('[name="test2"]')
+        const $messageInput = await $footer.$('[name="test3"]')
+        const $submitButton = await $footer.$('[type="button"]')
+
+        await browser.pause(2000)
+
+        await $nameInput.setValue('John Doe')
+        await $emailInput.setValue('johndoe@example.com')
+        await $messageInput.setValue('Hello, world!')
+
+        await browser.pause(1000)
+
+        expect(await $nameInput.getProperty('value')).toEqual('John Doe')
+        expect(await $emailInput.getProperty('value')).toEqual('johndoe@example.com')
+        expect(await $messageInput.getProperty('value')).toEqual('Hello, world!')
+
+        await $submitButton.click()
     })
 })
