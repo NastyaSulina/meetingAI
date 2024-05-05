@@ -7,11 +7,16 @@ const meta = {
     parameters: {
         layout: 'centered',
     },
+    argTypes: {
+        scale: { control: { type: 'range', min: 0, max: 3, step: 0.1 } },
+    },
 } satisfies Meta<typeof Eye>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const AnimatedEye: Story = {
-    args: {},
+    args: {
+        scale: 1,
+    },
 }

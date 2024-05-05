@@ -8,12 +8,10 @@
 
 .arc {
     mask-image: url('./_assets/arc.svg');
+}
 
-    transition: 0.5s ease-out;
-
-    &:hover {
-        // animation: arc-shaking 0.5s infinite;
-    }
+.circles {
+    mask-image: url('./_assets/circles.svg');
 }
 
 .star {
@@ -22,12 +20,9 @@
     transition: 0.3s ease-out;
 
     &:hover {
+        // Пока не поняла, нужна ли анимация вообще
         // animation: star-shaking 0.5s infinite;
     }
-}
-
-.circles {
-    mask-image: url('./_assets/circles.svg');
 }
 
 @keyframes star-shaking {
@@ -39,23 +34,5 @@
     }
     100% {
         transform: rotate(0deg);
-    }
-}
-
-@keyframes arc-shaking {
-    0% {
-        transform: skewX(2deg);
-    }
-    25% {
-        transform: skewX(-2deg);
-    }
-    50% {
-        transform: skewX(2deg);
-    }
-    75% {
-        transform: skewX(-2deg);
-    }
-    100% {
-        transform: skewX(0deg);
     }
 }

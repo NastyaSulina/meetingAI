@@ -33,7 +33,7 @@
 
             font-family: var(--Font-Family-Basic);
             font-size: 15px;
-            font-weight: 450;
+            font-weight: 400;
             line-height: 19px;
 
             color: var(--Basic-White);
@@ -89,6 +89,10 @@
 .isWhite {
     .label {
         color: var(--Basic-Black);
+
+        & span {
+            color: var(--Basic-Black);
+        }
 
         & input,
         & textarea {

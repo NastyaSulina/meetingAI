@@ -23,6 +23,9 @@ const meta = {
             control: 'select',
             options: ButtonType,
         },
+        isAnimated: {
+            control: 'boolean',
+        },
     },
     // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
     args: { onClick: fn() },
@@ -36,6 +39,15 @@ export const Black: Story = {
         text: 'Скачать для Zoom Desktop',
         ariaLabel: 'Скачать для Zoom Desktop',
         buttonType: ButtonType.black,
+    },
+}
+
+export const Animated: Story = {
+    args: {
+        text: 'Скачать для Zoom Desktop',
+        ariaLabel: 'Скачать для Zoom Desktop',
+        buttonType: ButtonType.black,
+        isAnimated: true,
     },
 }
 

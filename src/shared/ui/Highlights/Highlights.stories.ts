@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Highlights, HighlightsType } from './Highlights'
+import { Highlights, HighlightsType, HighlightsSize } from './Highlights'
 
 const meta = {
     title: 'Components/Highlights',
@@ -22,35 +22,40 @@ const meta = {
             control: 'select',
             options: HighlightsType,
         },
+        highlightsSize: {
+            control: 'select',
+            options: HighlightsSize,
+        },
     },
 } satisfies Meta<typeof Highlights>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const GreenFill: Story = {
+export const LittleSize: Story = {
     args: {
-        text: 'справиться с этой проблемой',
+        text: 'профессиональное образование',
         isTextColorLight: false,
-        highlightsType: HighlightsType.greenFill,
         withArrow: false,
+        highlightsType: HighlightsType.orangeFill,
+        highlightsSize: HighlightsSize.little,
     },
 }
 
+export const DefaultSize: Story = {
+    args: {
+        text: 'искусство',
+        isTextColorLight: false,
+        withArrow: false,
+        highlightsType: HighlightsType.greenFill,
+        highlightsSize: HighlightsSize.default,
+    },
+}
 export const Stroke: Story = {
     args: {
         text: 'много онлайн-встреч',
         isTextColorLight: false,
         highlightsType: HighlightsType.stroke,
-        withArrow: false,
-    },
-}
-
-export const GradientFill: Story = {
-    args: {
-        text: 'регулярными рабочими встречами',
-        isTextColorLight: true,
-        highlightsType: HighlightsType.gradientFill,
         withArrow: false,
     },
 }

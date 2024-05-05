@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { FC, useState, useEffect, useRef } from 'react'
 
-export const Eye = () => {
+export const Eye: FC<{ scale?: number }> = ({ scale }) => {
     const [leftEyePosition, setLeftEyePosition] = useState({ x: 12, y: 15 })
     const [rightEyePosition, setRightEyePosition] = useState({ x: 30, y: 15 })
 
@@ -47,6 +47,7 @@ export const Eye = () => {
             viewBox='0 0 33 30'
             fill='none'
             xmlns='http://www.w3.org/2000/svg'
+            style={{ transform: `scale(${scale})` }}
         >
             <path
                 d='M14.5 15C14.5 19.0813 13.6718 22.7516 12.3561 25.383C11.0254 28.0443 9.27965 29.5 7.5 29.5C5.72035 29.5 3.97457 28.0443 2.64391 25.383C1.32821 22.7516 0.5 19.0813 0.5 15C0.5 10.9187 1.32821 7.24841 2.64391 4.617C3.97457 1.95569 5.72035 0.5 7.5 0.5C9.27965 0.5 11.0254 1.95569 12.3561 4.617C13.6718 7.24841 14.5 10.9187 14.5 15Z'

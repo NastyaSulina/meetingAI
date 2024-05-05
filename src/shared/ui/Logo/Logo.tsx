@@ -1,6 +1,5 @@
 import * as React from 'react'
 import cn from 'classnames'
-import { Link } from 'react-router-dom'
 import styles from './Logo.module.scss'
 
 type Props = {
@@ -10,14 +9,14 @@ type Props = {
 
 export const Logo: React.FC<Props> = ({ fontSize = 19.78, isWhite = false }) => {
     return (
-        <Link
+        <a
             className={cn(styles.root, isWhite && styles.isWhite)}
             data-test-id='logo'
             style={{ fontSize: `${fontSize}px` }}
             // TODO: Добавить навигацию на главную
-            to='/'
+            href='/'
         >
             Points
-        </Link>
+        </a>
     )
 }

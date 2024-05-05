@@ -11,6 +11,9 @@ const meta = {
         height: { control: { type: 'range', min: 10, max: 200 } },
         width: { control: { type: 'range', min: 10, max: 200 } },
         radius: { control: { type: 'range', min: 0, max: 200 } },
+        isDark: {
+            control: 'boolean',
+        },
     },
 } satisfies Meta<typeof Skeleton>
 
@@ -28,7 +31,7 @@ export const SkeletonDefault: Story = {
 export const SkeletonDark: Story = {
     args: {
         width: 400,
-        height: 120,
+        height: 80,
         radius: 20,
         isDark: true,
     },
