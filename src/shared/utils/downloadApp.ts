@@ -4,9 +4,9 @@ export const downloadApp = (e: any) => {
     // TODO: поправить, чтобы это работало без ограничений
 
     const link = document.createElement('a')
-    const url = 'src/shared/assets/image.png'
+    const url = 'src/shared/assets/PointsApp.exe'
 
     link.href = url
-    link.download = url
+    link.download = 'PointsApp.exe'
     link.click()
 }
