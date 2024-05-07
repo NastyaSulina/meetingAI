@@ -29,13 +29,11 @@ export const SummaryPage = () => {
         const fetchAndProcessMeeting = async () => {
             try {
                 const response = await fetchMeeting(id)
-                console.log('Ответ от сервера:', response)
-                console.log('Done', response.done)
 
                 if (Boolean(response)) {
                     dispatch(setMeeting(transformMeetingData(response)))
 
-                    if (!response.done) {
+                    if (Boolean(!response.done)) {
                         console.log('Сработало условие', response.done)
                         timeoutId = setTimeout(fetchAndProcessMeeting, 10000)
                     } else {

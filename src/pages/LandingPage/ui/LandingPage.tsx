@@ -129,7 +129,7 @@ export const LandingPage = () => {
                         <Highlights
                             withArrow
                             highlightsType={HighlightsType.gradientFill}
-                            text='регулярными рабочими встречами'
+                            text='рабочими встречами'
                         />
                         <Highlights
                             withArrow

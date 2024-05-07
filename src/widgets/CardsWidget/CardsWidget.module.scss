@@ -1,7 +1,13 @@
+@import '../../app/variables';
+
 .root {
     position: relative;
 
     height: 500px;
+
+    @media screen and (max-width: $maxWidthTablet) {
+        height: 700px;
+    }
 }
 
 .card {
