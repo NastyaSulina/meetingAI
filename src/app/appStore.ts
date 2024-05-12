@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { useDispatch, TypedUseSelectorHook, useSelector } from 'react-redux'
 import { rootReducer } from './appReducer'
+import { meetingApi } from '@/entities/meeting/api/meetingApi'
 
 export const store = configureStore({
     reducer: rootReducer,
-    // TODO: подумать, как это вынести на слой с middleware
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(),
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(meetingApi.middleware),
 })
 
 export type RootState = ReturnType<typeof store.getState>

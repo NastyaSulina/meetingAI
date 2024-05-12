@@ -73,19 +73,3 @@
     font-weight: 700;
     line-height: 58px;
 }
-
-.loading {
-    animation: animated-text 3s ease-in infinite;
-}
-
-@keyframes animated-text {
-    0% {
-        color: var(--Basic-Black);
-    }
-    50% {
-        color: var(--Background-White);
-    }
-    100% {
-        color: var(--Basic-Black);
-    }
-}

@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { setSummary } from '@/entities/meeting/model/slice'
 import { Summary as SummaryType } from '@/entities/meeting/model/types'
 import styles from './Summary.module.scss'
-import { mutateUserSummary } from '@/entities/meeting/api/fetchMeeting'
+import { mutateUserSummary } from '@/entities/meeting/api/meetingApi'
 import { useAppSelector } from '@/app/appStore'
 
 export const Summary: FC<SummaryType> = ({ userText, generatedText }) => {

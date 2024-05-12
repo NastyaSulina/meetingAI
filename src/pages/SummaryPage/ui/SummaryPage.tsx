@@ -3,9 +3,8 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { useAppSelector } from '@/app/appStore'
 import { KeyWords, KeyWordsSkeleton } from '@/entities/meeting/ui/KeyWords'
 import MeetingInfo from '@/entities/meeting/ui/MeetingInfo'
-import { fetchMeeting } from '@/entities/meeting/api/fetchMeeting'
+import { useGetMeetingByIdQuery } from '@/entities/meeting/api/meetingApi'
 import { Summary, Menu, Video, Footer, Transcript } from '@/widgets'
-import cn from 'classnames'
 import { DropDown } from '@/shared/ui'
 import { Quotes, QuotesSkeleton } from '@/entities/meeting/ui/Quotes'
 import { transformMeetingData } from '@/entities/meeting/model/transform'
@@ -19,43 +18,10 @@ import styles from './SummaryPage.module.scss'
 
 export const SummaryPage = () => {
     const { id } = useParams()
+    const { data, isLoading } = useGetMeetingByIdQuery(id)
+
     const dispatch = useDispatch()
     const navigate = useNavigate()
-
-    // TODO: вынести в middleware?
-    useEffect(() => {
-        let timeoutId: NodeJS.Timeout | null = null
-
-        const fetchAndProcessMeeting = async () => {
-            try {
-                const response = await fetchMeeting(id)
-
-                if (Boolean(response)) {
-                    dispatch(setMeeting(transformMeetingData(response)))
-
-                    if (Boolean(!response.done)) {
-                        console.log('Сработало условие', response.done)
-                        timeoutId = setTimeout(fetchAndProcessMeeting, 10000)
-                    } else {
-                        clearTimeout(timeoutId)
-                        timeoutId = null
-                    }
-                } else {
-                    // navigate('/error')
-                }
-            } catch (error) {
-                console.error('Error fetching meeting:', error)
-            }
-        }
-
-        fetchAndProcessMeeting()
-
-        return () => {
-            if (timeoutId) {
-                clearTimeout(timeoutId)
-            }
-        }
-    }, [])
 
     const meeting = useAppSelector((state) => state.meeting)
     const {
@@ -72,14 +38,26 @@ export const SummaryPage = () => {
         videoLink,
     } = meeting
 
+    useEffect(() => {
+        let timeoutId: NodeJS.Timeout | null = null
+
+        if (data && !isLoading && !done) {
+            timeoutId = setTimeout(() => {
+                dispatch(setMeeting(transformMeetingData(data)))
+            }, 1000)
+        } else {
+            clearTimeout(timeoutId)
+        }
+
+        return () => clearTimeout(timeoutId)
+    }, [data, isLoading, done])
+
     return (
         <div className={styles.root}>
             <Menu />
 
             <div className={styles.content}>
-                <h1 className={cn(styles.pageTitle, !done && styles.loading)}>
-                    {done ? 'Итоги встречи:' : 'Загрузка...'}
-                </h1>
+                <h1 className={styles.pageTitle}>Итоги встречи:</h1>
                 <h2 className={styles.meetingTitle}>
                     {title || <Skeleton width={300} height={27.5} />}
                 </h2>
@@ -116,7 +94,11 @@ export const SummaryPage = () => {
             </div>
 
             <DropDown header='Полная текстовая расшифровка' number={3}>
-                {transcript ? <Transcript transcript={transcript} /> : <TranscriptSkeleton />}
+                {transcript ? (
+                    <Transcript transcript={transcript} title={title} date={date} />
+                ) : (
+                    <TranscriptSkeleton />
+                )}
             </DropDown>
             <DropDown header='Zoom-чат (В разработке)' number={4} />
 
