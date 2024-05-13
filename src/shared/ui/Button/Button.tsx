@@ -8,6 +8,7 @@ type Props = {
     buttonType: ButtonType
     onClick: (e: any) => void
     isAnimated?: boolean
+    disabled?: boolean
 }
 
 export enum ButtonType {
@@ -22,6 +23,7 @@ export const Button: React.FC<Props> = ({
     ariaLabel = '',
     onClick,
     isAnimated,
+    disabled = false,
     ...props
 }) => {
     return (
@@ -30,6 +32,7 @@ export const Button: React.FC<Props> = ({
             className={cn(styles.root, styles[buttonType], isAnimated && styles.isAnimated)}
             aria-label={ariaLabel}
             onClick={onClick}
+            disabled={disabled}
             {...props}
         >
             {text}

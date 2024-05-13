@@ -17,12 +17,6 @@ import { VideoSkeleton } from '@/widgets/Video'
 import styles from './SummaryPage.module.scss'
 
 export const SummaryPage = () => {
-    const { id } = useParams()
-    const { data, isLoading } = useGetMeetingByIdQuery(id)
-
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
-
     const meeting = useAppSelector((state) => state.meeting)
     const {
         keyWords,
@@ -38,19 +32,22 @@ export const SummaryPage = () => {
         videoLink,
     } = meeting
 
+    const { id } = useParams()
+    const { data, isLoading } = useGetMeetingByIdQuery(id, {
+        pollingInterval: 1000,
+        skip: done,
+    })
+
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
     useEffect(() => {
-        let timeoutId: NodeJS.Timeout | null = null
-
-        if (data && !isLoading && !done) {
-            timeoutId = setTimeout(() => {
-                dispatch(setMeeting(transformMeetingData(data)))
-            }, 800)
-        } else {
-            clearTimeout(timeoutId)
+        if (data) {
+            dispatch(setMeeting(transformMeetingData(data)))
+        } else if (!isLoading && process.env.NODE_ENV !== 'development') {
+            navigate('/error')
         }
-
-        return () => clearTimeout(timeoutId)
-    }, [data, isLoading, done])
+    }, [data, isLoading])
 
     return (
         <div className={styles.root}>

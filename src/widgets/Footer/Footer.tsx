@@ -8,10 +8,11 @@ type Props = {
 
 export const Footer: FC<Props> = ({ withForm = false }) => {
     const [formValues, setFormValues] = useState({
-        test1: '',
-        test2: '',
-        test3: '',
+        footerName: '',
+        footerEmail: '',
+        footerText: '',
     })
+    const [isFormValid, setIsFormValid] = useState(false)
 
     const handleInputChange = (
         event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -19,6 +20,13 @@ export const Footer: FC<Props> = ({ withForm = false }) => {
     ) => {
         const { value } = event.target
         setFormValues((prevValues) => ({ ...prevValues, [inputName]: value }))
+    }
+
+    const validateForm = () => {
+        const { footerName, footerEmail, footerText } = formValues
+        const isValid =
+            footerName.trim() !== '' && footerEmail.trim() !== '' && footerText.trim() !== ''
+        setIsFormValid(isValid)
     }
 
     const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -52,34 +60,38 @@ export const Footer: FC<Props> = ({ withForm = false }) => {
                             <Input
                                 inputType={InputType.input}
                                 label='Ваше имя:'
-                                inputName='test1'
+                                inputName='footerName'
                                 required
-                                value={formValues.test1}
+                                value={formValues.footerName}
                                 onInputChange={handleInputChange}
                                 id='name'
+                                onBlur={validateForm}
                             />
                             <Input
                                 inputType={InputType.input}
                                 label='Ваш e-mail:'
-                                inputName='test2'
+                                inputName='footerEmail'
                                 required
-                                value={formValues.test2}
+                                value={formValues.footerEmail}
                                 onInputChange={handleInputChange}
                                 id='email'
                                 type='email'
+                                onBlur={validateForm}
                             />
                             <Input
                                 inputType={InputType.textarea}
                                 label='Сообщение:'
-                                inputName='test3'
+                                inputName='footerText'
                                 required
-                                value={formValues.test3}
+                                value={formValues.footerText}
                                 onInputChange={handleInputChange}
                                 id='message'
+                                onBlur={validateForm}
                             />
                             <Button
                                 buttonType={ButtonType.white}
                                 text='Отправить'
+                                disabled={!isFormValid}
                                 onClick={handleButtonClick}
                             />
                         </form>

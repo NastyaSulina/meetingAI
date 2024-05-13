@@ -19,8 +19,8 @@ export const Chat: FC<any> = () => {
     ]
     return (
         <div className={styles.root}>
-            {chatList.map((item) => (
-                <div className={styles.item}>
+            {chatList.map((item, key) => (
+                <div className={styles.item} key={key}>
                     <Highlights
                         text={item.participant}
                         highlightsSize={HighlightsSize.little}

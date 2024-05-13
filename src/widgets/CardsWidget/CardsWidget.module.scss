@@ -3,10 +3,12 @@
 .root {
     position: relative;
 
+    width: 100%;
+
     height: 500px;
 
     @media screen and (max-width: $maxWidthTablet) {
-        height: 700px;
+        height: 800px;
     }
 }
 

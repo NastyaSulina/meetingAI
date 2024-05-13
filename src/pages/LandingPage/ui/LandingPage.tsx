@@ -27,7 +27,7 @@ export const LandingPage = () => {
 
             {/* Главный баннер */}
 
-            <section className={cn(styles.section)}>
+            <section data-test-id='banner' className={cn(styles.section)}>
                 <div className={cn(styles.pointContainer, styles.mainSection)}>
                     <h1 className={styles.description}>Приложение для резюмирования Zoom-встреч</h1>
                     <div className={styles.headerContainer}>
@@ -105,9 +105,9 @@ export const LandingPage = () => {
                     <div className={styles.text}>
                         <h2 className={styles.header}>А что оно делает?</h2>
                         <span className={styles.additionalText}>
-                            <b>Points </b>автоматически резюмирует ключевые моменты из ваших встреч,
-                            облегчая доступ к самой важной информации без необходимости просмотра
-                            всей записи встречи.
+                            <span className={styles.bold}>Points </span>автоматически резюмирует
+                            ключевые моменты из ваших встреч, облегчая доступ к самой важной
+                            информации без необходимости просмотра всей записи встречи.
                         </span>
                         <Button
                             buttonType={ButtonType.black}

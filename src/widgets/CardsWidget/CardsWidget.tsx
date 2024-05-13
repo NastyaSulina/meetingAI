@@ -15,6 +15,7 @@ interface CardProps {
     index: number
     top?: number
     left?: number
+    right?: number
     originalZIndex: number
 }
 
@@ -29,6 +30,7 @@ const DraggableCard: FC<CardProps> = ({
     transform,
     top: initialTop,
     left: initialLeft,
+    right: initialRight,
     originalZIndex,
 }) => {
     const ref = useRef<HTMLDivElement>(null)
@@ -36,6 +38,20 @@ const DraggableCard: FC<CardProps> = ({
     const [offsetX, setOffsetX] = useState(0)
     const [offsetY, setOffsetY] = useState(0)
     const [currentZIndex, setCurrentZIndex] = useState(originalZIndex)
+
+    useEffect(() => {
+        const handleTouchMove = (e: TouchEvent) => {
+            if (isDragging) {
+                e.preventDefault()
+            }
+        }
+
+        document.addEventListener('touchmove', handleTouchMove, { passive: false })
+
+        return () => {
+            document.removeEventListener('touchmove', handleTouchMove)
+        }
+    }, [isDragging])
 
     useEffect(() => {
         const handleMouseMove = (e: MouseEvent) => {
@@ -86,7 +102,7 @@ const DraggableCard: FC<CardProps> = ({
 
         document.addEventListener('mousemove', handleMouseMove)
         document.addEventListener('mouseup', handleMouseUp)
-        document.addEventListener('touchmove', handleTouchMove)
+        document.addEventListener('touchmove', handleTouchMove, { passive: true })
         document.addEventListener('touchend', handleTouchEnd)
 
         return () => {
@@ -105,8 +121,13 @@ const DraggableCard: FC<CardProps> = ({
         const boundingBox = ref.current?.getBoundingClientRect()
         if (boundingBox) {
             const event = e as React.MouseEvent<HTMLDivElement>
-            setOffsetX(event.clientX - boundingBox.left)
-            setOffsetY(event.clientY - boundingBox.top)
+            const touchEvent = e as React.TouchEvent<HTMLDivElement>
+
+            const clientX = event.clientX || touchEvent.touches[0].clientX
+            const clientY = event.clientY || touchEvent.touches[0].clientY
+
+            setOffsetX(clientX - boundingBox.left)
+            setOffsetY(clientY - boundingBox.top)
         }
 
         const cards = document.getElementsByClassName(styles.card)
@@ -129,7 +150,7 @@ const DraggableCard: FC<CardProps> = ({
             className={cn(styles.card, isWhite ? styles.white : styles.black)}
             style={{
                 position: 'absolute',
-                left: `${initialLeft}%`,
+                [initialLeft ? 'left' : 'right']: `${initialLeft || initialRight}%`,
                 top: `${initialTop}%`,
                 width: `${width}px`,
                 height: `${height}px`,

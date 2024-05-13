@@ -4,9 +4,16 @@ module.exports = {
     httpTimeout: 60000,
     testTimeout: 90000,
     resetCursor: false,
+
+    screenshotsDir: './e2e/screens',
+
     sets: {
-        all: {
-            files: ['e2e/**/*'],
+        default: {
+            files: ['e2e/landing.testplane.ts', 'e2e/summaryPage.testplane.ts'],
+            browsers: ['chrome'],
+        },
+        snapshot: {
+            files: ['layout.testplane.ts'],
             browsers: ['chrome'],
         },
     },

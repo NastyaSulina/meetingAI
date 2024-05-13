@@ -9,7 +9,7 @@ export const ErrorPage = () => {
             <Menu />
 
             <div className={styles.wrapper}>
-                <h1 className={styles.header}>Попалась ошибка! Такой страницы не существует...</h1>
+                <h1 className={styles.header}>Попалась ошибка! Такой страницы не существует...</h1>
                 <div className={styles.figure}>
                     <Figure
                         figureType={FigureType.STAR}
@@ -18,7 +18,7 @@ export const ErrorPage = () => {
                         fill='var(--Orange)'
                     >
                         <div className={styles.eye}>
-                            <Eye />
+                            <Eye scale={2.5} />
                         </div>
                     </Figure>
                 </div>

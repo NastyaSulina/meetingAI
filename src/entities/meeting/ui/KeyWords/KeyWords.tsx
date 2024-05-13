@@ -7,13 +7,11 @@ export const KeyWords: FC<{ keyWords: KeyWordsType }> = ({ keyWords }) => {
     return (
         <div className={styles.root}>
             {keyWords.map((keyWord) => {
-                const randomHighlightsType =
-                    Object.values(HighlightsType)[
-                        Math.floor(Math.random() * Object.values(HighlightsType).length)
-                    ]
+                const highlightsType = Object.values(HighlightsType)[keyWord.charCodeAt(0) % 4]
+
                 return (
                     <Highlights
-                        highlightsType={randomHighlightsType}
+                        highlightsType={highlightsType}
                         highlightsSize={HighlightsSize.little}
                         text={keyWord}
                         key={keyWord}

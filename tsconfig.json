@@ -16,5 +16,5 @@
         "moduleResolution": "Node",
         "esModuleInterop": true
     },
-    "exclude": ["./node_modules", "./dist", "./testplane-report", "./e2e"]
+    "exclude": ["./node_modules", "./dist", "./testplane-report", "e2e"]
 }

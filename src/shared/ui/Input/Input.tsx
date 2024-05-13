@@ -23,7 +23,8 @@ type Props = {
     isWhite?: boolean
     readOnly?: boolean
     isEnlarged?: boolean
-}
+} & React.InputHTMLAttributes<HTMLInputElement> &
+    React.TextareaHTMLAttributes<HTMLTextAreaElement>
 
 export const Input: React.FC<Props> = ({
     inputType,

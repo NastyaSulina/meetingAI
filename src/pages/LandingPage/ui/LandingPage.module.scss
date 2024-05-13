@@ -229,6 +229,10 @@
             font-size: 15px;
             font-weight: 500;
             line-height: 18.75px;
+
+            .bold {
+                font-weight: 600;
+            }
         }
 
         & button {
