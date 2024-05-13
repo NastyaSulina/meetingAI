@@ -68,7 +68,7 @@
 
 @font-face {
     font-family: 'Suisse Intl';
-    font-weight: 700;
+    font-weight: bold;
     font-style: normal;
     src:
         local('Suisse Intl'),
@@ -78,8 +78,6 @@
 
 body {
     margin: 0;
-
-    // letter-spacing: 0.35px;
 
     font-family: 'Suisse Intl', 'Arial', sans-serif;
 

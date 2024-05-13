@@ -56,26 +56,57 @@ const DraggableCard: FC<CardProps> = ({
                 }
             }
         }
+
+        const handleTouchMove = (e: TouchEvent) => {
+            if (isDragging && ref.current) {
+                const parentRect = ref.current.parentElement?.getBoundingClientRect()
+                if (parentRect) {
+                    const left = e.touches[0].clientX - parentRect.left - offsetX
+                    const top = e.touches[0].clientY - parentRect.top - offsetY
+
+                    const maxLeft = parentRect.width - ref.current.offsetWidth
+                    const maxTop = parentRect.height - ref.current.offsetHeight
+
+                    const clampedLeft = Math.min(Math.max(0, left), maxLeft)
+                    const clampedTop = Math.min(Math.max(0, top), maxTop)
+
+                    ref.current.style.left = `${clampedLeft}px`
+                    ref.current.style.top = `${clampedTop}px`
+                }
+            }
+        }
+
         const handleMouseUp = () => {
+            setIsDragging(false)
+        }
+
+        const handleTouchEnd = () => {
             setIsDragging(false)
         }
 
         document.addEventListener('mousemove', handleMouseMove)
         document.addEventListener('mouseup', handleMouseUp)
+        document.addEventListener('touchmove', handleTouchMove)
+        document.addEventListener('touchend', handleTouchEnd)
 
         return () => {
             document.removeEventListener('mousemove', handleMouseMove)
             document.removeEventListener('mouseup', handleMouseUp)
+            document.removeEventListener('touchmove', handleTouchMove)
+            document.removeEventListener('touchend', handleTouchEnd)
         }
     }, [isDragging, offsetX, offsetY])
 
-    const handleMouseDown = (e: React.MouseEvent) => {
+    const handleMouseDown = (
+        e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>,
+    ) => {
         setIsDragging(true)
 
         const boundingBox = ref.current?.getBoundingClientRect()
         if (boundingBox) {
-            setOffsetX(e.clientX - boundingBox.left)
-            setOffsetY(e.clientY - boundingBox.top)
+            const event = e as React.MouseEvent<HTMLDivElement>
+            setOffsetX(event.clientX - boundingBox.left)
+            setOffsetY(event.clientY - boundingBox.top)
         }
 
         const cards = document.getElementsByClassName(styles.card)
@@ -106,6 +137,7 @@ const DraggableCard: FC<CardProps> = ({
                 zIndex: currentZIndex,
             }}
             onMouseDown={handleMouseDown}
+            onTouchStart={handleMouseDown}
         >
             <span className={styles.captions}>{`ИТОГ 0${index}`}</span>
 

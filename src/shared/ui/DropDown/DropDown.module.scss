@@ -24,10 +24,23 @@
 
         height: 96px;
 
+        text-align: left;
+
+        font-family: var(--Font-Family-Basic);
+
+        border: 0;
+
+        outline: 0;
+        background-color: var(--Background-White);
+
         & > div:first-child {
             display: flex;
             align-items: center;
             gap: 40px;
+        }
+
+        .number {
+            white-space: nowrap;
         }
 
         .openButton {

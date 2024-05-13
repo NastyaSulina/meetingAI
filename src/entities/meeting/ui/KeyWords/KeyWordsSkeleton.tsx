@@ -4,8 +4,8 @@ import styles from './KeyWords.module.scss'
 
 export const KeyWordsSkeleton = () => (
     <div className={styles.root}>
-        {[...Array(6)].map((_, key) => (
-            <Skeleton height={36} width={176} key={key} />
+        {[...Array(8)].map((_, key) => (
+            <Skeleton height={30} width={100 + (key % 4) * 40} key={key} />
         ))}
     </div>
 )

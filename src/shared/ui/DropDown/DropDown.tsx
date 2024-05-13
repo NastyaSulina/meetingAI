@@ -17,16 +17,20 @@ export const DropDown: FC<Props> = ({ header, children = '', number }) => {
 
     return (
         <div className={cn(styles.root)}>
-            <div className={styles.wrapper} data-aos='slide-right'>
-                <a className={cn(styles.top)} type='button' onClick={toggleDropdown}>
+            <div className={styles.wrapper}>
+                <button
+                    className={cn(styles.top)}
+                    type='button'
+                    onClick={toggleDropdown}
+                    data-aos='slide-right'
+                >
                     <div>
-                        <span className={cn(styles.number)}>{`${
-                            isOpen ? '↓' : '→'
-                        } 0${number}`}</span>
+                        <span className={cn(styles.number)}>{`
+                            ${isOpen ? '↓' : '→'} 0${number}`}</span>
                         <span className={cn(styles.header)}>{header}</span>
                     </div>
                     <span className={cn(styles.openButton)}>{isOpen ? 'Закрыть' : 'Открыть'}</span>
-                </a>
+                </button>
                 <div className={cn(styles.content, { [styles.open]: isOpen })}>{children}</div>
             </div>
         </div>

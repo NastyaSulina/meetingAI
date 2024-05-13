@@ -1,0 +1,36 @@
+@import '../../app/variables';
+
+.root {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    box-sizing: border-box;
+    max-width: 700px;
+    padding: 20px;
+
+    border: 1px solid var(--Basic-Black);
+    border-radius: 16px;
+
+    .item {
+        display: flex;
+
+        .textInfo {
+            margin-left: 10px;
+
+            & > p {
+                margin: 0;
+
+                font-size: 15px;
+                font-weight: 450;
+                line-height: 18.75px;
+            }
+
+            & > span {
+                font-size: 10px;
+                font-weight: 450;
+                line-height: 12.5px;
+            }
+        }
+    }
+}
