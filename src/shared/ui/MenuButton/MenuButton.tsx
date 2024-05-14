@@ -5,11 +5,16 @@ import styles from './MenuButton.module.scss'
 type Props = {
     text?: string
     onClick?: () => void
+    isWhite?: boolean
 }
 
-export const MenuButton: FC<Props> = ({ text = '', onClick }) => {
+export const MenuButton: FC<Props> = ({ text = '', onClick, isWhite = false }) => {
     return (
-        <button className={cn(styles.root)} type='button' onClick={onClick}>
+        <button
+            className={cn(styles.root, isWhite && styles.isWhite)}
+            type='button'
+            onClick={onClick}
+        >
             {text}
         </button>
     )

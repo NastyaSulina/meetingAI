@@ -38,21 +38,140 @@
         }
 
         @media screen and (max-width: $maxWidthTablet) {
-            flex-direction: column;
-            // align-items: center;
-
-            padding: 8px 20px 11px;
+            padding: 8px 20px;
 
             .menuButtonContainer {
-                flex-direction: row;
+                position: fixed;
+                top: 0;
+                left: -100%;
 
-                gap: 10px;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                gap: 25px;
 
-                padding-top: 10px;
+                box-sizing: border-box;
 
-                & button {
-                    padding: 0;
+                width: 245px;
+                height: 100%;
+
+                padding: 16px 12px;
+
+                background-color: var(--Basic-Black);
+
+                transition-duration: 0.25s;
+
+                .menuButtonItem {
+                    width: 100%;
+                    padding-bottom: 16px;
+
+                    border-bottom: 1px solid var(--Basic-White);
+
+                    &::before {
+                        content: '→';
+
+                        color: var(--Basic-White);
+                    }
                 }
+
+                .bottomInfo {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: flex-end;
+
+                    width: 100%;
+                    height: 100%;
+
+                    .year {
+                        font-size: 12px;
+                        font-weight: 450;
+                        line-height: 15px;
+
+                        color: var(--Basic-White);
+                    }
+                }
+            }
+
+            .button {
+                position: relative;
+
+                width: 20px;
+                height: 20px;
+                padding: 0;
+
+                cursor: pointer;
+
+                border: 0;
+                outline: none;
+                background: var(--Background-White);
+
+                transition-duration: 0.5s;
+            }
+
+            .button .icon {
+                position: relative;
+
+                width: 20px;
+                height: 2px;
+
+                background-color: var(--Basic-Black);
+
+                transition-duration: 0.5s;
+            }
+
+            .button .icon:before {
+                position: absolute;
+                top: -6px;
+                right: 0;
+
+                width: 20px;
+                height: 2px;
+
+                content: '';
+
+                background-color: var(--Basic-Black);
+
+                transition-duration: 0.5s;
+            }
+
+            .button .icon:after {
+                position: absolute;
+                top: 6px;
+                right: 0;
+
+                width: 20px;
+                height: 2px;
+
+                content: '';
+
+                background-color: var(--Basic-Black);
+
+                transition-duration: 0.5s;
+            }
+
+            .button.open .icon {
+                transition: 0.5s;
+            }
+
+            .button.open .icon:before {
+                width: 15px;
+
+                transform: rotateZ(-45deg) scaleX(0.75) translate(-11.5px, -5px);
+            }
+
+            .button.open .icon:after {
+                width: 15px;
+
+                transform: rotateZ(45deg) scaleX(0.75) translate(-11.5px, 5px);
+            }
+
+            .button.open ~ .menuButtonContainer {
+                left: 0 !important;
+            }
+
+            .button:hover {
+                cursor: pointer;
             }
         }
     }

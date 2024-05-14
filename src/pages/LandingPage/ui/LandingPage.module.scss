@@ -84,7 +84,7 @@
             top: 10px;
             left: 210px;
 
-            transform: rotate(340deg);
+            transform: rotate(15deg);
         }
 
         & div:nth-child(3) {
@@ -113,22 +113,22 @@
 
         @media screen and (max-width: $maxWidthTablet) {
             & div:nth-child(1) {
-                top: -9px;
-                left: -50px;
+                top: 0px;
+                left: -40px;
 
                 transform: rotate(340deg) scale(0.7);
             }
 
             & div:nth-child(2) {
-                top: -19px;
-                left: 64px;
+                top: -20px;
+                left: 60px;
 
                 transform: rotate(15deg) scale(0.7);
             }
 
             & div:nth-child(3) {
-                top: 48px;
-                right: -10px;
+                top: 40px;
+                right: 0;
 
                 transform: rotate(340deg) scale(0.7);
             }
@@ -162,10 +162,10 @@
             left: 29%;
 
             @media screen and (max-width: $maxWidthTablet) {
-                top: 40%;
-                left: 29%;
+                top: 41%;
+                left: 28.5%;
 
-                transform: scale(0.8);
+                transform: scale(0.75);
             }
 
             @media screen and (max-width: $maxWidthPhone) {

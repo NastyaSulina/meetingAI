@@ -2,6 +2,8 @@
     cursor: pointer;
     text-transform: uppercase;
 
+    font-family: var(--Font-Family-Basic);
+
     font-size: 12px;
     font-weight: 500;
     font-style: normal;
@@ -18,4 +20,8 @@
     &:disabled {
         color: var(--Inactive-Grey);
     }
+}
+
+.isWhite {
+    color: var(--Basic-White);
 }
