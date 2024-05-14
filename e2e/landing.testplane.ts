@@ -1,6 +1,7 @@
 describe('Лендинг.Содержимое', async function () {
     beforeEach(async ({ browser }) => {
         await browser.url('/')
+        await browser.pause(800)
     })
 
     it('На странице есть футер', async ({ browser }) => {
@@ -36,23 +37,21 @@ describe('Лендинг.Содержимое', async function () {
     it('Заполняются поля формы', async ({ browser }) => {
         const $footer = await browser.$('[data-test-id="footer"]')
 
-        const $nameInput = await $footer.$('[name="footerName"]')
-        const $emailInput = await $footer.$('[name="footerEmail"]')
-        const $messageInput = await $footer.$('[name="footerText"]')
+        const $nameInput = await $footer.$('[name="name"]')
+        const $emailInput = await $footer.$('[name="email"]')
+        const $letterInput = await $footer.$('[name="letter"]')
         const $submitButton = await $footer.$('[type="button"]')
-
-        expect(await $submitButton.getProperty('disabled')).toEqual(true)
 
         await $nameInput.setValue('John Doe')
         await $emailInput.setValue('johndoe@example.com')
-        await $messageInput.setValue('Hello, world!')
+        await $letterInput.setValue('Hello, world!')
 
         expect(await $nameInput.getProperty('value')).toEqual('John Doe')
         expect(await $emailInput.getProperty('value')).toEqual('johndoe@example.com')
-        expect(await $messageInput.getProperty('value')).toEqual('Hello, world!')
+        expect(await $letterInput.getProperty('value')).toEqual('Hello, world!')
 
         await $submitButton.click()
 
-        expect(await $submitButton.getProperty('disabled')).toEqual(false)
+        expect(await $footer.$('.success')).toHaveText('Спасибо за обратную связь!')
     })
 })

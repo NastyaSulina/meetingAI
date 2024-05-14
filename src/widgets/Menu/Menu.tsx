@@ -28,11 +28,11 @@ export const Menu: FC<{ withLinks?: boolean }> = ({ withLinks = false }) => {
     }, [])
 
     return (
-        <div className={styles.root}>
+        <div className={styles.root} data-test-id='menu'>
             <nav className={styles.navigation}>
                 <Logo />
 
-                {isTouch && (
+                {withLinks && isTouch && (
                     <button
                         type='button'
                         className={cn(styles.button, isOpen && styles.open)}

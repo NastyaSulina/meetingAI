@@ -7,7 +7,14 @@
     max-width: 100%;
 
     .form {
-        margin-bottom: 20px;
+        & > div:nth-child(2) {
+            margin-bottom: 20px;
+        }
+
+        .submitButton {
+            position: absolute;
+        }
+
         .formHeader {
             display: flex;
             flex-direction: row;
@@ -38,12 +45,4 @@
             }
         }
     }
-
-    .submitButton {
-        position: absolute;
-    }
-
-    // @media screen and (max-width: $maxWidthTablet) {
-    //     max-width: 100%;
-    // }
 }

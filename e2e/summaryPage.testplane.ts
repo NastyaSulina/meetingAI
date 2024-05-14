@@ -1,6 +1,7 @@
 describe('Страница итогов.Содержимое', () => {
     beforeEach(async ({ browser }) => {
         await browser.url('/summary/819546bf-9e44-4a27-8606-a8afb6392742')
+        await browser.pause(800)
     })
 
     it('На странице есть меню', async ({ browser }) => {

@@ -1,74 +1,74 @@
-import React from 'react'
+import React, { FC } from 'react'
 import cn from 'classnames'
+import { FieldValues, RegisterOptions, useFormContext } from 'react-hook-form'
 import styles from './Input.module.scss'
-
-export enum InputType {
-    input = 'input',
-    textarea = 'textarea',
-}
+import { findInputError, isFormInvalid } from './model/validation'
 
 type Props = {
-    inputType: InputType
     label: string
-    inputName: string
-    required?: boolean
-    value?: string
-    onInputChange?: (
-        event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-        inputName: string,
-    ) => void
     placeholder?: string
-    id?: string
+    id: string
     type?: string
-    isWhite?: boolean
+    name: string
+    required?: boolean
+    defaultValue?: string
+    validation?: RegisterOptions<FieldValues, string>
     readOnly?: boolean
+    // Отображение
+    multiline?: boolean
+    isWhite?: boolean
     isEnlarged?: boolean
-} & React.InputHTMLAttributes<HTMLInputElement> &
-    React.TextareaHTMLAttributes<HTMLTextAreaElement>
+}
 
-export const Input: React.FC<Props> = ({
-    inputType,
-    label = '',
-    inputName,
-    required,
-    onInputChange,
-    placeholder,
-    id,
+export const Input: FC<Props> = ({
+    name,
+    label,
     type,
+    id,
+    placeholder,
+    validation,
+    multiline,
     isWhite,
     isEnlarged,
-    ...inputProps
+    readOnly = false,
+    defaultValue,
 }) => {
+    const {
+        register,
+        formState: { errors },
+    } = useFormContext()
+
+    const inputErrors = findInputError(errors, name)
+    const isInvalid = isFormInvalid(inputErrors)
+
     return (
         <div
             className={cn(styles.root, isWhite && styles.isWhite, isEnlarged && styles.isEnlarged)}
         >
-            <label className={styles.label} htmlFor={inputName}>
-                {label && <span>{label}</span>}
+            {label && (
+                <label htmlFor={id} className={styles.label}>
+                    {label}
+                </label>
+            )}
 
-                {inputType === InputType.input ? (
-                    <input
-                        {...inputProps}
-                        placeholder={placeholder}
-                        name={inputName}
-                        type='text'
-                        required={required}
-                        onChange={(e) => {
-                            onInputChange(e, inputName)
-                        }}
-                    />
-                ) : (
-                    <textarea
-                        {...inputProps}
-                        placeholder={placeholder}
-                        name={inputName}
-                        required={required}
-                        onChange={(e) => {
-                            onInputChange(e, inputName)
-                        }}
-                    />
-                )}
-            </label>
+            {multiline ? (
+                <textarea
+                    id={id}
+                    placeholder={placeholder}
+                    readOnly={readOnly}
+                    defaultValue={defaultValue}
+                    {...register(name, validation)}
+                />
+            ) : (
+                <input
+                    id={id}
+                    type={type}
+                    placeholder={placeholder}
+                    {...register(name, validation)}
+                />
+            )}
+
+            {isInvalid && <p className={styles.error}>{inputErrors?.error?.message}</p>}
         </div>
     )
 }

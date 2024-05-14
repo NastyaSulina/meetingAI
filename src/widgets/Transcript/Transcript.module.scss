@@ -4,6 +4,50 @@
     width: 100%;
     max-width: 700px;
 
+    .textContainer {
+        display: flex;
+        overflow-y: scroll;
+        flex-direction: column;
+        gap: 20px;
+
+        box-sizing: border-box;
+        max-width: 700px;
+
+        height: 464px;
+        padding: 20px;
+
+        font-family: var(--Font-Family-Basic);
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 19px;
+
+        color: var(--Basic-Black);
+
+        border: 1px solid var(--Basic-Black);
+        border-radius: 10px;
+        background-color: var(--Background-White);
+
+        &::-webkit-scrollbar {
+            width: 15px;
+        }
+
+        &::-webkit-scrollbar-track {
+            margin: 5px 0;
+
+            border: 12px solid var(--Background-White);
+
+            border-radius: 40px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            border: 12px solid var(--Background-White);
+            border-left: none;
+            border-radius: 2.5px;
+
+            background-color: var(--Basic-Black);
+        }
+    }
+
     .buttonContainer {
         margin-top: 20px;
     }

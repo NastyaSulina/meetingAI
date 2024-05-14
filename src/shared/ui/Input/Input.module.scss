@@ -1,129 +1,131 @@
 .root {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
     width: 100%;
     min-width: 250px;
 
-    .label {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
+    font-size: 12px;
+
+    color: var(--Basic-White);
+
+    .error {
+        margin: 10px 0 0;
 
         font-size: 12px;
+        font-weight: 450;
+        line-height: 15px;
+
+        color: var(--Orange);
+    }
+
+    .label {
+        margin-bottom: 5px;
+
+        text-align: left;
+
+        font-weight: 450;
+        line-height: 15px;
+
+        outline: none;
+    }
+
+    & input,
+    & textarea {
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
+
+        height: 30px;
+        padding: 8px 12px;
+
+        font-family: var(--Font-Family-Basic);
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 19px;
 
         color: var(--Basic-White);
 
-        & span {
-            margin-bottom: 5px;
+        border: 1px solid var(--Basic-White);
+        background-color: var(--Basic-Black);
 
-            text-align: left;
-
-            font-weight: 450;
-            line-height: 15px;
-
-            outline: none;
+        &::placeholder {
+            color: rgb(206, 206, 206);
         }
 
-        & input,
-        & textarea {
-            box-sizing: border-box;
-            width: 100%;
-            max-width: 100%;
-
-            height: 30px;
-            padding: 8px 12px;
-
-            font-family: var(--Font-Family-Basic);
-            font-size: 15px;
-            font-weight: 400;
-            line-height: 19px;
-
-            color: var(--Basic-White);
-
-            border: 1px solid var(--Basic-White);
-            background-color: var(--Basic-Black);
-
-            &::placeholder {
-                color: rgb(206, 206, 206);
-            }
-
-            &::-webkit-scrollbar {
-                width: 15px;
-            }
-
-            &::-webkit-scrollbar-track {
-                margin: 5px 0;
-
-                border-radius: 40px;
-                background-color: var(--Basic-Black);
-            }
-
-            &::-webkit-scrollbar-thumb {
-                border: 12px solid var(--Basic-Black);
-                border-left: none;
-                border-radius: 2.5px;
-
-                background-color: var(--Basic-White);
-            }
+        &::-webkit-scrollbar {
+            width: 15px;
         }
 
-        textarea:focus,
-        input:focus {
-            outline: none;
-        }
-
-        & input {
-            height: 30px;
+        &::-webkit-scrollbar-track {
+            margin: 5px 0;
 
             border-radius: 40px;
+            background-color: var(--Basic-Black);
         }
 
-        & textarea {
-            min-height: 120px;
+        &::-webkit-scrollbar-thumb {
+            border: 12px solid var(--Basic-Black);
+            border-left: none;
+            border-radius: 2.5px;
 
-            resize: none;
-
-            border-radius: 10px;
+            background-color: var(--Basic-White);
         }
+    }
+
+    textarea:focus,
+    input:focus {
+        outline: none;
+    }
+
+    & input {
+        height: 30px;
+
+        border-radius: 40px;
+    }
+
+    & textarea {
+        min-height: 120px;
+
+        resize: none;
+
+        border-radius: 10px;
     }
 }
 
 .isWhite {
     .label {
         color: var(--Basic-Black);
+    }
 
-        & span {
-            color: var(--Basic-Black);
+    & input,
+    & textarea {
+        color: var(--Basic-Black);
+        border: 1px solid var(--Basic-Black);
+        background-color: var(--Basic-White);
+
+        &::placeholder {
+            color: rgb(99, 99, 99);
         }
 
-        & input,
-        & textarea {
-            color: var(--Basic-Black);
-            border: 1px solid var(--Basic-Black);
+        &::-webkit-scrollbar-track {
             background-color: var(--Basic-White);
+        }
 
-            &::placeholder {
-                color: rgb(99, 99, 99);
-            }
+        &::-webkit-scrollbar-thumb {
+            border: 12px solid var(--Basic-White);
+            border-left: none;
+            border-radius: 2.5px;
 
-            &::-webkit-scrollbar-track {
-                background-color: var(--Basic-White);
-            }
-
-            &::-webkit-scrollbar-thumb {
-                border: 12px solid var(--Basic-White);
-                border-left: none;
-                border-radius: 2.5px;
-
-                background-color: var(--Basic-Black);
-            }
+            background-color: var(--Basic-Black);
         }
     }
 }
 
 .isEnlarged {
-    .label {
-        & textarea {
-            height: 464px;
-            padding: 20px;
-        }
+    & textarea {
+        min-height: 464px;
+        padding: 20px;
     }
 }

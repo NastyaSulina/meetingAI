@@ -54,24 +54,6 @@
             }
         }
 
-        .form {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-
-            width: 50%;
-            max-width: 315px;
-
-            & button {
-                width: fit-content;
-                margin-top: 44px;
-            }
-
-            @media screen and (max-width: $maxWidthTablet) {
-                width: 100%;
-            }
-        }
-
         .information {
             display: flex;
             flex-wrap: wrap;

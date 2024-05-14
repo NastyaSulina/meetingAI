@@ -1,1 +1,1 @@
-export { Input, InputType } from './Input'
+export { Input } from './Input'

@@ -1,5 +1,6 @@
+/* eslint-disable new-cap */
 import React, { FC } from 'react'
-import { Input, InputType, Button, ButtonType } from '@/shared/ui'
+import { Button, ButtonType } from '@/shared/ui'
 import { jsPDF } from 'jspdf'
 import { Transcript as TranscriptType } from '@/entities/meeting/model/types'
 import '../../app/fonts/Roboto-Regular-normal'
@@ -44,29 +45,15 @@ export const Transcript: FC<TranscriptType & { title: string; date: string }> = 
         Doc.save('transcript.pdf')
     }
 
-    const buttonProps = {
-        buttonType: ButtonType.black,
-        text: 'Скачать PDF',
-        onClick: handleDownloadPdf,
-    }
-
     return (
         <div className={styles.root}>
-            <Input
-                inputType={InputType.textarea}
-                label=''
-                inputName='transcript'
-                isWhite
-                value={transcript}
-                onInputChange={() => {}}
-                id='transcript'
-                required
-                isEnlarged
-                readOnly
-            />
-
+            <div className={styles.textContainer}>{transcript}</div>
             <div className={styles.buttonContainer}>
-                <Button {...buttonProps} />
+                <Button
+                    buttonType={ButtonType.black}
+                    text='Скачать PDF'
+                    onClick={handleDownloadPdf}
+                />
             </div>
         </div>
     )
