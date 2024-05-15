@@ -1,31 +1,30 @@
 import React, { FC, useState } from 'react'
 import { Input, Button, ButtonType, IconButton, IconButtonType } from '@/shared/ui'
 import { useDispatch } from 'react-redux'
-import { setSummary } from '@/entities/meeting/model/slice'
+import { setUserSummary } from '@/entities/meeting/model/slice'
 import { Summary as SummaryType } from '@/entities/meeting/model/types'
-import { mutateUserSummary } from '@/entities/meeting/api/meetingApi'
+import { useChangeUserSummaryMutation } from '@/entities/meeting/api/meetingApi'
 import { useAppSelector } from '@/app/appStore'
 import { FormProvider, useForm } from 'react-hook-form'
 import styles from './Summary.module.scss'
 import { summaryValidation } from './model/validation'
 
 export const Summary: FC<SummaryType> = ({ userText, generatedText }) => {
-    // const [success, setSuccess] = useState(false)
-    const [isEditing, setIsEditing] = useState(false)
-
-    const dispatch = useDispatch()
-    const methods = useForm()
-
     const meeting = useAppSelector((state) => state.meeting)
     const { id } = meeting
 
     const summary = userText || generatedText
+    const [isEditing, setIsEditing] = useState(false)
+
+    const dispatch = useDispatch()
+    const methods = useForm()
+    const [changeUserSummary] = useChangeUserSummaryMutation()
 
     const handleResetClick = (event: MouseEvent) => {
         event.preventDefault()
 
-        dispatch(setSummary(generatedText))
-        mutateUserSummary(id, null)
+        changeUserSummary({ id, userText: null })
+        dispatch(setUserSummary(null))
     }
 
     const handleCopyClick = (event: MouseEvent) => {
@@ -38,14 +37,10 @@ export const Summary: FC<SummaryType> = ({ userText, generatedText }) => {
     }
 
     const onSubmit = methods.handleSubmit((data) => {
-        console.log(data)
+        changeUserSummary({ id, userText: data.summary })
+        dispatch(setUserSummary(data.summary))
 
-        dispatch(setSummary(data.summary))
-        mutateUserSummary(id, data.summary)
-
-        methods.reset()
         setIsEditing(false)
-        // setSuccess(true)
     })
 
     return (
@@ -89,8 +84,6 @@ export const Summary: FC<SummaryType> = ({ userText, generatedText }) => {
                             />
                         </div>
                     )}
-
-                    {/* {success && <p className={styles.success}>Вы обновили резюме!</p>} */}
                 </form>
             </FormProvider>
         </div>

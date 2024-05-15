@@ -10,7 +10,7 @@ export interface State {
     participants: Array<string>
     summary: {
         generatedText: string
-        userText: string
+        userText: string | null
     }
     quotes: Array<string>
     transcript: string
@@ -28,7 +28,7 @@ const initialState: State = {
     participants: [],
     summary: {
         generatedText: '',
-        userText: '',
+        userText: null,
     },
     quotes: [],
     transcript: '',
@@ -48,7 +48,7 @@ export const meetingSlice = createSlice({
         setDate: (state, action: PayloadAction<string>) => {
             state.date = action.payload
         },
-        setSummary: (state, action: PayloadAction<string>) => {
+        setUserSummary: (state, action: PayloadAction<string | null>) => {
             state.summary.userText = action.payload
         },
         setMeeting: (state, action: PayloadAction<State>) => {
@@ -68,6 +68,6 @@ export const meetingSlice = createSlice({
     },
 })
 
-export const { setKeyWords, setDate, setSummary, setMeeting } = meetingSlice.actions
+export const { setKeyWords, setDate, setUserSummary, setMeeting } = meetingSlice.actions
 
 export default meetingSlice.reducer

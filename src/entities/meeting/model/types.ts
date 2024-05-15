@@ -11,4 +11,4 @@ export type MeetingInfo = {
     description: string
 }
 
-export type Summary = { generatedText: string; userText: string }
+export type Summary = { generatedText: string; userText: string | null }

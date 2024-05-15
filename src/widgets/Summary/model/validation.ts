@@ -13,9 +13,5 @@ export const summaryValidation = {
             value: true,
             message: 'Это поле обязательно для заполнения',
         },
-        [ValidationType.MaxLength]: {
-            value: 1000,
-            message: 'Запрос не должен превышать 1000 символов',
-        },
     },
 }

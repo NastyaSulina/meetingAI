@@ -25,7 +25,7 @@ export function transformMeetingData(data: any) {
         participants: participants || [],
         summary: {
             generatedText: summary || '',
-            userText: customSummary || '',
+            userText: customSummary || null,
         },
         quotes: quotes || [],
         transcript: transcript || '',
