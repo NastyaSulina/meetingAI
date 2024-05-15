@@ -1,4 +1,4 @@
-import { getDateDefaultFromJSDate, getTimeDefaultFromISO } from '@/shared/utils/dateFormatter'
+import { getDateDefaultFromJSDate, getTimeDefaultFromISO } from '@/shared/utils'
 
 export function transformMeetingData(data: any) {
     const {

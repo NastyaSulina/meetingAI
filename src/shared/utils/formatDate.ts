@@ -7,20 +7,19 @@ export const getDateDefaultFromJSDate = (today = new Date()) =>
 
 export const getTimeDefaultFromISO = (time: string) => {
     const timeParts = time
-        .replace(/[DHM]/g, ':') // replace D, H, M with :
-        .replace(/[PTS]/g, '') // remove P, T, S
+        .replace(/[DHM]/g, ':') // заменяем D, H, M на :
+        .replace(/[PTS]/g, '') // удаляем P, T, S
         .split(':')
 
-    // Pad each part with leading zero if necessary
     timeParts.forEach((part, index) => {
         if (part.length === 1) {
             timeParts[index] = `0${part}`
         }
     })
 
-    // Special handling for "PT38S" -> "00:38"
+    // Специально для случая "PT38S" -> "00:38"
     if (timeParts.length === 1) {
-        timeParts.unshift('00') // add leading 00:
+        timeParts.unshift('00')
     }
 
     return timeParts.join(':')

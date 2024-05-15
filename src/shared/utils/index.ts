@@ -1,2 +1,3 @@
 export { checkIsValidId } from './checkIsValidId'
-export { downloadApp } from './downloadApp'
+export { getDateDefaultFromJSDate, getTimeDefaultFromISO } from './formatDate'
+export { downloadApp } from './downloadFile'

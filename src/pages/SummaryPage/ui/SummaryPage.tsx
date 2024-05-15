@@ -14,6 +14,7 @@ import { SummarySkeleton } from '@/widgets/Summary'
 import { Skeleton } from '@/shared/ui/Skeleton'
 import { TranscriptSkeleton } from '@/widgets/Transcript'
 import { VideoSkeleton } from '@/widgets/Video'
+import { checkIsValidId } from '@/shared/utils'
 import styles from './SummaryPage.module.scss'
 
 export const SummaryPage = () => {
@@ -32,14 +33,20 @@ export const SummaryPage = () => {
         videoLink,
     } = meeting
 
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
     const { id } = useParams()
+
+    useEffect(() => {
+        if (!checkIsValidId(id)) {
+            navigate('/error')
+        }
+    }, [id])
+
     const { data, isLoading } = useGetMeetingByIdQuery(id, {
         pollingInterval: 1000,
         skip: done,
     })
-
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
 
     useEffect(() => {
         if (data) {
