@@ -11,8 +11,8 @@ type Props = {
 export const MenuButton: FC<Props> = ({ text = '', onClick, isWhite = false }) => {
     return (
         <button
-            className={cn(styles.root, isWhite && styles.isWhite)}
             type='button'
+            className={cn(styles.root, isWhite && styles.isWhite)}
             onClick={onClick}
         >
             {text}

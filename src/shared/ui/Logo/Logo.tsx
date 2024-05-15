@@ -13,7 +13,6 @@ export const Logo: React.FC<Props> = ({ fontSize = 19.78, isWhite = false }) => 
             className={cn(styles.root, isWhite && styles.isWhite)}
             data-test-id='logo'
             style={{ fontSize: `${fontSize}px` }}
-            // TODO: Добавить навигацию на главную
             href='/'
         >
             Points

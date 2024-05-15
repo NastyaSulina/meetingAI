@@ -24,6 +24,7 @@
         local('Druk Wide Cyr'),
         url('/public/fonts/Druk-Wide-Cyr.woff2') format('woff2'),
         url('/public/fonts/Druk-Wide-Cyr.woff') format('woff');
+    font-display: fallback;
 }
 
 @font-face {

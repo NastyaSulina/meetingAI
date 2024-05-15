@@ -1,0 +1,63 @@
+@import '../../../app/styles/variables';
+
+.light {
+    --color: var(--Basic-White);
+}
+
+.dark {
+    --color: var(--Basic-Black);
+}
+
+.root {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
+    height: fit-content;
+
+    white-space: nowrap;
+
+    color: var(--color);
+    border-radius: 19px;
+
+    @media screen and (max-width: $maxWidthTablet) {
+        padding: 0 8px 4px;
+    }
+}
+
+.default {
+    padding: 0 18px 4px;
+
+    font-size: inherit;
+    line-height: 1;
+}
+
+.little {
+    padding: 0 18px 3px;
+
+    font-size: 15px;
+    line-height: 32px;
+}
+
+.stroke {
+    border: 1px solid var(--color);
+}
+
+.greenFill {
+    background: var(--Green);
+}
+
+.gradientFill {
+    background: var(--O-P-Gradient);
+}
+
+.orangeFill {
+    background: var(--Orange);
+}
+
+.withArrow::before {
+    padding-right: 4px;
+
+    content: '→';
+}

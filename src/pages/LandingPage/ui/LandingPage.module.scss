@@ -200,7 +200,7 @@
 /* Второй экран: Point 02 */
 .pointSecond {
     color: var(--Basic-Black);
-    background: url('/src/shared/assets/image.png') no-repeat bottom 10px right 10px;
+    background: url('/src/shared/assets/landing-people.png') no-repeat bottom 10px right 10px;
     background-size: 60% auto;
 
     .numbering {
@@ -243,7 +243,7 @@
     @media screen and (max-width: $maxWidthTablet) {
         height: 600px;
 
-        background: url('/src/shared/assets/image.png') no-repeat bottom 10px center;
+        background: url('/src/shared/assets/landing-people.png') no-repeat bottom 10px center;
         background-size: 90% auto;
     }
 }

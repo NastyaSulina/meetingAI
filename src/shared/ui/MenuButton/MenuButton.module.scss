@@ -12,13 +12,21 @@
     color: var(--Basic-Black);
     border: 0;
     background-color: transparent;
-    &:hover,
-    &:active {
-        color: var(--Orange);
-    }
 
     &:disabled {
         color: var(--Inactive-Grey);
+    }
+
+    @media (hover: none) {
+        &:active {
+            color: var(--Orange);
+        }
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            color: var(--Orange);
+        }
     }
 }
 

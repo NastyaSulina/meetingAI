@@ -4,35 +4,18 @@
     mask-size: 100%;
 
     position: relative;
+
+    transition: 0.3s ease-out;
 }
 
 .arc {
-    mask-image: url('./_assets/arc.svg');
+    mask-image: url('../../assets/arc.svg');
 }
 
 .circles {
-    mask-image: url('./_assets/circles.svg');
+    mask-image: url('../../assets/circles.svg');
 }
 
 .star {
-    mask-image: url('./_assets/star.svg');
-
-    transition: 0.3s ease-out;
-
-    &:hover {
-        // Пока не поняла, нужна ли анимация вообще
-        // animation: star-shaking 0.5s infinite;
-    }
-}
-
-@keyframes star-shaking {
-    0% {
-        transform: rotate(0deg);
-    }
-    50% {
-        transform: rotate(3deg);
-    }
-    100% {
-        transform: rotate(0deg);
-    }
+    mask-image: url('../../assets/star.svg');
 }

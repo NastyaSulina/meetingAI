@@ -1,16 +1,8 @@
 import React from 'react'
 import cn from 'classnames'
-import {
-    Highlights,
-    HighlightsType,
-    Button,
-    ButtonType,
-    Eye,
-    Figure,
-    FigureType,
-} from '@/shared/ui'
+import { Highlight, HighlightType, Button, ButtonType, Eye, Figure, FigureType } from '@/shared/ui'
 import { Menu, Footer, CardsWidget } from '@/widgets'
-import Heading from '@/shared/assets/points.png'
+import Heading from '@/shared/assets/landing-points.png'
 import { downloadApp } from '@/shared/utils'
 import styles from './LandingPage.module.scss'
 
@@ -81,16 +73,16 @@ export const LandingPage = () => {
                     <div className={styles.numbering}>→ POINT 01</div>
                     <div className={styles.text}>
                         В сфере IT, удалённом обучении и бизнесе стало очень{' '}
-                        <Highlights
-                            highlightsType={HighlightsType.stroke}
+                        <Highlight
+                            highlightType={HighlightType.stroke}
                             isTextColorLight
                             text='много онлайн-встреч'
                         />
                         <br />В силу их большого количества и возможных пересечений, становится
                         сложно удерживать всю информацию в голове. Наше приложение разработано для
                         того, чтобы помочь вам{' '}
-                        <Highlights
-                            highlightsType={HighlightsType.greenFill}
+                        <Highlight
+                            highlightType={HighlightType.greenFill}
                             text='справиться с этой проблемой'
                         />
                     </div>
@@ -125,25 +117,25 @@ export const LandingPage = () => {
                 <div className={cn(styles.pointContainer, styles.pointThird)}>
                     <div className={styles.numbering}>→ POINT 03</div>
                     <h2 className={styles.header}>Points поможет с:</h2>
-                    <div className={styles.highlightsContainer} data-aos='slide-right'>
-                        <Highlights
+                    <div className={styles.highlightContainer} data-aos='slide-right'>
+                        <Highlight
                             withArrow
-                            highlightsType={HighlightsType.gradientFill}
+                            highlightType={HighlightType.gradientFill}
                             text='рабочими встречами'
                         />
-                        <Highlights
+                        <Highlight
                             withArrow
-                            highlightsType={HighlightsType.greenFill}
+                            highlightType={HighlightType.greenFill}
                             text='бизнес-встречами'
                         />
-                        <Highlights
+                        <Highlight
                             withArrow
-                            highlightsType={HighlightsType.stroke}
+                            highlightType={HighlightType.stroke}
                             text='учебными собраниями'
                         />
-                        <Highlights
+                        <Highlight
                             withArrow
-                            highlightsType={HighlightsType.stroke}
+                            highlightType={HighlightType.stroke}
                             text='личными звонками'
                         />
                     </div>

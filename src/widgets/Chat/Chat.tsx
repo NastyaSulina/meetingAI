@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { Highlights, HighlightsSize, HighlightsType } from '@/shared/ui'
+import { Highlight, HighlightSize, HighlightType } from '@/shared/ui'
 import styles from './Chat.module.scss'
 
 export const Chat: FC<any> = () => {
@@ -21,10 +21,10 @@ export const Chat: FC<any> = () => {
         <div className={styles.root}>
             {chatList.map((item, key) => (
                 <div className={styles.item} key={key}>
-                    <Highlights
+                    <Highlight
                         text={item.participant}
-                        highlightsSize={HighlightsSize.little}
-                        highlightsType={Object.values(HighlightsType)[item.participantId]}
+                        highlightSize={HighlightSize.little}
+                        highlightType={Object.values(HighlightType)[item.participantId]}
                     />
                     <div className={styles.textInfo}>
                         <p>{item.text}</p>

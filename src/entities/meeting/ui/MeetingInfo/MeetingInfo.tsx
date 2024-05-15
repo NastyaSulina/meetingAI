@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { Highlights, HighlightsType, HighlightsSize } from '@/shared/ui'
+import { Highlight, HighlightType, HighlightSize } from '@/shared/ui'
 import { MeetingInfo as MeetingInfoType } from '../../model/types'
 import styles from './MeetingInfo.module.scss'
 
@@ -28,19 +28,19 @@ export const MeetingInfo: FC<MeetingInfoType> = ({ date, duration, participants,
 
             {description && (
                 <div className={styles.infoWrapper}>
-                    <span className={styles.subtitle}>{'→ Краткое описание'}</span>
+                    <span className={styles.subtitle}>→ Краткое описание</span>
                     <span className={styles.infoDescription}>{description}</span>
                 </div>
             )}
 
             <div className={styles.infoWrapper}>
                 {participants.length !== 0 && [
-                    <span className={styles.subtitle}>{'→ Участники'}</span>,
+                    <span className={styles.subtitle}>→ Участники</span>,
                     participants.map((participant, key) => (
-                        <Highlights
+                        <Highlight
                             key={key}
-                            highlightsType={HighlightsType.stroke}
-                            highlightsSize={HighlightsSize.little}
+                            highlightType={HighlightType.stroke}
+                            highlightSize={HighlightSize.little}
                             text={participant}
                         />
                     )),
