@@ -13,7 +13,7 @@ module.exports = {
             browsers: ['chrome'],
         },
         snapshot: {
-            files: ['layout.testplane.ts'],
+            files: ['e2e/layout.testplane.ts'],
             browsers: ['chrome'],
         },
     },
