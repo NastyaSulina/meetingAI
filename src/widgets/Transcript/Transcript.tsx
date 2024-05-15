@@ -3,7 +3,7 @@ import React, { FC } from 'react'
 import { Button, ButtonType } from '@/shared/ui'
 import { jsPDF } from 'jspdf'
 import { Transcript as TranscriptType } from '@/entities/meeting/model/types'
-import '../../app/fonts/Roboto-Regular-normal'
+import '../../../public/fonts/Roboto-Regular-normal'
 
 import styles from './Transcript.module.scss'
 

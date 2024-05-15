@@ -3,7 +3,7 @@ import { Provider } from 'react-redux'
 import ReactDOM from 'react-dom/client'
 import Routing from './appRouter'
 import { store } from './appStore'
-import './globalStyles.scss'
+import './styles/globalStyles.scss'
 import { AnimationProvider } from './providers/AnimationProvider'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)

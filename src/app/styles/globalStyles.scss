@@ -22,8 +22,8 @@
     font-style: bold;
     src:
         local('Druk Wide Cyr'),
-        url('/src/app/fonts/Druk-Wide-Cyr.woff2') format('woff2'),
-        url('/src/app/fonts/Druk-Wide-Cyr.woff') format('woff');
+        url('/public/fonts/Druk-Wide-Cyr.woff2') format('woff2'),
+        url('/public/fonts/Druk-Wide-Cyr.woff') format('woff');
 }
 
 @font-face {
@@ -32,8 +32,8 @@
     font-style: normal;
     src:
         local('Suisse Intl'),
-        url('/src/app/fonts/SuisseIntl-Light.woff2') format('woff2'),
-        url('/src/app/fonts/SuisseIntl-Light.woff') format('woff');
+        url('/public/fonts/SuisseIntl-Light.woff2') format('woff2'),
+        url('/public/fonts/SuisseIntl-Light.woff') format('woff');
 }
 
 @font-face {
@@ -42,8 +42,8 @@
     font-style: normal;
     src:
         local('Suisse Intl'),
-        url('/src/app/fonts/SuisseIntl-Regular.woff2') format('woff2'),
-        url('/src/app/fonts/SuisseIntl-Regular.woff') format('woff');
+        url('/public/fonts/SuisseIntl-Regular.woff2') format('woff2'),
+        url('/public/fonts/SuisseIntl-Regular.woff') format('woff');
 }
 
 @font-face {
@@ -52,8 +52,8 @@
     font-style: normal;
     src:
         local('Suisse Intl'),
-        url('/src/app/fonts/SuisseIntl-Medium.woff2') format('woff2'),
-        url('/src/app/fonts/SuisseIntl-Medium.woff') format('woff');
+        url('/public/fonts/SuisseIntl-Medium.woff2') format('woff2'),
+        url('/public/fonts/SuisseIntl-Medium.woff') format('woff');
 }
 
 @font-face {
@@ -62,8 +62,8 @@
     font-style: normal;
     src:
         local('Suisse Intl'),
-        url('/src/app/fonts/SuisseIntl-SemiBold.woff2') format('woff2'),
-        url('/src/app/fonts/SuisseIntl-SemiBold.woff') format('woff');
+        url('/public/fonts/SuisseIntl-SemiBold.woff2') format('woff2'),
+        url('/public/fonts/SuisseIntl-SemiBold.woff') format('woff');
 }
 
 @font-face {
@@ -72,8 +72,8 @@
     font-style: normal;
     src:
         local('Suisse Intl'),
-        url('/src/app/fonts/SuisseIntl-Bold.woff2') format('woff2'),
-        url('/src/app/fonts/SuisseIntl-Bold.woff') format('woff');
+        url('/public/fonts/SuisseIntl-Bold.woff2') format('woff2'),
+        url('/public/fonts/SuisseIntl-Bold.woff') format('woff');
 }
 
 body {
