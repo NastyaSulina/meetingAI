@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { useDispatch, TypedUseSelectorHook, useSelector } from 'react-redux'
-import { rootReducer } from './appReducer'
 import { meetingApi } from '@/entities/meeting/api/meetingApi'
+import { rootReducer } from './appReducer'
 
 export const store = configureStore({
     reducer: rootReducer,

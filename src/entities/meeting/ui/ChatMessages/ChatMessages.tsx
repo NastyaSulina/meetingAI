@@ -1,25 +1,12 @@
 import React, { FC } from 'react'
 import { Highlight, HighlightSize, HighlightType } from '@/shared/ui'
-import styles from './Chat.module.scss'
+import styles from './ChatMessages.module.scss'
+import { ChatMessages as ChatMessagesType } from '../../model/types'
 
-export const Chat: FC<any> = () => {
-    const chatList = [
-        {
-            participant: 'Настя',
-            participantId: 0,
-            dateTime: '13.05.2024 19:20:51',
-            text: 'Думаешь мы успеем допилить Zoom-чат до защиты?',
-        },
-        {
-            participant: 'Поля',
-            participantId: 1,
-            dateTime: '13.05.2024 19:20:51',
-            text: 'Ну..........',
-        },
-    ]
+export const ChatMessages: FC<{ chatMessages: ChatMessagesType }> = ({ chatMessages }) => {
     return (
         <div className={styles.root}>
-            {chatList.map((item, key) => (
+            {chatMessages.map((item, key) => (
                 <div className={styles.item} key={key}>
                     <Highlight
                         text={item.participant}

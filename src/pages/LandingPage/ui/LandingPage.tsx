@@ -117,7 +117,7 @@ export const LandingPage = () => {
                 <div className={cn(styles.pointContainer, styles.pointThird)}>
                     <div className={styles.numbering}>→ POINT 03</div>
                     <h2 className={styles.header}>Points поможет с:</h2>
-                    <div className={styles.highlightContainer} data-aos='slide-right'>
+                    <div className={styles.highlightsContainer} data-aos='slide-right'>
                         <Highlight
                             withArrow
                             highlightType={HighlightType.gradientFill}

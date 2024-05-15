@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
-import styles from './Transcript.module.scss'
 import { Skeleton } from '@/shared/ui/Skeleton'
+import styles from './Transcript.module.scss'
 
 export const TranscriptSkeleton: FC = () => {
     return (

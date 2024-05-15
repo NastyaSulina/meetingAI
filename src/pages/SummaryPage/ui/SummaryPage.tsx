@@ -4,17 +4,20 @@ import { useAppSelector } from '@/app/appStore'
 import { KeyWords, KeyWordsSkeleton } from '@/entities/meeting/ui/KeyWords'
 import MeetingInfo from '@/entities/meeting/ui/MeetingInfo'
 import { useGetMeetingByIdQuery } from '@/entities/meeting/api/meetingApi'
-import { Summary, Menu, Video, Footer, Transcript, Chat } from '@/widgets'
+import { Menu, Video, Footer } from '@/widgets'
 import { DropDown } from '@/shared/ui'
 import { Quotes, QuotesSkeleton } from '@/entities/meeting/ui/Quotes'
 import { transformMeetingData } from '@/entities/meeting/model/transform'
 import { setMeeting } from '@/entities/meeting/model/slice'
 import { useDispatch } from 'react-redux'
-import { SummarySkeleton } from '@/widgets/Summary'
+import { SummarySkeleton } from '@/entities/meeting/ui/Summary'
 import { Skeleton } from '@/shared/ui/Skeleton'
-import { TranscriptSkeleton } from '@/widgets/Transcript'
+import { TranscriptSkeleton } from '@/entities/meeting/ui/Transcript'
 import { VideoSkeleton } from '@/widgets/Video'
 import { checkIsValidId } from '@/shared/utils'
+import { ChatMessages } from '@/entities/meeting/ui/ChatMessages'
+import { DownloadTranscript } from '@/features/meeting/DownloadTranscript'
+import { UpdateSummary } from '@/features/meeting/UpdateSummary'
 import styles from './SummaryPage.module.scss'
 
 export const SummaryPage = () => {
@@ -24,13 +27,14 @@ export const SummaryPage = () => {
         participants,
         date,
         duration,
-        summary,
+        generatedText,
         quotes,
         transcript,
         title,
         description,
         done,
         videoLink,
+        chatMessages,
     } = meeting
 
     const dispatch = useDispatch()
@@ -84,14 +88,7 @@ export const SummaryPage = () => {
             <div className={styles.grayScreen} data-aos='fade-in'>
                 <div className={styles.content}>
                     <div className={styles.wrapper}>
-                        {summary.generatedText ? (
-                            <Summary
-                                userText={summary.userText}
-                                generatedText={summary.generatedText}
-                            />
-                        ) : (
-                            <SummarySkeleton />
-                        )}
+                        {generatedText ? <UpdateSummary /> : <SummarySkeleton />}
                         {quotes.length === 0 ? <QuotesSkeleton /> : <Quotes quotes={quotes} />}
                     </div>
                 </div>
@@ -99,13 +96,13 @@ export const SummaryPage = () => {
 
             <DropDown header='Полная расшифровка' number={3}>
                 {transcript ? (
-                    <Transcript transcript={transcript} title={title} date={date} />
+                    <DownloadTranscript transcript={transcript} title={title} date={date} />
                 ) : (
                     <TranscriptSkeleton />
                 )}
             </DropDown>
             <DropDown header='Zoom-чат' number={4}>
-                <Chat />
+                <ChatMessages chatMessages={chatMessages} />
             </DropDown>
 
             <Footer />

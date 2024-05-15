@@ -1,18 +1,28 @@
-import React, { FC } from 'react'
-import { Logo, Input } from '@/shared/ui'
+import React, { FC, useState } from 'react'
+import { Logo, Input, Button, ButtonType } from '@/shared/ui'
 import {
     emailValidation,
     letterValidation,
     nameValidation,
 } from '@/shared/ui/Input/model/validation'
+import { useForm, FormProvider } from 'react-hook-form'
 import styles from './Footer.module.scss'
-import { Form } from '../Form'
 
 type Props = {
     withForm?: boolean
 }
 
 export const Footer: FC<Props> = ({ withForm = false }) => {
+    const methods = useForm()
+    const [success, setSuccess] = useState(false)
+
+    const onSubmit = methods.handleSubmit((data) => {
+        console.log(data)
+
+        methods.reset()
+        setSuccess(true)
+    })
+
     return (
         <div id='footer' className={styles.root} data-test-id='footer'>
             <div className={styles.footerContainer}>
@@ -25,11 +35,30 @@ export const Footer: FC<Props> = ({ withForm = false }) => {
                                 другие предложения
                             </span>
                         </div>
-                        <Form>
-                            <Input {...nameValidation} />
-                            <Input {...emailValidation} />
-                            <Input {...letterValidation} />
-                        </Form>
+                        <FormProvider {...methods}>
+                            <form
+                                className={styles.form}
+                                onSubmit={(e) => e.preventDefault()}
+                                noValidate
+                                autoComplete='off'
+                            >
+                                <div className={styles.inputs}>
+                                    <Input {...nameValidation} />
+                                    <Input {...emailValidation} />
+                                    <Input {...letterValidation} />
+                                </div>
+                                <div>
+                                    {success && (
+                                        <p className={styles.success}>Спасибо за обратную связь!</p>
+                                    )}
+                                    <Button
+                                        buttonType={ButtonType.white}
+                                        text='Отправить'
+                                        onClick={onSubmit}
+                                    />
+                                </div>
+                            </form>
+                        </FormProvider>
                     </>
                 )}
 

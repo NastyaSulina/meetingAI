@@ -1,0 +1,16 @@
+@import '../../../app/styles/variables';
+
+.root {
+    position: relative;
+
+    width: 100%;
+    max-width: 100%;
+
+    & > div:first-child {
+        margin-bottom: 20px;
+    }
+
+    .submitButton {
+        position: absolute;
+    }
+}

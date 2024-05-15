@@ -1,6 +1,7 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
+import { ChatMessages } from './types'
 
 export interface State {
     id: string
@@ -8,16 +9,15 @@ export interface State {
     date: string
     duration: string
     participants: Array<string>
-    summary: {
-        generatedText: string
-        userText: string | null
-    }
+    generatedText: string
+    userText: string | null
     quotes: Array<string>
     transcript: string
     description: string
     title: string
     done: boolean
     videoLink: string
+    chatMessages: ChatMessages
 }
 
 const initialState: State = {
@@ -26,16 +26,28 @@ const initialState: State = {
     date: '',
     duration: '',
     participants: [],
-    summary: {
-        generatedText: '',
-        userText: null,
-    },
+    generatedText: '',
+    userText: null,
     quotes: [],
     transcript: '',
     description: '',
     title: '',
     done: false,
     videoLink: '',
+    chatMessages: [
+        {
+            participant: 'Настя',
+            participantId: 0,
+            dateTime: '13.05.2024 19:20:51',
+            text: 'Думаешь мы успеем допилить Zoom-чат до защиты?',
+        },
+        {
+            participant: 'Поля',
+            participantId: 1,
+            dateTime: '13.05.2024 19:20:51',
+            text: 'Ну..........',
+        },
+    ],
 }
 
 export const meetingSlice = createSlice({
@@ -49,15 +61,16 @@ export const meetingSlice = createSlice({
             state.date = action.payload
         },
         setUserSummary: (state, action: PayloadAction<string | null>) => {
-            state.summary.userText = action.payload
+            state.userText = action.payload
         },
-        setMeeting: (state, action: PayloadAction<State>) => {
+        setMeeting: (state, action: PayloadAction<any>) => {
             state.id = action.payload.id
             state.keyWords = [...action.payload.keyWords]
             state.date = action.payload.date
             state.duration = action.payload.duration
             state.participants = [...action.payload.participants]
-            state.summary = { ...action.payload.summary }
+            state.userText = action.payload.userText
+            state.generatedText = action.payload.generatedText
             state.quotes = action.payload.quotes
             state.transcript = action.payload.transcript
             state.description = action.payload.description

@@ -23,10 +23,8 @@ export function transformMeetingData(data: any) {
         date: createdAt ? getDateDefaultFromJSDate(new Date(createdAt)) : '', // TODO: заменить на поле startTime
         duration: duration ? getTimeDefaultFromISO(duration) : '',
         participants: participants || [],
-        summary: {
-            generatedText: summary || '',
-            userText: customSummary || null,
-        },
+        generatedText: summary || '',
+        userText: customSummary || null,
         quotes: quotes || [],
         transcript: transcript || '',
         title: title || '',

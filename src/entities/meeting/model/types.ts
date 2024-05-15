@@ -12,3 +12,11 @@ export type MeetingInfo = {
 }
 
 export type Summary = { generatedText: string; userText: string | null }
+
+export type ChatMessages = ChatMessage[]
+export type ChatMessage = {
+    participant: string
+    participantId: number
+    dateTime: string
+    text: string
+}
