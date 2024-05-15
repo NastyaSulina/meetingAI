@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { FC } from 'react'
 import cn from 'classnames'
 import styles from './IconButton.module.scss'
 
@@ -14,12 +14,7 @@ export enum IconButtonType {
     reset = 'reset',
 }
 
-export const IconButton: React.FC<Props> = ({
-    iconButtonType,
-    ariaLabel = '',
-    onClick,
-    ...props
-}) => {
+export const IconButton: FC<Props> = ({ iconButtonType, ariaLabel = '', onClick, ...props }) => {
     return (
         <button
             type='button'

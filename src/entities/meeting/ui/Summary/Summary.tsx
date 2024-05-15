@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC } from 'react'
 import { Input, IconButton, IconButtonType } from '@/shared/ui'
 import { useAppSelector } from '@/app/appStore'
 import styles from './Summary.module.scss'
@@ -20,13 +20,6 @@ export const Summary: FC<OwnProps> = ({
 }) => {
     const generatedText = useAppSelector((state) => state.meeting.generatedText)
     const userText = useAppSelector((state) => state.meeting.userText)
-
-    // TODO: Не работает reset
-    const [localSummary, setLocalSummary] = useState(userText || generatedText)
-
-    useEffect(() => {
-        setLocalSummary(userText || generatedText)
-    }, [generatedText, userText])
 
     return (
         <div className={styles.root} data-test-id='summary'>
@@ -51,7 +44,7 @@ export const Summary: FC<OwnProps> = ({
                 </div>
             </div>
 
-            <Input {...validation} readOnly={readOnly} defaultValue={localSummary} />
+            <Input {...validation} readOnly={readOnly} defaultValue={userText || generatedText} />
         </div>
     )
 }

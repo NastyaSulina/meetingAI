@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { FC } from 'react'
 import cn from 'classnames'
 import styles from './Button.module.scss'
 
@@ -17,7 +17,7 @@ export enum ButtonType {
     gradient = 'gradient',
 }
 
-export const Button: React.FC<Props> = ({
+export const Button: FC<Props> = ({
     buttonType = ButtonType.black,
     text = '',
     ariaLabel = '',

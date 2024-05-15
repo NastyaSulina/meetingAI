@@ -30,7 +30,7 @@ export const UpdateSummary: FC = () => {
     const [isEditing, setIsEditing] = useState(false)
 
     const meeting = useAppSelector((state) => state.meeting)
-    const { id } = meeting
+    const { id, generatedText } = meeting
 
     const dispatch = useDispatch()
     const methods = useForm()
@@ -42,6 +42,9 @@ export const UpdateSummary: FC = () => {
 
         changeUserSummary({ id, userText: null })
         dispatch(setUserSummary(null))
+
+        const summaryElement = document.getElementById('summary') as HTMLInputElement
+        summaryElement.value = generatedText
     }
 
     const handleCopyClick = (event: MouseEvent) => {
