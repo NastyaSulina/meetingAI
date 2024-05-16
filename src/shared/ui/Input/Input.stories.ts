@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Input } from './Input'
-import { ValidationType } from './model/validation'
+import { ValidationType } from './Input.config'
 
 const meta = {
     title: 'Components/Input',
@@ -41,6 +41,7 @@ export const InputName: Story = {
         label: 'Ваше имя:',
         type: 'text',
         placeholder: '',
+        isWhite: true,
         validation: {
             [ValidationType.Required]: {
                 value: true,
@@ -78,16 +79,37 @@ export const TextArea: Story = {
     },
 }
 
-// export const BlackTextArea: Story = {
-//     args: {
-//         label: 'Ваш запрос:',
-//         placeholder: 'Добрый день...',
-//         inputName: 'test-3',
-//         required: true,
-//         inputType: InputType.textarea,
-//         isWhite: false,
-//         id: 'test3',
-//         isEnlarged: false,
-//         value: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-//     },
-// }
+export const BlackTextArea: Story = {
+    args: {
+        label: 'Ваш запрос:',
+        multiline: true,
+        id: 'letter',
+        name: 'letter',
+        placeholder: '',
+        validation: {
+            [ValidationType.Required]: {
+                value: true,
+                message: 'Это поле обязательно для заполнения',
+            },
+            [ValidationType.MaxLength]: {
+                value: 1000,
+                message: 'Запрос не должен превышать 1000 символов',
+            },
+        },
+        isEnlarged: true,
+        isWhite: false,
+        defaultValue:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    },
+    parameters: {
+        backgrounds: {
+            default: 'gray',
+            values: [
+                {
+                    name: 'gray',
+                    value: '#111',
+                },
+            ],
+        },
+    },
+}

@@ -16,8 +16,8 @@ import { TranscriptSkeleton } from '@/entities/meeting/ui/Transcript'
 import { VideoSkeleton } from '@/widgets/Video'
 import { checkIsValidId } from '@/shared/utils'
 import { ChatMessages } from '@/entities/meeting/ui/ChatMessages'
-import { DownloadTranscript } from '@/features/meeting/DownloadTranscript'
-import { UpdateSummary } from '@/features/meeting/UpdateSummary'
+import { TranscriptWithDownload } from '@/features/meeting/TranscriptWithDownload'
+import { SummaryWithUpdate } from '@/features/meeting/SummaryWithUpdate'
 import styles from './SummaryPage.module.scss'
 
 export const SummaryPage = () => {
@@ -88,7 +88,7 @@ export const SummaryPage = () => {
             <div className={styles.grayScreen} data-aos='fade-in'>
                 <div className={styles.content}>
                     <div className={styles.wrapper}>
-                        {generatedText ? <UpdateSummary /> : <SummarySkeleton />}
+                        {generatedText ? <SummaryWithUpdate /> : <SummarySkeleton />}
                         {quotes.length === 0 ? <QuotesSkeleton /> : <Quotes quotes={quotes} />}
                     </div>
                 </div>
@@ -96,7 +96,7 @@ export const SummaryPage = () => {
 
             <DropDown header='Полная расшифровка' number={3}>
                 {transcript ? (
-                    <DownloadTranscript transcript={transcript} title={title} date={date} />
+                    <TranscriptWithDownload transcript={transcript} title={title} date={date} />
                 ) : (
                     <TranscriptSkeleton />
                 )}

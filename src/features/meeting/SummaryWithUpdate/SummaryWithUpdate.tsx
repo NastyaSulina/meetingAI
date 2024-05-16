@@ -5,10 +5,9 @@ import { setUserSummary } from '@/entities/meeting/model/slice'
 import { useChangeUserSummaryMutation } from '@/entities/meeting/api/meetingApi'
 import { useAppSelector } from '@/app/appStore'
 import { FormProvider, useForm } from 'react-hook-form'
-
-import { ValidationType } from '@/shared/ui/Input/model/validation'
 import { Summary } from '@/entities/meeting/ui/Summary'
-import styles from './UpdateSummary.module.scss'
+import { ValidationType } from '@/shared/ui/Input/Input.config'
+import styles from './SummaryWithUpdate.module.scss'
 
 export const summaryValidation = {
     label: '',
@@ -26,7 +25,7 @@ export const summaryValidation = {
     },
 }
 
-export const UpdateSummary: FC = () => {
+export const SummaryWithUpdate: FC = () => {
     const [isEditing, setIsEditing] = useState(false)
 
     const meeting = useAppSelector((state) => state.meeting)

@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/media-has-caption */
+/* eslint-disable global-require */
 import React, { FC } from 'react'
 import { Button, ButtonType } from '@/shared/ui'
 import styles from './Video.module.scss'
@@ -22,7 +23,7 @@ export const Video: FC<{ videoLink: string }> = ({ videoLink }) => {
                 className={styles.movie}
                 src={videoLink}
                 controls
-                // poster={require('/src/widgets/Video/tmp/poster.png')}
+                poster={require('/src/widgets/Video/_assets/poster.png')}
             />
             <div className={styles.buttonContainer}>
                 <Button

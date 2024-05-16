@@ -1,11 +1,7 @@
 import React, { FC, useState } from 'react'
 import { Logo, Input, Button, ButtonType } from '@/shared/ui'
-import {
-    emailValidation,
-    letterValidation,
-    nameValidation,
-} from '@/shared/ui/Input/model/validation'
 import { useForm, FormProvider } from 'react-hook-form'
+import { emailValidation, letterValidation, nameValidation } from '@/shared/ui/Input/Input.config'
 import styles from './Footer.module.scss'
 
 type Props = {

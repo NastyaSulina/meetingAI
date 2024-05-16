@@ -5,7 +5,7 @@ import { Transcript as TranscriptType } from '@/entities/meeting/model/types'
 import '../../../../public/fonts/Roboto-Regular-normal'
 import { Transcript } from '@/entities/meeting/ui/Transcript'
 
-export const DownloadTranscript: FC<TranscriptType & { title: string; date: string }> = ({
+export const TranscriptWithDownload: FC<TranscriptType & { title: string; date: string }> = ({
     transcript,
     title,
     date,

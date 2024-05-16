@@ -2,9 +2,9 @@ import React, { FC } from 'react'
 import cn from 'classnames'
 import { FieldValues, RegisterOptions, useFormContext } from 'react-hook-form'
 import styles from './Input.module.scss'
-import { findInputError, isFormInvalid } from './model/validation'
+import { findInputError, isFormInvalid } from './Input.config'
 
-type Props = {
+export type Props = {
     label: string
     placeholder?: string
     id: string
@@ -33,13 +33,13 @@ export const Input: FC<Props> = ({
     readOnly = false,
     defaultValue,
 }) => {
-    const {
-        register,
-        formState: { errors },
-    } = useFormContext()
+    const { register, formState } = useFormContext() ?? {}
+    const { errors } = formState ?? {}
 
-    const inputErrors = findInputError(errors, name)
-    const isInvalid = isFormInvalid(inputErrors)
+    // TODO: Временное решение для storybook
+    const inputErrors = register ? findInputError(errors, name) : {}
+    const isInvalid = register ? isFormInvalid(inputErrors) : true
+    const inputProps = register ? register(name, validation) : {}
 
     return (
         <div
@@ -57,15 +57,10 @@ export const Input: FC<Props> = ({
                     placeholder={placeholder}
                     readOnly={readOnly}
                     defaultValue={defaultValue}
-                    {...register(name, validation)}
+                    {...inputProps}
                 />
             ) : (
-                <input
-                    id={id}
-                    type={type}
-                    placeholder={placeholder}
-                    {...register(name, validation)}
-                />
+                <input id={id} type={type} placeholder={placeholder} {...inputProps} />
             )}
 
             {isInvalid && <p className={styles.error}>{inputErrors?.error?.message}</p>}

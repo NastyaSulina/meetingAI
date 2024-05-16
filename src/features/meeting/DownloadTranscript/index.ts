@@ -1,1 +1,0 @@
-export { DownloadTranscript } from './DownloadTranscript'
