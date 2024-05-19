@@ -2,9 +2,9 @@ export const downloadApp = (e: any) => {
     e.preventDefault()
 
     const link = document.createElement('a')
-    const url = 'https://storage.yandexcloud.net/pointsapp/PointsApp.rar'
+    const url = 'https://storage.yandexcloud.net/pointsapp/Points.rar'
 
     link.href = url
-    link.download = 'PointsApp.exe'
+    link.download = 'Points.rar'
     link.click()
 }
